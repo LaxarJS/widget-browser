@@ -1,0 +1,21 @@
+{
+  "includes": {
+    "widgets": {
+      "widget-browser": {
+        "ax-artifact-repository-link-widget": {
+          "widget.json": true
+        },
+        "ax-widget-browser-widget": {
+          "widget.json": true
+        },
+        "ax-widget-information-widget": {
+          "widget.json": true
+        },
+        "ax-widget-listing-activity": {
+          "widget.json": true
+        }
+      }
+    }
+  }
+}
+

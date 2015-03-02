@@ -1,0 +1,104 @@
+{
+   "layout": "application",
+   "areas": {
+      "activities": [
+         {
+            "widget": "widget-browser/ax-widget-listing-activity",
+            "features": {
+               "fileListing": {
+                  "list": [ "application/assets/widget-list.json" ],
+                  "applicationUrl": "/"
+               },
+               "widgetListing": {
+                  "resource": "widgetList"
+               }
+            }
+         }
+      ],
+      "messages": [
+         {
+            "widget": "laxarjs/ax-messages-widget",
+            "features": {
+               "resource": {
+                  "list": [
+                     "documentation"
+                  ]
+               }
+            }
+         }
+      ],
+      "content1a": [
+         {
+            "widget": "widget-browser/ax-widget-browser-widget",
+            "features": {
+               "list": {
+                  "resource": "widgetList"
+               },
+               "select": {
+                  "parameter": "widgetId",
+                  "parameterList": [ "anchor" ],
+                  "information": {
+                     "resource": "widgetInformation"
+                  },
+                  "bower": {
+                     "resource": "manifest"
+                  },
+                  "documentation": {
+                     "resource": "documentation"
+                  },
+                  "testRunner": {
+                     "resource": "testRunner"
+                  }
+               }
+            }
+         }
+      ],
+      "content1b": [
+         {
+            "widget": "laxarjs/ax-markdown-display-widget",
+            "id": "documentation",
+            "features": {
+               "markdown": {
+                  "url": "/README.md",
+                  "parameter": "anchor",
+                  "resource": "documentation"
+               }
+            }
+         }
+      ],
+      "content1c": [
+         {
+            "widget": "widget-browser/ax-artifact-repository-link-widget",
+            "features": {
+               "display": {
+                  "resource": "manifest",
+                  "i18nHtmlText": "<i class='fa fa-github'></i> On GitHub"
+               }
+            }
+         },
+         {
+            "widget": "widget-browser/ax-widget-information-widget",
+            "features": {
+               "widget": {
+                  "resource": "widgetInformation"
+               },
+               "bower": {
+                  "resource": "manifest"
+               }
+            }
+         },
+         {
+            "widget": "laxarjs/ax-media-widget",
+            "features": {
+               "medium": {
+                  "resource": "testRunner",
+                  "showTitle": true
+               },
+               "layout": {
+                  "sizeToContent": true
+               }
+            }
+         }
+      ]
+   }
+}

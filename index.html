@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="x-ua-compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Widget Browser</title>
+   <style>[data-ax-page-fade] { background: #fff; z-index: 100; position: fixed; left: 0; top: 0; width: 100%; height: 100%; }</style>
+   <!-- data-ax-merged-css: hard-code your theme.css here so it can be loaded in parallel to the JS
+   <link data-ax-merged-css href="var/static/css/my.theme.css" rel="stylesheet" type="text/css">
+   -->
+</head>
+<body>
+   <div data-ax-page-fade></div>
+   <div data-ax-page></div>
+   <div data-ng-view></div>
+
+   <script data-ax-application-mode="RELEASE" src="application/application.js"></script>
+   <script src="require_config.js"></script>
+   <script src="bower_components/requirejs/require.js"></script>
+   <script src="var/build/optimized_init.js" async></script>
+</body>
+</html>

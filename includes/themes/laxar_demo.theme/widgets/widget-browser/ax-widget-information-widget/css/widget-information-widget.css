@@ -1,0 +1,26 @@
+/**
+ * Copyright 2015 aixigo AG
+ * Released under the MIT license.
+ * http://laxarjs.org/license
+ */
+@charset "UTF-8";
+
+.widget-information-widget .ax-widget-information-intro-text {
+  margin-bottom: 40px;
+}
+
+.widget-information-widget .ax-widget-information-version {
+  font-size: 0.5em;
+}
+
+.widget-information-widget .ax-widget-information-table-col-1 {
+  width: 24px;
+}
+
+.widget-information-widget .ax-widget-information-table-col-2 {
+  width: 30%;
+}
+
+.widget-information-widget table.table > tbody > tr.ax-widget-information-description > td {
+  border-top: none;
+}

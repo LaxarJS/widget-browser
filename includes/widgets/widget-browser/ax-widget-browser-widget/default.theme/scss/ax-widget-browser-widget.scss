@@ -1,0 +1,40 @@
+/**
+ * Copyright 2015 LaxarJS
+ * Released under the MIT license.
+ * http://laxarjs.org/license
+ */
+@charset "UTF-8";
+
+
+.ax-widget-browser-widget .ax-widget-browser-highlight {
+   font-weight: bold;
+}
+
+.ax-widget-browser-widget table {
+   max-width: 100%;
+   table-layout: fixed;
+   border-top: none;
+   border-radius: 0;
+}
+
+.ax-widget-browser-widget .table > tbody > tr > td {
+   padding: 0;
+}
+
+.ax-widget-browser-widget .table > tbody > tr > td > a {
+   float: left;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   padding: $table-cell-padding;
+   width: 100%;
+}
+
+
+.ax-widget-browser-widget .table > tbody > tr.selected > td > a {
+   color: $body-bg;
+   background: #5bc0de;
+}
+
+.ax-widget-browser-widget .input-group {
+   margin-bottom: $ax-unit-vertical * 2;
+}

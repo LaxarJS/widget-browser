@@ -1,0 +1,92 @@
+<h2 data-ng-show="model.widget">{{ model.widget.name }} <span class="ax-widget-information-version">V{{ model.version }}</span></h2>
+<div class="ax-widget-information-intro-text" data-ng-show="model.widget">{{ model.widget.description }}</div>
+<table class="table" data-ng-show=" model.widget ">
+   <thead>
+   <tr>
+      <th>Integration</th>
+      <th></th>
+   </tr>
+   </thead>
+   <tbody>
+   <tr>
+      <td>Technology:</td>
+      <td>{{ model.widget.integration.technology }}</td>
+   </tr>
+   <tr>
+      <td>Type:</td>
+      <td>{{ model.widget.integration.type }}</td>
+   </tr>
+   </tbody>
+</table>
+<h4 data-ng-show="model.dependencies">Dependencies</h4>
+<table class="table" data-ng-show="model.dependencies">
+   <thead>
+   <tr>
+      <th>Library</th>
+      <th>Version</th>
+   </tr>
+   </thead>
+   <tbody data-ng-repeat="dependence in model.dependencies">
+   <tr data-ng-class-even="'even'"
+       data-ng-class-odd="'odd'">
+      <td>{{ dependence.axLibrary }}</td>
+      <td>{{ dependence.axVersion }}</td>
+   </tr>
+   </tbody>
+</table>
+
+<div data-ng-show="model.widget">
+   <table class="table">
+      <colgroup>
+         <col class="ax-widget-information-table-col-1">
+         <col class="ax-widget-information-table-col-2">
+         <col class="ax-widget-information-table-col-3">
+         <col class="ax-widget-information-table-col-4">
+      </colgroup>
+      <thead>
+         <tr>
+            <th></th>
+            <th>Feature/Property</th>
+            <th>Type</th>
+            <th>Description</th>
+         </tr>
+      </thead>
+      <tbody data-ng-repeat="(featureName, featureSpec) in model.widget.features.properties">
+         <tr class="ax-widget-information-feature"
+             data-ng-class-even="'even'"
+             data-ng-class-odd="'odd'">
+            <td><button type="button"
+                        class="btn-link"
+                        data-ng-click="display.expanded[ featureName ] = !display.expanded[ featureName ]"
+               ><i data-ng-class="(display.expanded[ featureName ] && 'fa fa-caret-down' || !display.expanded[ featureName ] && 'fa fa-caret-right')"></i></button></td>
+            <td>{{featureName}}</td>
+            <td>{{featureSpec.type}}</td>
+            <td><em>{{featureSpec.description}}</em></td>
+         </tr>
+         <tr class="ax-widget-information-properties"
+             data-ng-repeat="(propertyName, propertySpec) in featureSpec.properties"
+             data-ng-show="display.expanded[ featureName ]">
+            <td></td>
+            <td>{{propertyName}}</td>
+            <td>{{propertySpec.type}}</td>
+            <td><em>{{propertySpec.description}}</em></td>
+         </tr>
+         <tr class="ax-widget-information-properties"
+             data-ng-repeat="(propertyName, propertySpec) in featureSpec.items.properties"
+             data-ng-show="display.expanded[ featureName ]">
+            <td></td>
+            <td>{{propertyName}}</td>
+            <td>{{propertySpec.type}}</td>
+            <td><em>{{propertySpec.description}}</em></td>
+         </tr>
+         <tr class="ax-widget-information-properties"
+             data-ng-repeat="(propertyName, propertySpec) in featureSpec.patternProperties"
+             data-ng-show="display.expanded[ featureName ]">
+            <td></td>
+            <td>{{propertyName}}</td>
+            <td>{{propertySpec.type}}</td>
+            <td><em>{{propertySpec.description}}</em></td>
+         </tr>
+      </tbody>
+   </table>
+</div>

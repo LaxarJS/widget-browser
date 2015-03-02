@@ -1,0 +1,16 @@
+{
+   "places": {
+      "entry": {
+         "redirectTo": "widgetBrowser"
+      },
+
+      "widgetBrowser": {
+         "page":  "widget-browser"
+      },
+
+      "widgetBrowser/:widgetId/:anchor": {
+         "page":  "widget-browser"
+      }
+
+   }
+}

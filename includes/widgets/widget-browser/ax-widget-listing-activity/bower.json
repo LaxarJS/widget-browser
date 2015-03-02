@@ -1,0 +1,14 @@
+{
+   "name": "widget-browser/ax-widget-listing-activity",
+   "version": "2.1.0-pre",
+   "license": "MIT",
+   "dependencies": {
+      "laxar": "LaxarJS/laxar#^0.23.0",
+      "laxar_patterns": "LaxarJS/laxar_patterns#^0.19.0",
+      "angular": "angular/bower-angular#*"
+   },
+   "devDependencies": {
+      "es5-shim": "es-shims/es5-shim#^2.3.x",
+      "jasmine": "pivotal/jasmine#^1.3.x"
+   }
+}

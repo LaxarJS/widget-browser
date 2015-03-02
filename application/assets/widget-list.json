@@ -1,0 +1,23 @@
+{
+  "includes": {
+    "widgets": {
+      "laxarjs": {
+        "ax-headline-widget": {
+          "widget.json": true
+        },
+        "ax-html-display-widget": {
+          "widget.json": true
+        },
+        "ax-markdown-display-widget": {
+          "widget.json": true
+        },
+        "ax-media-widget": {
+          "widget.json": true
+        },
+        "ax-messages-widget": {
+          "widget.json": true
+        }
+      }
+    }
+  }
+}

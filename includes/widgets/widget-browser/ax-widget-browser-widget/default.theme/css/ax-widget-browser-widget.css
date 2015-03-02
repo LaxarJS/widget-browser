@@ -1,0 +1,38 @@
+/**
+ * Copyright 2015 aixigo AG
+ * Released under the MIT license.
+ * http://laxarjs.org/license
+ */
+@charset "UTF-8";
+
+.ax-widget-browser-widget .ax-widget-browser-highlight {
+   font-weight: bold;
+}
+
+.ax-widget-browser-widget table {
+   max-width: 100%;
+   table-layout: fixed;
+   border-top: none;
+   border-radius: 0;
+}
+
+.ax-widget-browser-widget .table > tbody > tr > td {
+   padding: 0;
+}
+
+.ax-widget-browser-widget .table > tbody > tr > td > a {
+   float: left;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   padding: 8px;
+   width: 100%;
+}
+
+.ax-widget-browser-widget .table > tbody > tr.selected > td > a {
+   color:  #fff;
+   background: #5bc0de;
+}
+
+.ax-widget-browser-widget .input-group {
+   margin-bottom: 20px;
+}
