@@ -26,7 +26,7 @@ define( [
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      describe( 'with feature fileListing', function() {
+      describe( 'with a configured feature fileListing', function() {
 
          describe( 'with a configured resource', function() {
 
@@ -59,7 +59,7 @@ define( [
                   testBed.setup( {
                      onBeforeControllerCreation: function( $injector ) {
                         $httpBackend = $injector.get( '$httpBackend' );
-                        $httpBackend.when( 'GET' , 'http://myApp:8000/listings/widgets.json' )
+                        $httpBackend.when( 'GET', 'http://myApp:8000/listings/widgets.json' )
                            .respond( 200, widgetListing.widgetListingMyIncludes );
                      }
                   } );
@@ -88,7 +88,7 @@ define( [
                      testBed.setup( {
                         onBeforeControllerCreation: function( $injector ) {
                            $httpBackend = $injector.get( '$httpBackend' );
-                           $httpBackend.when( 'GET' , 'http://myOtherApp:8666/listings/widgets.json' )
+                           $httpBackend.when( 'GET', 'http://myOtherApp:8666/listings/widgets.json' )
                               .respond( 200, widgetListing.widgetListingMyIncludes );
                         }
                      } );
@@ -122,8 +122,8 @@ define( [
                   testBed.setup( {
                      onBeforeControllerCreation: function( $injector ) {
                         $httpBackend = $injector.get( '$httpBackend' );
-                        $httpBackend.when( 'GET' , 'http://myApp:8000/listings/error_widgets.json' )
-                           .respond( 404, { value:'Not Found' } );
+                        $httpBackend.when( 'GET', 'http://myApp:8000/listings/error_widgets.json' )
+                           .respond( 404, {value: 'Not Found'} );
                      }
                   } );
                   testBed.eventBusMock.publish( 'didReplace.myFileListing', {
@@ -157,7 +157,7 @@ define( [
 
          /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-         describe( 'with a configured list with urls', function() {
+         describe( 'with a configured list with URLs', function() {
 
             beforeEach( function() {
                testBed.featuresMock = {
@@ -180,9 +180,9 @@ define( [
                testBed.setup( {
                   onBeforeControllerCreation: function( $injector ) {
                      $httpBackend = $injector.get( '$httpBackend' );
-                     $httpBackend.when( 'GET' , 'http://localhost:8000/var/listing/includes_portal_widgets.json' )
+                     $httpBackend.when( 'GET', 'http://localhost:8000/var/listing/includes_portal_widgets.json' )
                         .respond( 200, widgetListing.bowerComponentsWidgetListing );
-                     $httpBackend.when( 'GET' , 'http://localhost:8000/var/listing/includes_system_widgets.json' )
+                     $httpBackend.when( 'GET', 'http://localhost:8000/var/listing/includes_system_widgets.json' )
                         .respond( 200, widgetListing.systemWidgetListing );
                   }
                } );
@@ -196,10 +196,10 @@ define( [
                testBed.setup( {
                   onBeforeControllerCreation: function( $injector ) {
                      $httpBackend = $injector.get( '$httpBackend' );
-                     $httpBackend.when( 'GET' , 'http://localhost:8000/var/listing/includes_portal_widgets.json' )
+                     $httpBackend.when( 'GET', 'http://localhost:8000/var/listing/includes_portal_widgets.json' )
                         .respond( 200, widgetListing.bowerComponentsWidgetListing );
-                     $httpBackend.when( 'GET' , 'http://localhost:8000/var/listing/includes_system_widgets.json' )
-                        .respond( 404,  { value:'Not Found' }  );
+                     $httpBackend.when( 'GET', 'http://localhost:8000/var/listing/includes_system_widgets.json' )
+                        .respond( 404, {value: 'Not Found'} );
                   }
                } );
                ax.log.info( 'Expect error message' );
@@ -233,7 +233,7 @@ define( [
                   testBed.setup( {
                      onBeforeControllerCreation: function( $injector ) {
                         $httpBackend = $injector.get( '$httpBackend' );
-                        $httpBackend.when( 'GET' , 'var/listing/includes_portal_widgets.json' )
+                        $httpBackend.when( 'GET', 'var/listing/includes_portal_widgets.json' )
                            .respond( 200, widgetListing.bowerComponentsWidgetListing );
                      }
                   } );
@@ -247,19 +247,122 @@ define( [
                } );
             } );
          } );
-      } );
 
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+         ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      describe( 'with feature widgetListing', function() {
+         describe( 'with a configured feature widgetListing', function() {
 
-         describe( 'when the extracted information changes', function() {
-            var url =  'http://myApp:8000/listings/widgets.json';
+            describe( 'when the extracted information changes', function() {
+               var url = 'http://myApp:8000/listings/widgets.json';
+
+               beforeEach( function() {
+                  testBed.featuresMock = {
+                     fileListing: {
+                        resource: 'myFileListing'
+                     },
+                     widgetListing: {
+                        resource: 'widgetListing'
+                     }
+                  };
+                  testBed.setup( {
+                     onBeforeControllerCreation: function( $injector ) {
+                        $httpBackend = $injector.get( '$httpBackend' );
+                        $httpBackend.when( 'GET', url )
+                           .respond( 200, widgetListing.widgetListingMyIncludes );
+                     }
+                  } );
+                  testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
+                  testBed.eventBusMock.publish( 'didReplace.myFileListing', {
+                     resource: 'myFileListing',
+                     data: {
+                        applicationUrl: 'http://myApp:8000/',
+                        fileListingPath: 'listings/widgets.json'
+                     }
+                  } );
+                  jasmine.Clock.tick( 0 );
+               } );
+
+               //////////////////////////////////////////////////////////////////////////////////////////////////
+
+               it( 'propagates the new, sorted list via didReplace event (R2.1, R2.2, R2.3)', function() {
+                  $httpBackend.flush();
+                  jasmine.Clock.tick( 0 );
+
+                  expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didReplace.widgetListing', {
+                     resource: 'widgetListing',
+                     data: {
+                        widgets: buildListing( 'http://myApp:8000/', exampleWidgetListResource.widgetList )
+                     }
+                  } );
+
+               } );
+
+            } );
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            describe( 'and with a configured list with several urls', function() {
+
+               beforeEach( function setup() {
+                  testBed.featuresMock = {
+                     fileListing: {
+                        list: [
+                           'var/listing/includes_portal_widgets.json',
+                           'var/listing/includes_system_widgets.json'
+                        ]
+                     },
+                     widgetListing: {
+                        resource: 'widgetListing'
+                     }
+                  };
+
+                  testBed.setup( {
+                     onBeforeControllerCreation: function( $injector ) {
+                        $httpBackend = $injector.get( '$httpBackend' );
+                        $httpBackend.when( 'GET', 'var/listing/includes_portal_widgets.json' )
+                           .respond( 200, widgetListing.bowerComponentsWidgetListing );
+                        $httpBackend.when( 'GET', 'var/listing/includes_system_widgets.json' )
+                           .respond( 200, widgetListing.systemWidgetListing );
+                     }
+                  } );
+               } );
+
+               //////////////////////////////////////////////////////////////////////////////////////////////////
+
+               it( 'propagates a sorted list via didReplace event (R2.1, R2.2, R2.3)', function() {
+                  var widgets = buildListing( '', exampleWidgetListResource.bowerComponentsAndSystemWidgetList );
+                  $httpBackend.flush();
+                  jasmine.Clock.tick( 0 );
+                  expect( testBed.scope.eventBus.publish ).not.toHaveBeenCalledWith( 'didReplace.widgetListing', {
+                     resource: 'widgetListing',
+                     data: {
+                        widgets: widgets
+                     }
+                  } );
+                  testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
+                  jasmine.Clock.tick( 0 );
+                  expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didReplace.widgetListing', {
+                     resource: 'widgetListing',
+                     data: {
+                        widgets: widgets
+                     }
+                  } );
+               } );
+            } );
+         } );
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+         describe( 'with an absolute application URL', function() {
 
             beforeEach( function() {
                testBed.featuresMock = {
                   fileListing: {
-                     resource: 'myFileListing'
+                     list: [
+                        'var/listing/includes_portal_widgets.json',
+                        'var/listing/includes_system_widgets.json'
+                     ],
+                     applicationUrl: 'http://localhost:8000/widget-browser/'
                   },
                   widgetListing: {
                      resource: 'widgetListing'
@@ -268,43 +371,98 @@ define( [
                testBed.setup( {
                   onBeforeControllerCreation: function( $injector ) {
                      $httpBackend = $injector.get( '$httpBackend' );
-                     $httpBackend.when( 'GET' , url )
-                        .respond( 200, widgetListing.widgetListingMyIncludes );
+                     $httpBackend.when( 'GET', 'http://localhost:8000/widget-browser/' + 'var/listing/includes_portal_widgets.json' )
+                        .respond( 200, widgetListing.bowerComponentsWidgetListing );
+                     $httpBackend.when( 'GET', 'http://localhost:8000/widget-browser/' + 'var/listing/includes_system_widgets.json' )
+                        .respond( 200, widgetListing.systemWidgetListing );
                   }
                } );
-               testBed.eventBusMock.publish( 'beginLifecycleRequest', { } );
-               testBed.eventBusMock.publish( 'didReplace.myFileListing', {
-                  resource: 'myFileListing',
-                  data: {
-                     applicationUrl: 'http://myApp:8000/',
-                     fileListingPath: 'listings/widgets.json'
-                  }
-               } );
+            } );
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            it( 'uses the URL to get the file listing', function() {
+               $httpBackend.flush();
                jasmine.Clock.tick( 0 );
             } );
 
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
-            it( 'propagates the new, sorted list via didReplace event (R2.1, R2.2, R2.3)', function() {
+            it( 'combines the widget path with the application URL to the widget URL', function() {
+               var widgets = buildListing( 'http://localhost:8000/widget-browser/', exampleWidgetListResource.bowerComponentsAndSystemWidgetList );
                $httpBackend.flush();
+               jasmine.Clock.tick( 0 )
+               testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
                jasmine.Clock.tick( 0 );
-
                expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didReplace.widgetListing', {
                   resource: 'widgetListing',
                   data: {
-                     widgets: buildListing( 'http://myApp:8000/', exampleWidgetListResource.widgetList )
+                     widgets: widgets
                   }
                } );
-
             } );
 
          } );
 
          /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-         describe( 'and with a configured list with several urls', function() {
+         describe( 'with an absolute application URL without a trailing slash', function() {
 
-            beforeEach( function setup() {
+            beforeEach( function() {
+               testBed.featuresMock = {
+                  fileListing: {
+                     list: [
+                        'var/listing/includes_portal_widgets.json',
+                        'var/listing/includes_system_widgets.json'
+                     ],
+                     applicationUrl: 'http://localhost:8000'
+                  },
+                  widgetListing: {
+                     resource: 'widgetListing'
+                  }
+               };
+               testBed.setup( {
+                  onBeforeControllerCreation: function( $injector ) {
+                     $httpBackend = $injector.get( '$httpBackend' );
+                     $httpBackend.when( 'GET', 'http://localhost:8000/' + 'var/listing/includes_portal_widgets.json' )
+                        .respond( 200, widgetListing.bowerComponentsWidgetListing );
+                     $httpBackend.when( 'GET', 'http://localhost:8000/' + 'var/listing/includes_system_widgets.json' )
+                        .respond( 200, widgetListing.systemWidgetListing );
+                  }
+               } );
+            } );
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            it( 'uses the URL to get the file listing', function() {
+               $httpBackend.flush();
+               jasmine.Clock.tick( 0 );
+            } );
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            it( 'combines the widget path with the application URL to the widget URL', function() {
+               var widgets = buildListing( 'http://localhost:8000/', exampleWidgetListResource.bowerComponentsAndSystemWidgetList );
+               $httpBackend.flush();
+               jasmine.Clock.tick( 0 )
+               testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
+               jasmine.Clock.tick( 0 );
+               expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didReplace.widgetListing', {
+                  resource: 'widgetListing',
+                  data: {
+                     widgets: widgets
+                  }
+               } );
+            } );
+
+         } );
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+         describe( 'with a relative application URL', function() {
+
+            beforeEach( function() {
                testBed.featuresMock = {
                   fileListing: {
                      list: [
@@ -316,32 +474,32 @@ define( [
                      resource: 'widgetListing'
                   }
                };
-
                testBed.setup( {
                   onBeforeControllerCreation: function( $injector ) {
                      $httpBackend = $injector.get( '$httpBackend' );
-                     $httpBackend.when( 'GET' , 'var/listing/includes_portal_widgets.json' )
+                     $httpBackend.when( 'GET', 'var/listing/includes_portal_widgets.json' )
                         .respond( 200, widgetListing.bowerComponentsWidgetListing );
-                     $httpBackend.when( 'GET' , 'var/listing/includes_system_widgets.json' )
+                     $httpBackend.when( 'GET', 'var/listing/includes_system_widgets.json' )
                         .respond( 200, widgetListing.systemWidgetListing );
                   }
                } );
             } );
 
+
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-            it( 'propagates a sorted list via didReplace event (R2.1, R2.2, R2.3)', function() {
-               var widgets = buildListing( '/', exampleWidgetListResource.bowerComponentsAndSystemWidgetList );
+            it( 'uses the URL to get the file listing', function() {
                $httpBackend.flush();
                jasmine.Clock.tick( 0 );
-               expect( testBed.scope.eventBus.publish ).not.toHaveBeenCalledWith( 'didReplace.widgetListing', {
-                  resource: 'widgetListing',
-                  data: {
-                     widgets: widgets
-                  }
-               } );
-               testBed.eventBusMock.publish( 'beginLifecycleRequest', { } );
+            } );
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            it( 'combines the widget path with the application URL to the widget URL', function() {
+               var widgets = buildListing( '', exampleWidgetListResource.bowerComponentsAndSystemWidgetList );
+               $httpBackend.flush();
+               jasmine.Clock.tick( 0 )
+               testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
                jasmine.Clock.tick( 0 );
                expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didReplace.widgetListing', {
                   resource: 'widgetListing',
@@ -351,16 +509,16 @@ define( [
                } );
             } );
          } );
+
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+         function buildListing( prefix, widgetListing ) {
+            return widgetListing.widgets.map( function( widget ) {
+               widget.specification = prefix + widget.specification;
+               return widget;
+            } );
+         }
       } );
-
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-      function buildListing( prefix, widgetListing ) {
-         return widgetListing.widgets.map( function( widget ) {
-            widget.specification = prefix + widget.specification;
-            return widget;
-         } );
-      }
-
    } );
 } );
