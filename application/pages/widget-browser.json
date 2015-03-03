@@ -59,7 +59,7 @@
             "id": "documentation",
             "features": {
                "markdown": {
-                  "url": "/README.md",
+                  "url": "README.md",
                   "parameter": "anchor",
                   "resource": "documentation"
                }
