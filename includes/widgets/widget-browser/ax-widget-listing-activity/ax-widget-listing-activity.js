@@ -20,10 +20,10 @@ define( [
    Controller.$inject = [ '$scope', '$http', '$q' ];
 
    function Controller( $scope, $http, $q ) {
-      var applicationUrl = ax.object.path( $scope, 'features.fileListing.applicationUrl', '' );
       $scope.resources = {};
       $scope.model = {
-         widgets: []
+         widgets: [],
+         applicationUrl: applicationUrl()
       };
 
       var publishResource = $q.defer();
@@ -39,7 +39,7 @@ define( [
       }
       else if( $scope.features.fileListing.list ) {
          var urls = $scope.features.fileListing.list.map( function( url ) {
-            return applicationUrl + url;
+            return $scope.model.applicationUrl + url;
          } );
          getWidgetList( urls );
       }
@@ -47,8 +47,8 @@ define( [
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       function onUpdateReplace() {
-         applicationUrl = ax.object.path( $scope, 'resources.fileListing.applicationUrl', '' );
-         var url = applicationUrl + $scope.resources.fileListing.fileListingPath;
+         $scope.model.applicationUrl = applicationUrl();
+         var url = $scope.model.applicationUrl + $scope.resources.fileListing.fileListingPath;
          getWidgetList( [ url ] );
       }
 
@@ -106,16 +106,14 @@ define( [
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      function findAndAddWidget( widgets, obj, path ) {
-         if( obj.hasOwnProperty( WIDGET_JSON ) ) {
-            widgets.push( createWidgetEntry( path ) );
+      function findAndAddWidget( widgets, directory, path ) {
+         if( directory.hasOwnProperty( WIDGET_JSON ) ) {
+            widgets.push( createWidgetEntry( path.slice( 0, -1 ) ) );
          }
-         else {
-            if( typeof( obj ) === 'object' ) {
-               ng.forEach( obj, function( property, propertyName ) {
-                  findAndAddWidget( widgets, property, path + '/' + propertyName );
-               } );
-            }
+         else if( typeof( directory ) === 'object' ) {
+            ng.forEach( directory, function( property, propertyName ) {
+               findAndAddWidget( widgets, property, path + propertyName + '/' );
+            } );
          }
       }
 
@@ -123,10 +121,16 @@ define( [
 
       function createWidgetEntry( widgetPath ) {
          var widgetName = widgetPath.substring( widgetPath.lastIndexOf( '/' ) + 1 );
-         var fullWidgetUrl = urlWithoutTrailingSlash( applicationUrl ) + widgetPath;
+         var widgetUrl;
+         if( !$scope.model.applicationUrl ) {
+            widgetUrl = widgetPath;
+         }
+         else {
+            widgetUrl = $scope.model.applicationUrl + widgetPath;
+         }
          return {
             name: widgetName,
-            specification: fullWidgetUrl + '/' + WIDGET_JSON
+            specification: widgetUrl + '/' + WIDGET_JSON
          };
       }
 
@@ -144,8 +148,15 @@ define( [
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      function urlWithoutTrailingSlash( urlWithSlash ) {
-         return urlWithSlash.replace( /\/$/, '' );
+      function applicationUrl() {
+         var url = ax.object.path(
+               $scope.resources,
+               'fileListing.applicationUrl',
+               $scope.features.fileListing.applicationUrl ) || '';
+         if( url.length && url.charAt( url.length - 1 ) !== '/' ) {
+            return url + '/';
+         }
+         return url;
       }
 
    }

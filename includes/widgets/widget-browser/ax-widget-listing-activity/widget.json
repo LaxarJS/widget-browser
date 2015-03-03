@@ -10,7 +10,7 @@
    "features": {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "type": "object",
-      "required": [ "widgetListing", "fileListing" ],
+      "required": [ "widgetListing" ],
       "properties": {
          "fileListing": {
             "type": "object",
@@ -30,7 +30,8 @@
                },
                "applicationUrl": {
                   "type": "string",
-                  "description": "The url of the application with the widgets. Default is the application in which the activity is included."
+                  "description": "The url of the application with the widgets. Default is the application in which the activity is included.",
+                  "default": null
                }
             }
          },
