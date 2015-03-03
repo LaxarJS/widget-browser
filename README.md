@@ -8,9 +8,12 @@ This information is generated from the widget metadata (`bower.json` and `widget
 
 ## Installing the WidgetBrowser
 
+These steps are required to install your local version of the LaxarJS widget browser:
+
 ```sh
 git clone --recursive \
  https://github.com/LaxarJS/widget-browser.git
+cd widget-browser
 npm install
 npm start
 ```
