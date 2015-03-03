@@ -2,8 +2,10 @@
 atlassian-ide-plugin.xml
 *.orig
 .sass-cache
-/var
 /node_modules
-/bower_components
 *.backup.json
 widget-browser-*.zip
+bower_components/jquery_ui/themes
+bower_components/modernizr/test
+bower_components/requirejs/dist/fonts
+bower_components/requirejs/tests
