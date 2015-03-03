@@ -7,7 +7,7 @@
             "features": {
                "fileListing": {
                   "list": [ "application/assets/widget-list.json" ],
-                  "applicationUrl": "/"
+                  "applicationUrl": "/widget-browser/"
                },
                "widgetListing": {
                   "resource": "widgetList"
