@@ -1,15 +1,15 @@
 [submodule "includes/widgets/laxarjs/ax-headline-widget"]
 	path = includes/widgets/laxarjs/ax-headline-widget
-	url = git@github.com:LaxarJS/ax-headline-widget.git
+	url = https://github.com/LaxarJS/ax-headline-widget.git
 [submodule "includes/widgets/laxarjs/ax-html-display-widget"]
 	path = includes/widgets/laxarjs/ax-html-display-widget
-	url = git@github.com:LaxarJS/ax-html-display-widget.git
+	url = https://github.com/LaxarJS/ax-html-display-widget.git
 [submodule "includes/widgets/laxarjs/ax-media-widget"]
 	path = includes/widgets/laxarjs/ax-media-widget
-	url = git@github.com:LaxarJS/ax-media-widget.git
+	url = https://github.com/LaxarJS/ax-media-widget.git
 [submodule "includes/widgets/laxarjs/ax-messages-widget"]
 	path = includes/widgets/laxarjs/ax-messages-widget
-	url = git@github.com:LaxarJS/ax-messages-widget.git
+	url = https://github.com/LaxarJS/ax-messages-widget.git
 [submodule "includes/widgets/laxarjs/ax-markdown-display-widget"]
 	path = includes/widgets/laxarjs/ax-markdown-display-widget
-	url = git@github.com:LaxarJS/ax-markdown-display-widget.git
+	url = https://github.com/LaxarJS/ax-markdown-display-widget.git
