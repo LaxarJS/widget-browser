@@ -2,6 +2,7 @@
 
 ## Last Changes
 
+- [#2](https://github.com/LaxarJS/widget-browser/2): Updated submodule AxMarkdownDisplayWidget to fix message if `README.md` cannot be found
 - [#5](https://github.com/LaxarJS/widget-browser/5): Deleted `CHANGELOG.md` of internal widgets
 - [#1](https://github.com/LaxarJS/widget-browser/1): AxWidgetListingActivity: fixed absolute application URL
 - [#3](https://github.com/LaxarJS/widget-browser/3): README: fixed incomplete installation steps
