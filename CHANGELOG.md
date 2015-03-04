@@ -2,6 +2,7 @@
 
 ## Last Changes
 
+- [#4](https://github.com/LaxarJS/widget-browser/4): Submodules use HTTPS GitHub remotes
 - [#2](https://github.com/LaxarJS/widget-browser/2): Updated submodule AxMarkdownDisplayWidget to fix message if `README.md` cannot be found
 - [#5](https://github.com/LaxarJS/widget-browser/5): Deleted `CHANGELOG.md` of internal widgets
 - [#1](https://github.com/LaxarJS/widget-browser/1): AxWidgetListingActivity: fixed absolute application URL
