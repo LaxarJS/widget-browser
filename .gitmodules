@@ -13,3 +13,6 @@
 [submodule "includes/widgets/laxarjs/ax-markdown-display-widget"]
 	path = includes/widgets/laxarjs/ax-markdown-display-widget
 	url = https://github.com/LaxarJS/ax-markdown-display-widget.git
+[submodule "includes/themes/cube.theme"]
+	path = includes/themes/cube.theme
+	url = git@github.com:LaxarJS/cube.theme.git
