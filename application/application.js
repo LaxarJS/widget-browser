@@ -10,7 +10,7 @@ window.laxar = ( function() {
       description: 'List widgets from an other product.',
 
       portal: {
-         theme: 'laxar_demo',
+         theme: 'cube',
          useMergedCss: mode === 'RELEASE'
       },
 

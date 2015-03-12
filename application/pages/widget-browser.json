@@ -6,8 +6,7 @@
             "widget": "widget-browser/ax-widget-listing-activity",
             "features": {
                "fileListing": {
-                  "list": [ "application/assets/widget-list.json" ],
-                  "applicationUrl": "/"
+                  "list": [ "application/assets/widget-list.json" ]
                },
                "widgetListing": {
                   "resource": "widgetList"
@@ -59,7 +58,7 @@
             "id": "documentation",
             "features": {
                "markdown": {
-                  "url": "/README.md",
+                  "url": "README.md",
                   "parameter": "anchor",
                   "resource": "documentation"
                }
