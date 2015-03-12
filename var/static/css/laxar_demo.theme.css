@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Exo+2:500,200);
 /* FONT PATH
  * -------------------------- */
 
@@ -10315,6 +10314,7 @@ input[type="text"].ax-error {
    text-overflow: ellipsis;
    white-space: nowrap;
 }
+@import url(http://fonts.googleapis.com/css?family=Exo+2:500,200);
 
 html,
 body {
