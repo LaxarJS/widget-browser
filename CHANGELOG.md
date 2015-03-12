@@ -2,6 +2,9 @@
 
 ## Last Changes
 
+
+## v0.2.0
+
 - [#6](https://github.com/LaxarJS/widget-browser/issues/6): changed page title
 - [#9](https://github.com/LaxarJS/widget-browser/issues/9): Widgets: added new widgets
 - [#8](https://github.com/LaxarJS/widget-browser/issues/8): theme: improved styling
@@ -11,6 +14,7 @@
 - [#5](https://github.com/LaxarJS/widget-browser/issues/5): Deleted `CHANGELOG.md` of internal widgets
 - [#1](https://github.com/LaxarJS/widget-browser/issues/1): AxWidgetListingActivity: fixed absolute application URL
 - [#3](https://github.com/LaxarJS/widget-browser/issues/3): README: fixed incomplete installation steps
+
 
 ## v0.1.0
 
