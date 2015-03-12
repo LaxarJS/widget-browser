@@ -2,6 +2,7 @@
 
 ## Last Changes
 
+- [#8](https://github.com/LaxarJS/widget-browser/issues/8): theme: improved styling
 - [#7](https://github.com/LaxarJS/widget-browser/issues/7): theme: extracted theme
 - [#4](https://github.com/LaxarJS/widget-browser/4): Submodules use HTTPS GitHub remotes
 - [#2](https://github.com/LaxarJS/widget-browser/2): Updated submodule AxMarkdownDisplayWidget to fix message if `README.md` cannot be found
