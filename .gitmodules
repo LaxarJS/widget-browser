@@ -16,3 +16,12 @@
 [submodule "includes/themes/cube.theme"]
 	path = includes/themes/cube.theme
 	url = https://github.com/LaxarJS/cube.theme.git
+[submodule "includes/widgets/laxarjs/ax-popup-widget"]
+	path = includes/widgets/laxarjs/ax-popup-widget
+	url = https://github.com/LaxarJS/ax-popup-widget.git
+[submodule "includes/widgets/laxarjs/ax-command-bar-widget"]
+	path = includes/widgets/laxarjs/ax-command-bar-widget
+	url = https://github.com/LaxarJS/ax-command-bar-widget.git
+[submodule "includes/widgets/laxarjs/ax-show-hide-widget"]
+	path = includes/widgets/laxarjs/ax-show-hide-widget
+	url = https://github.com/LaxarJS/ax-show-hide-widget.git

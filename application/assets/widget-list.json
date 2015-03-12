@@ -16,6 +16,15 @@
         },
         "ax-messages-widget": {
           "widget.json": true
+        },
+        "ax-command-bar-widget": {
+          "widget.json": true
+        },
+        "ax-popup-widget": {
+          "widget.json": true
+        },
+        "ax-show-hide-widget": {
+          "widget.json": true
         }
       }
     }
