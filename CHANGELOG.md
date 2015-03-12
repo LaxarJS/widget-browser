@@ -2,6 +2,7 @@
 
 ## Last Changes
 
+- [#6](https://github.com/LaxarJS/widget-browser/issues/6): changed page title
 - [#9](https://github.com/LaxarJS/widget-browser/issues/9): Widgets: added new widgets
 - [#8](https://github.com/LaxarJS/widget-browser/issues/8): theme: improved styling
 - [#7](https://github.com/LaxarJS/widget-browser/issues/7): theme: extracted theme
