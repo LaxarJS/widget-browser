@@ -391,7 +391,7 @@ define( [
             it( 'combines the widget path with the application URL to the widget URL', function() {
                var widgets = buildListing( 'http://localhost:8000/widget-browser/', exampleWidgetListResource.bowerComponentsAndSystemWidgetList );
                $httpBackend.flush();
-               jasmine.Clock.tick( 0 )
+               jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
                jasmine.Clock.tick( 0 );
                expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didReplace.widgetListing', {
@@ -445,7 +445,7 @@ define( [
             it( 'combines the widget path with the application URL to the widget URL', function() {
                var widgets = buildListing( 'http://localhost:8000/', exampleWidgetListResource.bowerComponentsAndSystemWidgetList );
                $httpBackend.flush();
-               jasmine.Clock.tick( 0 )
+               jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
                jasmine.Clock.tick( 0 );
                expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didReplace.widgetListing', {
@@ -498,7 +498,7 @@ define( [
             it( 'combines the widget path with the application URL to the widget URL', function() {
                var widgets = buildListing( '', exampleWidgetListResource.bowerComponentsAndSystemWidgetList );
                $httpBackend.flush();
-               jasmine.Clock.tick( 0 )
+               jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
                jasmine.Clock.tick( 0 );
                expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didReplace.widgetListing', {
