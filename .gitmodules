@@ -25,3 +25,6 @@
 [submodule "includes/widgets/laxarjs/ax-show-hide-widget"]
 	path = includes/widgets/laxarjs/ax-show-hide-widget
 	url = https://github.com/LaxarJS/ax-show-hide-widget.git
+[submodule "includes/widgets/laxarjs/ax-developer-tools-widget"]
+	path = includes/widgets/laxarjs/ax-developer-tools-widget
+	url = https://github.com/LaxarJS/ax-developer-tools-widget.git
