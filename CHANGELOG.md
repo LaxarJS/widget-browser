@@ -2,6 +2,9 @@
 
 ## Last Changes
 
+
+## v0.2.1
+
 - [#10](https://github.com/LaxarJS/widget-browser/issues/10): jshint: fixed AxWidgetListingActivity validation
 
 
