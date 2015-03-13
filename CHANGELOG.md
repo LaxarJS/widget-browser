@@ -2,6 +2,7 @@
 
 ## Last Changes
 
+- [#11](https://github.com/LaxarJS/widget-browser/issues/11): widgets: added AxDeveloperToolsWidget
 - [#10](https://github.com/LaxarJS/widget-browser/issues/10): jshint: fixed AxWidgetListingActivity validation
 
 
