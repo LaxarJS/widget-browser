@@ -2,6 +2,12 @@
   "includes": {
     "widgets": {
       "laxarjs": {
+        "ax-command-bar-widget": {
+          "widget.json": true
+        },
+        "ax-developer-tools-widget": {
+          "widget.json": true
+        },
         "ax-headline-widget": {
           "widget.json": true
         },
@@ -15,9 +21,6 @@
           "widget.json": true
         },
         "ax-messages-widget": {
-          "widget.json": true
-        },
-        "ax-command-bar-widget": {
           "widget.json": true
         },
         "ax-popup-widget": {
