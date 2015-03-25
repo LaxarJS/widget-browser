@@ -2,6 +2,9 @@
 
 ## Last Changes
 
+
+## v0.5.0
+
 - [#13](https://github.com/LaxarJS/widget-browser/issues/13): theme: minify CSS
 
 
