@@ -25,6 +25,18 @@ module.exports = function( grunt ) {
             jshintrc: __dirname + '/.jshintrc'
          }
       },
+      cssmin: {
+         default: {
+            options: {
+               keepSpecialComments: 0
+            },
+            files: [{
+               expand: true,
+               src: 'var/static/css/*.theme.css',
+               ext: '.min.css'
+            }]
+         }
+      },
       compress: {
          default: {
             options: {
@@ -163,13 +175,14 @@ module.exports = function( grunt ) {
       } );
 
    grunt.loadNpmTasks( 'grunt-laxar' );
+   grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
    grunt.loadNpmTasks( 'grunt-contrib-compass' );
    grunt.loadNpmTasks( 'grunt-contrib-compress' );
    grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
    grunt.registerTask( 'server', [ 'connect' ] );
    grunt.registerTask( 'build', [ 'directory_tree', 'portal_angular_dependencies' ] );
-   grunt.registerTask( 'optimize', [ 'build', 'css_merger', 'requirejs' ] );
+   grunt.registerTask( 'optimize', [ 'build', 'css_merger', 'cssmin', 'requirejs' ] );
    grunt.registerTask( 'test', [ 'server', 'widgets' ] );
    grunt.registerTask( 'default', [ 'build', 'test' ] );
    grunt.registerTask( 'dist', [ 'optimize', 'compress' ] );

@@ -2,8 +2,7 @@
 
 @import "variables_all";
 
-$app-laxarjs-logo: "../images/laxarjs-logo.svg" !default;
-$app-laxarjs-logo-height: 60px !default;
+$app-laxarjs-logo: "../images/laxarjs-logo.svg";
 
 h1 > a,
 h1 > a:hover,
@@ -14,27 +13,17 @@ h1 > a:visited  {
 }
 
 .app-header {
-   // height: 60px;
+   height: 60px;
    padding-top: 27px;
    padding-bottom: 27px;
-   box-sizing: content-box;
-
-   h1 {
-      height:$app-laxarjs-logo-height;
-      line-height: $app-laxarjs-logo-height;
-   }
 }
 
 .app-logo {
    display: block;
    width: 229px;
-   height: $app-laxarjs-logo-height;
+   height: 60px;
    background: url( $app-laxarjs-logo ) no-repeat;
    background-size: contain;
-}
-
-.app-content {
-   min-height: 1000px;
 }
 
 .app-left {
