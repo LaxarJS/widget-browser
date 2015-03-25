@@ -1,7 +1,8 @@
 <h3 data-ng-bind-html="features.list.title.htmlLabel"></h3>
-<div class="input-group">
+<div class="ax-search-wrapper">
    <input type="text" class="form-control" data-ng-model="search.name">
-   <span class="input-group-addon"><i class='fa fa-search'></i></span>
+   <i class='fa fa-search'
+      data-ng-class="{ 'ax-active': search.name }"></i>
 </div>
 <table class="table">
    <tbody>
