@@ -3,6 +3,11 @@
 ## Last Changes
 
 
+## v0.4.1
+
+- Fixed versions
+
+
 ## v0.4.0
 
 - [#12](https://github.com/LaxarJS/widget-browser/issues/12): theme: improved styling
