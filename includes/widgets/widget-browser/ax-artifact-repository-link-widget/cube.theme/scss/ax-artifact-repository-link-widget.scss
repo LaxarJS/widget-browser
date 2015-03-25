@@ -1,0 +1,20 @@
+/**
+ * Copyright 2015 aixigo AG
+ * Released under the MIT license.
+ * http://laxarjs.org/license
+ */
+@charset "UTF-8";
+
+@import "variables_all";
+
+.ax-artifact-repository-link-widget {
+   position: absolute;
+   top: 21px;
+   right: 20px;
+
+   a:hover {
+      color: #FFF;
+      background-color: $COLOR_FERN;
+      border-color: darken( $COLOR_FERN, 10%);
+   }
+}

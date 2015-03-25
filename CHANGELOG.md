@@ -3,6 +3,16 @@
 ## Last Changes
 
 
+## v0.5.0
+
+- [#13](https://github.com/LaxarJS/widget-browser/issues/13): theme: minify CSS
+
+
+## v0.4.0
+
+- [#12](https://github.com/LaxarJS/widget-browser/issues/12): theme: improved styling
+
+
 ## v0.3.0
 
 - [#11](https://github.com/LaxarJS/widget-browser/issues/11): widgets: added AxDeveloperToolsWidget

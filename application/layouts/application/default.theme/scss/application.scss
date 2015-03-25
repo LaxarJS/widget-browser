@@ -23,7 +23,7 @@ h1 > a:visited  {
    width: 229px;
    height: 60px;
    background: url( $app-laxarjs-logo ) no-repeat;
-   background-size: 229 60;
+   background-size: contain;
 }
 
 .app-left {
