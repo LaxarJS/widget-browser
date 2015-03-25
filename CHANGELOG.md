@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+- [#12](https://github.com/LaxarJS/widget-browser/issues/12): theme: improved styling
+
 
 ## v0.3.0
 

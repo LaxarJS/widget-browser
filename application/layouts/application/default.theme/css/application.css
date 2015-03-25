@@ -7,9 +7,15 @@ h1 > a:visited {
 }
 
 .app-header {
-  height: 60px;
   padding-top: 27px;
   padding-bottom: 27px;
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+.app-header h1 {
+  height: 60px;
+  line-height: 60px;
 }
 
 .app-logo {
@@ -17,7 +23,11 @@ h1 > a:visited {
   width: 229px;
   height: 60px;
   background: url("../images/laxarjs-logo.svg") no-repeat;
-  background-size: 229 60;
+  background-size: contain;
+}
+
+.app-content {
+  min-height: 1000px;
 }
 
 .app-left {
