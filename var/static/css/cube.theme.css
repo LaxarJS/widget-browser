@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 @font-face {
   font-family: 'Exo 2';
@@ -11174,7 +11175,7 @@ h1 > a:visited {
   width: 229px;
   height: 60px;
   background: url("../../../application/layouts/application/default.theme/images/laxarjs-logo.svg") no-repeat;
-  background-size: 229 60;
+  background-size: contain;
 }
 
 .app-left {
@@ -11278,52 +11279,78 @@ h1 > a:visited {
  * Released under the MIT license.
  * http://laxarjs.org/license
  */
-/* line 10, ../scss/ax-widget-browser-widget.scss */
+/**
+ * Copyright 2015 LaxarJS
+ * Released under the MIT license.
+ * http://laxarjs.org/license
+ */
+/* line 17, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget .ax-search-wrapper {
+  position: relative;
+}
+/* line 21, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget .fa-search {
+  position: absolute;
+  top: 0.7em;
+  right: 0.7em;
+  z-index: 3;
+  color: #aaa;
+}
+/* line 28, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget .fa-search.ax-active {
+  display: none;
+}
+/* line 33, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget .table,
+.ax-widget-browser-widget .form-control {
+  font-size: 12px;
+}
+/* line 38, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget .table {
+  margin-top: 10px;
+  table-layout: fixed;
+}
+/* line 43, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget .form-control {
+  padding: 5px;
+}
+/* line 47, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget td {
+  padding: 3px 5px !important;
+  border-top: none !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 55, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget tr:nth-child(5n+1) > td {
+  border-top: 13px solid transparent !important;
+}
+/* line 59, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget tr.selected td {
+  background-color: #5bc0de;
+  text-decoration: none;
+  cursor: default;
+}
+/* line 64, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget tr.selected td,
+.ax-widget-browser-widget tr.selected td a {
+  color: white;
+  text-decoration: none;
+}
+/* line 71, ../../default.theme/scss/ax-widget-browser-widget.scss */
+.ax-widget-browser-widget .ax-widget-browser-highlight {
+  background-color: #ffce54;
+  color: black;
+}
+
+/* line 18, ../scss/ax-widget-browser-widget.scss */
 .ax-widget-browser-widget {
   background-color: #f2f2f2;
   padding: 2px 20px 10px;
   margin: -2px -20px -10px;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-}
-/* line 18, ../scss/ax-widget-browser-widget.scss */
-.ax-widget-browser-widget .table,
-.ax-widget-browser-widget .form-control {
-  font-size: 12px;
-}
-/* line 23, ../scss/ax-widget-browser-widget.scss */
-.ax-widget-browser-widget .table {
-  margin-top: 10px;
-}
-/* line 27, ../scss/ax-widget-browser-widget.scss */
-.ax-widget-browser-widget .form-control {
-  padding: 5px;
-}
-/* line 31, ../scss/ax-widget-browser-widget.scss */
-.ax-widget-browser-widget a {
-  padding: 5px;
-  display: block;
-}
-/* line 36, ../scss/ax-widget-browser-widget.scss */
-.ax-widget-browser-widget td {
-  border-top: none !important;
-  padding: 0px !important;
-}
-/* line 41, ../scss/ax-widget-browser-widget.scss */
-.ax-widget-browser-widget tr:nth-child(5n+1) > td {
-  padding-top: 10px !important;
-}
-/* line 45, ../scss/ax-widget-browser-widget.scss */
-.ax-widget-browser-widget tr.selected a {
-  background-color: #5bc0de;
-  color: white;
-  text-decoration: none;
-  cursor: default;
-}
-/* line 52, ../scss/ax-widget-browser-widget.scss */
-.ax-widget-browser-widget .ax-widget-browser-highlight {
-  background-color: #ffce54;
-  color: black;
 }/**
  * Copyright 2015 aixigo AG
  * Released under the MIT license.
@@ -11372,69 +11399,82 @@ h1 > a:visited {
  * Released under the MIT license.
  * http://laxarjs.org/license
  */
-/* line 11, ../scss/ax-widget-information-widget.scss */
+/* line 12, ../scss/ax-widget-information-widget.scss */
+.ax-widget-information-widget .ax-placeholder {
+  background-image: url("../../../includes/themes/cube.theme/images/pot-flower.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+/* line 19, ../scss/ax-widget-information-widget.scss */
+.ax-widget-information-widget .ax-placeholder-helper {
+  display: block;
+  height: 0;
+  padding-top: 100%;
+}
+/* line 25, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .table {
   margin-bottom: 40px;
 }
-/* line 14, ../scss/ax-widget-information-widget.scss */
+/* line 28, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-intro-text {
   margin-bottom: 40px;
 }
-/* line 18, ../scss/ax-widget-information-widget.scss */
+/* line 32, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-version {
   font-size: 0.5rem;
 }
-/* line 22, ../scss/ax-widget-information-widget.scss */
+/* line 36, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget th {
   font-size: 12px !important;
   padding-bottom: 0px !important;
   color: #737373;
 }
-/* line 28, ../scss/ax-widget-information-widget.scss */
+/* line 42, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget th:first-child,
 .ax-widget-information-widget td:first-child {
   padding-right: 0px;
 }
-/* line 33, ../scss/ax-widget-information-widget.scss */
+/* line 47, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget th:last-child,
 .ax-widget-information-widget td:last-child {
   text-align: right;
 }
-/* line 38, ../scss/ax-widget-information-widget.scss */
+/* line 52, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-table-col-1 {
   width: 24px;
 }
-/* line 39, ../scss/ax-widget-information-widget.scss */
+/* line 53, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-table-col-2 {
   width: 20%;
 }
-/* line 42, ../scss/ax-widget-information-widget.scss */
+/* line 56, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-table td:first-child + td {
   padding-left: 0;
 }
-/* line 48, ../scss/ax-widget-information-widget.scss */
+/* line 62, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-description td {
   padding-top: 0;
   font-size: 12px;
   text-align: left;
 }
-/* line 57, ../scss/ax-widget-information-widget.scss */
+/* line 71, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-description td,
 .ax-widget-information-widget .ax-information-properties td {
   border-top: none;
   padding-left: 24px;
 }
-/* line 62, ../scss/ax-widget-information-widget.scss */
+/* line 76, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-description strong,
 .ax-widget-information-widget .ax-information-properties strong {
   color: #737373;
 }
-/* line 67, ../scss/ax-widget-information-widget.scss */
+/* line 81, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .btn-link {
   padding: 0;
   margin-top: -2px;
 }
-/* line 72, ../scss/ax-widget-information-widget.scss */
+/* line 86, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-link-icon {
   width: 14px;
 }.ax-media-widget {
