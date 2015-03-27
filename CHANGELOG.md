@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+- [#15](https://github.com/LaxarJS/widget-browser/issues/15): theme: improve footer styling
+
 
 ## v0.5.0
 
