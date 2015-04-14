@@ -1,6 +1,6 @@
 {
    "name": "widget-browser",
-   "version": "0.6.0-pre",
+   "version": "0.6.0",
    "description": "The WidgetBrowser list widgets with their documentation ",
    "license": "MIT",
    "repository": {
