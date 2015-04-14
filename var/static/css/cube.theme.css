@@ -11065,12 +11065,24 @@ body:before {
   font-weight: 200;
 }
 
+/* line 64, ../scss/_application.scss */
+.app-header,
+.app-footer {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 /* line 69, ../scss/_application.scss */
+.app-header a,
+.app-footer a {
+  white-space: nowrap;
+}
+
+/* line 79, ../scss/_application.scss */
 .app-content-wrapper {
   top: 155px;
 }
 
-/* line 73, ../scss/_application.scss */
+/* line 83, ../scss/_application.scss */
 .app-content {
   position: relative;
   background-color: white;
@@ -11080,38 +11092,31 @@ body:before {
   border-radius: 0 50px 0 0;
 }
 
-/* line 87, ../scss/_application.scss */
+/* line 97, ../scss/_application.scss */
 .app-footer {
   margin-top: 20px;
   text-shadow: 1px  1px 0px #fff;
   padding-bottom: 1em;
 }
+/* line 102, ../scss/_application.scss */
+.app-footer .app-version a {
+  margin-left: 0.5em;
+}
 
-/* line 93, ../scss/_application.scss */
+/* line 107, ../scss/_application.scss */
 .app-footer,
 .app-footer a {
   color: #8c8c8c;
 }
 
-/* line 98, ../scss/_application.scss */
+/* line 112, ../scss/_application.scss */
 .app-footer a {
   border-bottom: 1px dotted #bbb;
 }
-/* line 101, ../scss/_application.scss */
+/* line 115, ../scss/_application.scss */
 .app-footer a:hover, .app-footer a:focus {
   color: #2a6496;
   text-decoration: none;
-}
-
-/* line 108, ../scss/_application.scss */
-.app-version {
-  white-space: nowrap;
-}
-
-/* line 112, ../scss/_application.scss */
-.app-version {
-  padding-left: 26px;
-  padding-right: 26px;
 }
 
 /* line 2, ../scss/_type.scss */
@@ -11156,18 +11161,55 @@ em {
 .table > thead + tbody > tr:first-child > td {
   border-top-color: #bbb;
 }
-h1 > a,
-h1 > a:hover,
-h1 > a:focus,
-h1 > a:visited {
-  color: currentcolor;
-  text-decoration: none;
-}
 
+/* line 8, ../scss/_function_point.scss */
+.ax-function-point {
+  color: #ccc;
+  line-height: 50px;
+  height: 50px;
+  font-family: "Exo 2", Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+/* line 20, ../scss/_function_point.scss */
+.ax-function-point .fa {
+  font-size: 30px;
+  background-color: #ccc;
+  color: white;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50px;
+  text-align: center;
+  margin-right: 0.2em;
+}
+/* line 32, ../scss/_function_point.scss */
+.ax-function-point + .table {
+  border: 1px solid #ddd;
+  border-radius: 5px 5px 0 0;
+  border-collapse: separate;
+}
+/* line 37, ../scss/_function_point.scss */
+.ax-function-point + .table th {
+  background-color: #ddd;
+}
+/* line 41, ../scss/_function_point.scss */
+.ax-function-point + .table > thead + tbody > tr:first-child > td {
+  border-top: none;
+}
 .app-header {
   height: 60px;
   padding-top: 27px;
   padding-bottom: 27px;
+}
+.app-header h1 {
+  text-align: right;
+}
+
+.app-footer {
+  margin-top: 1em;
 }
 
 .app-logo {
@@ -11192,31 +11234,21 @@ h1 > a:visited {
   padding-top: 52px;
 }
 
-@media (max-width: 991px) {
-  .app-header,
-  .app-footer {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .app-content {
-    padding: 20px 40px 60px;
-  }
-
+.app-version {
+  text-align: right;
+}
+@media (max-width: 992px) {
   .app-version {
-    padding-left: 0;
-  }
-
-  .app-version:before {
-    content: "";
-    display: block;
-    margin-top: 1em;
+    text-align: left;
   }
 }
-@media (min-width: 992px) {
-  h1 {
-    margin-top: 0px;
-  }
+
+h1 > a,
+h1 > a:hover,
+h1 > a:focus,
+h1 > a:visited {
+  color: currentcolor;
+  text-decoration: none;
 }/**
  * Copyright 2015 aixigo AG
  * Released under the MIT license.
@@ -11467,14 +11499,19 @@ h1 > a:visited {
 /* line 76, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-description strong,
 .ax-widget-information-widget .ax-information-properties strong {
-  color: #737373;
+  font-family: "Exo 2", Arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: #eee;
+  padding: 0 0.3em;
+  color: #555;
 }
-/* line 81, ../scss/ax-widget-information-widget.scss */
+/* line 86, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .btn-link {
   padding: 0;
   margin-top: -2px;
 }
-/* line 86, ../scss/ax-widget-information-widget.scss */
+/* line 91, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-link-icon {
   width: 14px;
 }.ax-media-widget {
