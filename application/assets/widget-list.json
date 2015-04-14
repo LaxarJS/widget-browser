@@ -2,6 +2,9 @@
   "includes": {
     "widgets": {
       "laxarjs": {
+        "ax-accordion-widget": {
+          "widget.json": true
+        },
         "ax-command-bar-widget": {
           "widget.json": true
         },
