@@ -2,6 +2,7 @@
 
 ## Last Changes
 
+- [#16](https://github.com/LaxarJS/widget-browser/issues/16): widgets: added AxAccordionWidget
 - [#15](https://github.com/LaxarJS/widget-browser/issues/15): theme: improve footer styling
 
 
