@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+- [#17](https://github.com/LaxarJS/widget-browser/issues/17): fixed version number in relevant files
+
 
 ## v0.6.0
 
