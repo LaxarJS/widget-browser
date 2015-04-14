@@ -3,6 +3,12 @@
 ## Last Changes
 
 
+## v0.6.0
+
+- [#16](https://github.com/LaxarJS/widget-browser/issues/16): widgets: added AxAccordionWidget
+- [#15](https://github.com/LaxarJS/widget-browser/issues/15): theme: improve footer styling
+
+
 ## v0.5.0
 
 - [#13](https://github.com/LaxarJS/widget-browser/issues/13): theme: minify CSS

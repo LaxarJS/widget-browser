@@ -71,14 +71,19 @@
 /* line 76, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-information-description strong,
 .ax-widget-information-widget .ax-information-properties strong {
-  color: #737373;
+  font-family: "Exo 2", Arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: #eee;
+  padding: 0 0.3em;
+  color: #555;
 }
-/* line 81, ../scss/ax-widget-information-widget.scss */
+/* line 86, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .btn-link {
   padding: 0;
   margin-top: -2px;
 }
-/* line 86, ../scss/ax-widget-information-widget.scss */
+/* line 91, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-link-icon {
   width: 14px;
 }
