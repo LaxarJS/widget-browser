@@ -1,6 +1,6 @@
 {
    "name": "widget-browser",
-   "version": "0.7.0-pre",
+   "version": "0.7.0",
    "description": "List widgets from an other product.",
    "license": "MIT",
    "scripts": {
