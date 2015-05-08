@@ -2,6 +2,7 @@
 
 ## Last Changes
 
+- [#18](https://github.com/LaxarJS/widget-browser/issues/18): updated submodule cube.theme and updated the widgets
 - [#17](https://github.com/LaxarJS/widget-browser/issues/17): fixed version number in relevant files
 
 
