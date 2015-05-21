@@ -1,6 +1,6 @@
 {
    "name": "widget-browser",
-   "version": "0.8.0-pre",
+   "version": "1.0.0-pre",
    "description": "List widgets from an other product.",
    "license": "MIT",
    "scripts": {
@@ -18,6 +18,6 @@
       "grunt-contrib-compress": "~0.7.0",
       "grunt-contrib-cssmin": "^0.12.2",
       "grunt-contrib-watch": "~0.6.1",
-      "grunt-laxar": "~0.8.0"
+      "grunt-laxar": "~1.0.0-alpha.9"
    }
 }

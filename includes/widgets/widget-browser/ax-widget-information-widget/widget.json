@@ -29,7 +29,6 @@
          "bower": {
             "type": "object",
             "description": "Display version and dependencies of a widget from a resource with the data of a bower.json.",
-            "required": [ "resource" ],
             "properties": {
                "resource": {
                   "type": "string",

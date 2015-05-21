@@ -50,6 +50,11 @@ var require = {
    },
    packages: [
       {
+         name: 'laxar-application',
+         location: '..',
+         main: 'init'
+      },
+      {
          name: 'laxar',
          location: 'laxar',
          main: 'laxar'
@@ -57,7 +62,7 @@ var require = {
       {
          name: 'laxar_patterns',
          location: 'laxar_patterns',
-         main: 'laxar_patterns'
+         main: 'laxar-patterns'
       },
       {
          name: 'laxar_uikit',
@@ -100,13 +105,15 @@ var require = {
 
       // App Parts:
       'laxar-path-root': '..',
+      'laxar-path-controls': '../includes/controls',
       'laxar-path-layouts': '../application/layouts',
       'laxar-path-pages': '../application/pages',
       'laxar-path-widgets': '../includes/widgets',
       'laxar-path-themes': '../includes/themes',
       'laxar-path-flow': '../application/flow/flow.json',
 
-      portal_angular_dependencies: '../var/static/portal_angular_dependencies',
+      'laxar-application-dependencies': '../var/static/laxar_application_dependencies',
+
 
       // Widgets:
       underscore: 'underscore/underscore'
