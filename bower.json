@@ -1,6 +1,6 @@
 {
    "name": "widget-browser",
-   "version": "0.8.0-pre",
+   "version": "1.0.0-alpha.0",
    "description": "The WidgetBrowser list widgets with their documentation ",
    "license": "MIT",
    "repository": {
@@ -10,9 +10,9 @@
    "dependencies": {
       "requirejs": "2.1.x",
       "requirejs-plugins": "1.0.x",
-      "laxar": "LaxarJS/laxar#^0.23.x",
-      "laxar_patterns": "LaxarJS/laxar_patterns#^0.19.0",
-      "laxar_uikit": "LaxarJS/laxar_uikit#^0.21.0",
+      "laxar": "LaxarJS/laxar#1.0.0-alpha.14",
+      "laxar_patterns": "LaxarJS/laxar_patterns#^1.0.0-alpha.3",
+      "laxar_uikit": "LaxarJS/laxar_uikit#^1.0.0-alpha.6",
       "jquery": "jquery/jquery#^1.11.x",
       "marked": "chjj/marked#^0.3.x",
       "URIjs": "medialize/URI.js#^1.14.1"

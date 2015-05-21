@@ -15,6 +15,7 @@ define( [
 
       var testBed;
       var $httpBackend;
+      var $rootScope;
 
       var exampleWidgetListResource;
 
@@ -59,6 +60,7 @@ define( [
                   testBed.setup( {
                      onBeforeControllerCreation: function( $injector ) {
                         $httpBackend = $injector.get( '$httpBackend' );
+
                         $httpBackend.when( 'GET', 'http://myApp:8000/listings/widgets.json' )
                            .respond( 200, widgetListing.widgetListingMyIncludes );
                      }
@@ -122,10 +124,13 @@ define( [
                   testBed.setup( {
                      onBeforeControllerCreation: function( $injector ) {
                         $httpBackend = $injector.get( '$httpBackend' );
+                        $rootScope = $injector.get( '$rootScope' );
                         $httpBackend.when( 'GET', 'http://myApp:8000/listings/error_widgets.json' )
-                           .respond( 404, {value: 'Not Found'} );
+                           .respond( 404, { value: 'Not Found' } );
                      }
                   } );
+                  testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
+                  jasmine.Clock.tick( 0 );
                   testBed.eventBusMock.publish( 'didReplace.myFileListing', {
                      resource: 'myFileListing',
                      data: {
@@ -140,16 +145,20 @@ define( [
 
                it( 'emits a didValidate event with error message for the resource (R1.4)', function() {
                   ax.log.info( 'Expect error message' );
+                  spyOn( ax.log, 'error' );
                   $httpBackend.flush();
+                  jasmine.Clock.tick( 0 );
+                  $rootScope.$digest();
                   jasmine.Clock.tick( 0 );
                   expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didValidate.widgetListing', {
                      resource: 'widgetListing',
                      outcome: 'ERROR',
-                     data: [{
+                     data: [ {
                         htmlMessage: 'Failed to load file listing from http://myApp:8000/listings/error_widgets.json',
                         level: 'ERROR'
-                     }]
+                     } ]
                   } );
+                  expect( ax.log.error ).toHaveBeenCalled();
                } );
             } );
 
@@ -196,14 +205,19 @@ define( [
                testBed.setup( {
                   onBeforeControllerCreation: function( $injector ) {
                      $httpBackend = $injector.get( '$httpBackend' );
+                     $rootScope = $injector.get( '$rootScope' );
                      $httpBackend.when( 'GET', 'http://localhost:8000/var/listing/includes_portal_widgets.json' )
                         .respond( 200, widgetListing.bowerComponentsWidgetListing );
                      $httpBackend.when( 'GET', 'http://localhost:8000/var/listing/includes_system_widgets.json' )
-                        .respond( 404, {value: 'Not Found'} );
+                        .respond( 404, { value: 'Not Found' } );
                   }
                } );
+               spyOn( ax.log, 'error' );
                ax.log.info( 'Expect error message' );
+               testBed.eventBusMock.publish( 'beginLifecycleRequest', {} );
                $httpBackend.flush();
+               jasmine.Clock.tick( 0 );
+               $rootScope.$digest();
                jasmine.Clock.tick( 0 );
                expect( testBed.scope.eventBus.publish ).toHaveBeenCalledWith( 'didValidate.widgetListing', {
                   resource: 'widgetListing',
@@ -213,6 +227,7 @@ define( [
                      level: 'ERROR'
                   } ]
                } );
+               expect( ax.log.error ).toHaveBeenCalled();
             } );
 
             //////////////////////////////////////////////////////////////////////////////////////////////////

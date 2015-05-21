@@ -18,7 +18,6 @@ define( [
    Controller.$inject = [ '$scope' ];
 
    function Controller( $scope ) {
-
       $scope.resources = {
          widget: null,
          bower: null
@@ -32,7 +31,7 @@ define( [
          onUpdateReplace: [ updateWidgetModel, updateModel, createDependenciesList ]
       } );
 
-      if( $scope.features.bower ) {
+      if( $scope.features.bower.resource ) {
          patterns.resources.handlerFor( $scope ).registerResourceFromFeature( 'bower', {
             onUpdateReplace: [ updateBowerModel, updateModel, createDependenciesList ]
          } );
