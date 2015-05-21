@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+- [#19](https://github.com/LaxarJS/widget-browser/issues/19): upgraded to LaxarJS major version and fixed breaking changes
+
 
 ## v0.7.0
 
