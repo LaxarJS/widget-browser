@@ -1,7 +1,7 @@
 /**
- * Copyright 2014 LaxarJS
+ * Copyright 2015 aixigo AG
  * Released under the MIT license.
- * http://laxarjs.org/
+ * http://laxarjs.org/license
  */
 /*global module,__dirname,__filename */
 module.exports = function( grunt ) {
@@ -57,10 +57,10 @@ module.exports = function( grunt ) {
             } ]
          }
       },
-      portal_angular_dependencies: {
+      laxar_application_dependencies: {
          default: {
             options: {},
-            dest: 'var/static/portal_angular_dependencies.js',
+            dest: 'var/static/laxar_application_dependencies.js',
             src: [ 'application/flow/*.json' ]
          }
       },
@@ -181,7 +181,7 @@ module.exports = function( grunt ) {
    grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
    grunt.registerTask( 'server', [ 'connect' ] );
-   grunt.registerTask( 'build', [ 'directory_tree', 'portal_angular_dependencies' ] );
+   grunt.registerTask( 'build', [ 'directory_tree', 'laxar_application_dependencies' ] );
    grunt.registerTask( 'optimize', [ 'build', 'css_merger', 'cssmin', 'requirejs' ] );
    grunt.registerTask( 'test', [ 'server', 'widgets' ] );
    grunt.registerTask( 'default', [ 'build', 'test' ] );

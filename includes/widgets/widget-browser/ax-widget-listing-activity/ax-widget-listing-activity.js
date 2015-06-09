@@ -6,7 +6,7 @@
 define( [
    'angular',
    'laxar',
-   'laxar_patterns'
+   'laxar-patterns'
 ], function( ng, ax, patterns ) {
    'use strict';
 
@@ -82,8 +82,7 @@ define( [
                      widgets: widgets
                   }
                } );
-            } )
-            .then( null, function( e ) {
+            }, function( e ) {
                $scope.eventBus.publish( 'didValidate.' + $scope.features.widgetListing.resource, {
                   resource: $scope.features.widgetListing.resource,
                   outcome: 'ERROR',

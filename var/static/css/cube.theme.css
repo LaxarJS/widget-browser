@@ -11199,6 +11199,7 @@ em {
 .ax-function-point + .table > thead + tbody > tr:first-child > td {
   border-top: none;
 }
+
 .app-header {
   height: 60px;
   padding-top: 27px;
@@ -11249,7 +11250,10 @@ h1 > a:focus,
 h1 > a:visited {
   color: currentcolor;
   text-decoration: none;
-}/**
+}
+
+
+/**
  * Copyright 2015 aixigo AG
  * Released under the MIT license.
  * http://laxarjs.org/license
@@ -11306,7 +11310,8 @@ h1 > a:visited {
 
 .ax-messages-widget li:last-child {
   margin-bottom: 0;
-}/**
+}
+/**
  * Copyright 2015 aixigo AG
  * Released under the MIT license.
  * http://laxarjs.org/license
@@ -11383,7 +11388,8 @@ h1 > a:visited {
   margin: -2px -20px -10px;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-}/**
+}
+/**
  * Copyright 2015 aixigo AG
  * Released under the MIT license.
  * http://laxarjs.org/license
@@ -11410,7 +11416,8 @@ h1 > a:visited {
   border-radius: 0;
   padding: 6px;
   margin-bottom: 2rem;
-}/**
+}
+/**
  * Copyright 2015 aixigo AG
  * Released under the MIT license.
  * http://laxarjs.org/license
@@ -11426,7 +11433,8 @@ h1 > a:visited {
   color: #FFF;
   background-color: #5cb85c;
   border-color: #449d44;
-}/**
+}
+/**
  * Copyright 2015 aixigo AG
  * Released under the MIT license.
  * http://laxarjs.org/license
@@ -11514,7 +11522,8 @@ h1 > a:visited {
 /* line 91, ../scss/ax-widget-information-widget.scss */
 .ax-widget-information-widget .ax-link-icon {
   width: 14px;
-}.ax-media-widget {
+}
+.ax-media-widget {
   height: 100%;
   margin-bottom: 20px;
 }

@@ -50,19 +50,9 @@ var require = {
    },
    packages: [
       {
-         name: 'laxar',
-         location: 'laxar',
-         main: 'laxar'
-      },
-      {
-         name: 'laxar_patterns',
-         location: 'laxar_patterns',
-         main: 'laxar_patterns'
-      },
-      {
-         name: 'laxar_uikit',
-         location: 'laxar_uikit',
-         main: 'laxar_uikit'
+         name: 'laxar-application',
+         location: '..',
+         main: 'init'
       },
       {
          name: 'moment',
@@ -106,10 +96,23 @@ var require = {
       'laxar-path-themes': '../includes/themes',
       'laxar-path-flow': '../application/flow/flow.json',
 
-      portal_angular_dependencies: '../var/static/portal_angular_dependencies',
+      'laxar-application-dependencies': '../var/static/laxar_application_dependencies',
+
+      'laxar': 'laxar/dist/laxar',
+      'laxar/laxar_testing': 'laxar/dist/laxar_testing',
+      'laxar-patterns': 'laxar-patterns/dist/laxar-patterns',
+      'laxar-uikit': 'laxar-uikit/dist/laxar-uikit',
+      'laxar-uikit/controls': 'laxar-uikit/dist/controls',
+      'laxar-path-default-theme': 'laxar-uikit/dist/themes/default.theme',
 
       // Widgets:
       underscore: 'underscore/underscore'
 
+   },
+   map: {
+      '*': {
+         'laxar_uikit': 'laxar-uikit',
+         'laxar_patterns': 'laxar-patterns'
+      }
    }
 };

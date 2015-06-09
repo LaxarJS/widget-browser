@@ -1,0 +1,20 @@
+{
+   "name": "laxar-accordion-control",
+   "version": "1.0.0",
+   "description": "Wraps the jQuery UI accordion component as an AngularJS directive, for LaxarJS widgets.",
+   "authors": [],
+   "license": "MIT",
+   "main": "ax-accordion-control.js",
+   "moduleType": "amd",
+   "ignore": [
+      ".*",
+      "Gruntfile.js",
+      "node_modules",
+      "bower_components"
+   ],
+   "dependencies": {
+      "laxar": "^1.0.0",
+      "jquery": "^1.11.x",
+      "jquery-ui": "^1.11.x"
+   }
+}

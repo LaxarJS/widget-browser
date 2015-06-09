@@ -3,6 +3,18 @@
 ## Last Changes
 
 
+## v1.0.0
+
+- [#20](https://github.com/LaxarJS/widget-browser/issues/20): upgraded to LaxarJS v1.0.0 and fixed breaking changes
+- [#19](https://github.com/LaxarJS/widget-browser/issues/19): upgraded to LaxarJS major version and fixed breaking changes
+
+
+## v0.7.0
+
+- [#18](https://github.com/LaxarJS/widget-browser/issues/18): updated submodule cube.theme and updated the widgets
+- [#17](https://github.com/LaxarJS/widget-browser/issues/17): fixed version number in relevant files
+
+
 ## v0.6.0
 
 - [#16](https://github.com/LaxarJS/widget-browser/issues/16): widgets: added AxAccordionWidget
@@ -41,4 +53,3 @@
 ## v0.1.0
 
 Initial OSS version.
-
