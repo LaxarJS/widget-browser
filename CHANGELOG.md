@@ -2,6 +2,9 @@
 
 ## Last Changes
 
+- [#22](https://github.com/LaxarJS/widget-browser/issues/22): added Travis-CI build integration
+    + NEW FEATURE: see ticket for details
+
 
 ## v1.0.0
 
