@@ -1,4 +1,4 @@
-# WidgetBrowser
+# WidgetBrowser [![Build Status](https://travis-ci.org/LaxarJS/widget-browser.svg?branch=master)](https://travis-ci.org/LaxarJS/widget-browser)
 
 The LaxarJS WidgetBrowser contains all widgets provided by the LaxarJS Team.
 Select a widget from the list to access its documentation.
