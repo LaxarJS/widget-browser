@@ -1,4 +1,4 @@
-# AxWidgetInformationWidget
+# ax-widget-information-widget
 The AxWidgetInformationWidget presents details of a widget or activity.
 It displays the name, the version and further information like the type of integration, dependencies and the features.
 The information is based on the technical specification *widget.json* and the bower manifest *bower.json*.

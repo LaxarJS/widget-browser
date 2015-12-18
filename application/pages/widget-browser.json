@@ -4,6 +4,7 @@
       "activities": [
          {
             "widget": "widget-browser/ax-widget-listing-activity",
+            "id": "widgetListing",
             "features": {
                "fileListing": {
                   "list": [ "application/assets/widget-list.json" ]
@@ -16,7 +17,8 @@
       ],
       "messages": [
          {
-            "widget": "laxarjs/ax-messages-widget",
+            "widget": "amd:laxar-messages-widget",
+            "id": "messages",
             "features": {
                "resource": {
                   "list": [
@@ -28,7 +30,21 @@
       ],
       "content1a": [
          {
+            "widget": "amd:laxar-developer-tools-widget",
+            "id": "laxarDeveloperTools",
+            "features": {
+               "button": {
+                  "enabled": false
+               },
+               "open": {
+                  "onActions": [ "showDevTools" ],
+                  "onGlobalMethod": "goDevelop"
+               }
+            }
+         },
+         {
             "widget": "widget-browser/ax-widget-browser-widget",
+            "id": "widgetBrowser",
             "features": {
                "list": {
                   "resource": "widgetList"
@@ -54,7 +70,7 @@
       ],
       "content1b": [
          {
-            "widget": "laxarjs/ax-markdown-display-widget",
+            "widget": "amd:laxar-markdown-display-widget",
             "id": "documentation",
             "features": {
                "markdown": {
@@ -68,6 +84,7 @@
       "content1c": [
          {
             "widget": "widget-browser/ax-artifact-repository-link-widget",
+            "id": "repositoryLink",
             "features": {
                "display": {
                   "resource": "manifest",
@@ -77,6 +94,7 @@
          },
          {
             "widget": "widget-browser/ax-widget-information-widget",
+            "id": "widgetInformation",
             "features": {
                "widget": {
                   "resource": "widgetInformation"
@@ -87,7 +105,8 @@
             }
          },
          {
-            "widget": "laxarjs/ax-media-widget",
+            "widget": "amd:laxar-media-widget",
+            "id": "testRunner",
             "features": {
                "medium": {
                   "resource": "testRunner",

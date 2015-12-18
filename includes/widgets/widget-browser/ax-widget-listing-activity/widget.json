@@ -1,5 +1,5 @@
 {
-   "name": "AxWidgetListingActivity",
+   "name": "ax-widget-listing-activity",
    "description": "Reads a file listing and extracts information on available widgets and activities.",
    "integration": {
       "technology": "angular",
@@ -18,6 +18,8 @@
             "properties": {
                "resource": {
                   "type": "string",
+                  "format": "topic",
+                  "axRole": "outlet",
                   "description": "The name of a resource containing the application url and the path to the file listing as provided by the directory tree grunt task."
                },
                "list": {
@@ -42,6 +44,8 @@
             "properties": {
                "resource": {
                   "type": "string",
+                  "format": "topic",
+                  "axRole": "outlet",
                   "description": "The list resource topic."
                }
             }

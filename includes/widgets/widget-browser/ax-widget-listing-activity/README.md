@@ -1,4 +1,4 @@
-# AxWidgetListingActivity
+# ax-widget-listing-activity
 
 Reads a file listing of an application created by the [grunt-laxar] task `directory_tree` and extracts information on available widgets and activities.
 The activity creates a list of widgets and publishes it as a resource.

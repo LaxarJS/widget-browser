@@ -1,5 +1,5 @@
 {
-  "name": "AxWidgetBrowserWidget",
+  "name": "ax-widget-browser-widget",
   "description": "The WidgetBrowserWidget displays a list of all widget and activities and lets the user select one.",
   "integration": {
     "technology": "angular",
@@ -32,8 +32,10 @@
           },
           "resource": {
             "type": "string",
-            "description": "The topic of the resource with the list.",
-            "format": "topic"
+            "format": "topic",
+            "axRole": "inlet" ,
+            "description": "The topic of the resource with the list."
+
           }
         }
       },
@@ -44,8 +46,8 @@
         "properties": {
           "parameter": {
             "type": "string",
-            "description": "The place parameter for the flow definition.",
-            "format": "topic"
+            "format": "topic",
+            "description": "The place parameter for the flow definition."
           },
           "parameterList": {
             "type": "array",
@@ -53,8 +55,8 @@
             "default": [],
             "items": {
               "type": "string",
-              "description": "A place parameter to reset.",
-              "format": "topic"
+              "format": "topic",
+              "description": "A place parameter to reset."
             }
           },
           "information": {
@@ -62,8 +64,9 @@
             "properties": {
               "resource": {
                 "type": "string",
-                "description": "The topic of the resource with the widget.json content.",
-                "format": "topic"
+                "format": "topic",
+                "axRole": "outlet",
+                "description": "The topic of the resource with the widget.json content."
               }
             }
           },
@@ -72,8 +75,9 @@
             "properties": {
               "resource": {
                 "type": "string",
-                "description": "The topic of the resource with the bower.json content.",
-                "format": "topic"
+                "format": "topic",
+                "axRole": "outlet",
+                "description": "The topic of the resource with the bower.json content."
               }
             }
           },
@@ -82,8 +86,9 @@
             "properties": {
               "resource": {
                 "type": "string",
-                "description": "The topic of the resource with the documentation markdown url.",
-                "format": "topic"
+                "format": "topic",
+                "axRole": "outlet",
+                "description": "The topic of the resource with the documentation markdown url."
               },
               "sources": {
                 "type": "array",
@@ -104,8 +109,9 @@
             "properties": {
               "resource": {
                 "type": "string",
-                "description": "The topic of the resource with the url to the test runner.",
-                "format": "topic"
+                "format": "topic",
+                "axRole": "outlet",
+                "description": "The topic of the resource with the url to the test runner."
               }
             }
           }

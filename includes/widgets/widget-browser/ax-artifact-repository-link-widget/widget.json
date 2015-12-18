@@ -1,5 +1,5 @@
 {
-   "name": "AxArtifactRepositoryLinkWidget",
+   "name": "ax-artifact-repository-link-widget",
    "description": "The AxArtifactRepositoryLinkWidget displays a link to the repository of a dynamic widget.",
 
    "integration": {
@@ -19,6 +19,7 @@
                "resource": {
                   "type": "string",
                   "format": "topic",
+                  "axRole": "inlet",
                   "description": "The topic of the resource with content of a bower.json."
                },
                "i18nHtmlText": {

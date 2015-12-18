@@ -1,38 +1,34 @@
 {
-  "includes": {
-    "widgets": {
-      "laxarjs": {
-        "ax-accordion-widget": {
-          "widget.json": true
-        },
-        "ax-command-bar-widget": {
-          "widget.json": true
-        },
-        "ax-developer-tools-widget": {
-          "widget.json": true
-        },
-        "ax-headline-widget": {
-          "widget.json": true
-        },
-        "ax-html-display-widget": {
-          "widget.json": true
-        },
-        "ax-markdown-display-widget": {
-          "widget.json": true
-        },
-        "ax-media-widget": {
-          "widget.json": true
-        },
-        "ax-messages-widget": {
-          "widget.json": true
-        },
-        "ax-popup-widget": {
-          "widget.json": true
-        },
-        "ax-show-hide-widget": {
-          "widget.json": true
-        }
-      }
+  "bower_components": {
+    "laxar-accordion-widget": {
+      "widget.json": true
+    },
+    "laxar-command-bar-widget": {
+      "widget.json": true
+    },
+    "laxar-developer-tools-widget": {
+      "widget.json": true
+    },
+    "laxar-headline-widget": {
+      "widget.json": true
+    },
+    "laxar-html-display-widget": {
+      "widget.json": true
+    },
+    "laxar-markdown-display-widget": {
+      "widget.json": true
+    },
+    "laxar-media-widget": {
+      "widget.json": true
+    },
+    "laxar-messages-widget": {
+      "widget.json": true
+    },
+    "laxar-popup-widget": {
+      "widget.json": true
+    },
+    "laxar-show-hide-widget": {
+      "widget.json": true
     }
   }
 }
