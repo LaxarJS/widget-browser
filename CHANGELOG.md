@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+
+- [#23](https://github.com/LaxarJS/widget-browser/issues/23): expanded widget definitions and updated laxar and widgets
 - [#22](https://github.com/LaxarJS/widget-browser/issues/22): added Travis-CI build integration
     + NEW FEATURE: see ticket for details
 

@@ -1,5 +1,5 @@
 {
-   "name": "AxWidgetInformationWidget",
+   "name": "ax-widget-information-widget",
    "description": "The AxWidgetInformationWidget presents details of a widget or activity.",
 
    "integration": {
@@ -21,8 +21,9 @@
             "properties": {
                "resource": {
                   "type": "string",
-                  "description": "The topic of the resource with content of a widget.json.",
-                  "format": "topic"
+                  "format": "topic",
+                  "axRole": "inlet"  ,
+                  "description": "The topic of the resource with content of a widget.json."
                }
             }
          },
@@ -32,8 +33,9 @@
             "properties": {
                "resource": {
                   "type": "string",
-                  "description": "The topic of the resource with content of a bower.json.",
-                  "format": "topic"
+                  "format": "topic",
+                  "axRole": "inlet"  ,
+                  "description": "The topic of the resource with content of a bower.json."
                }
             }
          }

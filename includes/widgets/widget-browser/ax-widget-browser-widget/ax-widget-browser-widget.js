@@ -224,11 +224,7 @@ define( [
 
       function createList() {
          model.list = resources.list.widgets.map( function( widget ) {
-            var nameParts = widget.name.split( /[_-]/g );
-            nameParts = nameParts.map( function( word ) {
-               return word.substring( 0, 1 ).toUpperCase() + word.substring( 1 );
-            } );
-            var name = nameParts.join( '' );
+            var name = widget.name;
             var placeParameters = {};
             placeParameters[ $scope.features.select.parameter ] =  name;
             $scope.features.select.parameterList.forEach( function( parameter ) {

@@ -1,4 +1,4 @@
-# AxWidgetBrowserWidget
+# ax-widget-browser-widget
 The AxWidgetBrowserWidget displays a list of all widget and activities and lets the user select one.
 It publishes several resources with data about the selected widget.
 It gets the data from the location of the widget by assuming that the widget has the standard [LaxarJS widget files](https://github.com/LaxarJS/laxar/blob/master/docs/manuals/widgets_and_activities.md#widget-files).

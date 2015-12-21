@@ -8,10 +8,10 @@ define( [
    'laxar/laxar_testing',
    'angular-mocks',
    'jquery',
-   './fixtures',
-   'text!laxar-path-widgets/widget-browser/ax-widget-browser-widget/default.theme/ax-widget-browser-widget.html',
-   'json!laxar-path-widgets/widget-browser/ax-widget-browser-widget/widget.json',
-   'json!laxar-path-widgets/widget-browser/ax-widget-browser-widget/bower.json'
+   './data/fixtures',
+   'text!../default.theme/ax-widget-browser-widget.html',
+   'json!../widget.json',
+   'json!../spec/data/bower.json'
 ], function( widgetModule, ax, ngMocks, $, specData, widgetMarkup, widgetInformation, widgetBower ) {
    'use strict';
 
@@ -78,7 +78,6 @@ define( [
 
       function setup( features, onBeforeControllerCreationFunction, constructAbsoluteUrl  ) {
          testBed = ax.testing.portalMocksAngular.createControllerTestBed( 'widget-browser/ax-widget-browser-widget' );
-         testBed.useWidgetJson();
          testBed.injections = {
             axFlowService: {
                constructAbsoluteUrl: constructAbsoluteUrl
@@ -179,11 +178,11 @@ define( [
                expect( testBed.scope.model.selectedWidgetName ).toEqual( null );
                testBed.eventBusMock.publish( 'didNavigate._self', {
                   data: {
-                     widgetId: 'AxWidgetBrowserWidget'
+                     widgetId: 'ax-widget-browser-widget'
                   }
                } );
                jasmine.Clock.tick( 0 );
-               expect( testBed.scope.model.selectedWidgetName ).toEqual( 'AxWidgetBrowserWidget' );
+               expect( testBed.scope.model.selectedWidgetName ).toEqual( 'ax-widget-browser-widget' );
             } );
 
             //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -191,7 +190,7 @@ define( [
             it( 'the links in the widget list only have the not excluded parameters (R2.2)', function() {
                testBed.eventBusMock.publish( 'didNavigate._self', {
                   data: {
-                     widgetId: 'AxWidgetBrowserWidget',
+                     widgetId: 'ax-widget-browser-widget',
                      anchor: 'references',
                      userId: '03804',
                      processId: '73929'
@@ -213,7 +212,7 @@ define( [
                   jasmine.Clock.tick( 0 );
                   testBed.eventBusMock.publish( 'didNavigate._self', {
                      data: {
-                        widgetId: 'AxWidgetBrowserWidget'
+                        widgetId: 'ax-widget-browser-widget'
                      }
                   } );
                   jasmine.Clock.tick( 0 );
@@ -255,7 +254,7 @@ define( [
                jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'didNavigate._self', {
                   data: {
-                     widgetId: 'AxWidgetBrowserWidget'
+                     widgetId: 'ax-widget-browser-widget'
                   }
                } );
                jasmine.Clock.tick( 0 );
@@ -300,7 +299,7 @@ define( [
                jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'didNavigate._self', {
                   data: {
-                     widgetId: 'AxWidgetBrowserWidget'
+                     widgetId: 'ax-widget-browser-widget'
                   }
                } );
                jasmine.Clock.tick( 0 );
@@ -354,7 +353,7 @@ define( [
                jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'didNavigate._self', {
                   data: {
-                     widgetId: 'AxWidgetBrowserWidget'
+                     widgetId: 'ax-widget-browser-widget'
                   }
                } );
                jasmine.Clock.tick( 0 );
@@ -421,7 +420,7 @@ define( [
                jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'didNavigate._self', {
                   data: {
-                     widgetId: 'AxWidgetBrowserWidget'
+                     widgetId: 'ax-widget-browser-widget'
                   }
                } );
                jasmine.Clock.tick( 0 );
@@ -468,7 +467,7 @@ define( [
                jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'didNavigate._self', {
                   data: {
-                     widgetId: 'AxWidgetBrowserWidget'
+                     widgetId: 'ax-widget-browser-widget'
                   }
                } );
                jasmine.Clock.tick( 0 );
@@ -523,7 +522,7 @@ define( [
                jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'didNavigate._self', {
                   data: {
-                     widgetId: 'AxWidgetBrowserWidget'
+                     widgetId: 'ax-widget-browser-widget'
                   }
                } );
                jasmine.Clock.tick( 0 );
@@ -578,7 +577,7 @@ define( [
                jasmine.Clock.tick( 0 );
                testBed.eventBusMock.publish( 'didNavigate._self', {
                   data: {
-                     widgetId: 'AxWidgetBrowserWidget'
+                     widgetId: 'ax-widget-browser-widget'
                   }
                } );
                jasmine.Clock.tick( 0 );

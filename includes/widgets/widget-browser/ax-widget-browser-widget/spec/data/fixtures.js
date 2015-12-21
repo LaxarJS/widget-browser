@@ -38,75 +38,75 @@ define( {
    },
    'browserList': [
       {
-         name: 'AxHeadlineWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxHeadlineWidget',
+         name: 'ax-headline-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-headline-widget',
          specification: 'myIncludes/widgets/laxarjs/ax-headline-widget/widget.json'
       },
       {
-         name: 'AxMarkdownDisplayWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxMarkdownDisplayWidget',
+         name: 'ax-markdown-display-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-markdown-display-widget',
          specification: 'myIncludes/widgets/laxarjs/ax-markdown-display-widget/widget.json'
       },
       {
-         name: 'AxMediaWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxMediaWidget',
+         name: 'ax-media-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-media-widget',
          specification: 'myIncludes/widgets/laxarjs/ax-media-widget/widget.json'
       },
       {
-         name: 'AxMessagesWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxMessagesWidget',
+         name: 'ax-messages-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-messages-widget',
          specification: 'myIncludes/widgets/laxarjs/ax-messages-widget/widget.json'
       },
       {
-         name: 'AxWidgetBrowserWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxWidgetBrowserWidget',
+         name: 'ax-widget-browser-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-widget-browser-widget',
          specification: 'myIncludes/widgets/widget-browser/ax-widget-browser-widget/widget.json'
       },
       {
-         name: 'AxWidgetInformationWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxWidgetInformationWidget',
+         name: 'ax-widget-information-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-widget-information-widget',
          specification: 'myIncludes/widgets/laxarjs/ax-widget-information-widget/widget.json'
       },
       {
-         name: 'AxWidgetListingActivity',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxWidgetListingActivity',
+         name: 'ax-widget-listing-activity',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-widget-listing-activity',
          specification: 'myIncludes/widgets/laxarjs/ax-widget-listing-activity/widget.json'
       }
    ],
    'browserListWithParameters': [
       {
-         name: 'AxHeadlineWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxHeadlineWidget/73929',
+         name: 'ax-headline-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-headline-widget/73929',
          specification: 'myIncludes/widgets/laxarjs/ax-headline-widget/widget.json'
       },
       {
-         name: 'AxMarkdownDisplayWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxMarkdownDisplayWidget/73929',
+         name: 'ax-markdown-display-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-markdown-display-widget/73929',
          specification: 'myIncludes/widgets/laxarjs/ax-markdown-display-widget/widget.json'
       },
       {
-         name: 'AxMediaWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxMediaWidget/73929',
+         name: 'ax-media-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-media-widget/73929',
          specification: 'myIncludes/widgets/laxarjs/ax-media-widget/widget.json'
       },
       {
-         name: 'AxMessagesWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxMessagesWidget/73929',
+         name: 'ax-messages-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-messages-widget/73929',
          specification: 'myIncludes/widgets/laxarjs/ax-messages-widget/widget.json'
       },
       {
-         name: 'AxWidgetBrowserWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxWidgetBrowserWidget/73929',
+         name: 'ax-widget-browser-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-widget-browser-widget/73929',
          specification: 'myIncludes/widgets/widget-browser/ax-widget-browser-widget/widget.json'
       },
       {
-         name: 'AxWidgetInformationWidget',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxWidgetInformationWidget/73929',
+         name: 'ax-widget-information-widget',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-widget-information-widget/73929',
          specification: 'myIncludes/widgets/laxarjs/ax-widget-information-widget/widget.json'
       },
       {
-         name: 'AxWidgetListingActivity',
-         href: 'http://localhost:8000/index.html#/widgetBrowser/AxWidgetListingActivity/73929',
+         name: 'ax-widget-listing-activity',
+         href: 'http://localhost:8000/index.html#/widgetBrowser/ax-widget-listing-activity/73929',
          specification: 'myIncludes/widgets/laxarjs/ax-widget-listing-activity/widget.json'
       }
    ],
