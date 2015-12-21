@@ -58,6 +58,7 @@ define( [
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       function publishSelectedWidget() {
+
          if( !model.selectedWidgetName ) {
             return;
          }
@@ -230,6 +231,7 @@ define( [
             $scope.features.select.parameterList.forEach( function( parameter ) {
                placeParameters[ parameter ] =  '';
             } );
+            var lol = ax.object.deepClone(flowService);
             return {
                name: name,
                href: flowService.constructAbsoluteUrl( '_self', placeParameters ),

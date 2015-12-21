@@ -75,6 +75,11 @@ var require = {
       jasmine: 'jasmine/lib/jasmine-core/jasmine',
       q_mock: 'q_mock/q',
 
+      // LaxarJS Testing:
+      'laxar-mocks': 'laxar-mocks/dist/laxar-mocks',
+      jasmine2: 'jasmine2/lib/jasmine-core/jasmine',
+      'promise-polyfill': 'promise-polyfill/Promise',
+
       // LaxarJS Core Legacy:
       text: 'requirejs-plugins/lib/text',
       json: 'requirejs-plugins/src/json',
