@@ -3,6 +3,10 @@
    "version": "1.1.0-pre",
    "description": "List widgets from an other product.",
    "license": "MIT",
+   "repository" : {
+      "type": "git",
+      "url": "https://github.com/LaxarJS/widget-browser.git"
+   },
    "scripts": {
       "test": "grunt test --force",
       "prepublish": "bower install && grunt optimize",
