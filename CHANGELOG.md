@@ -3,6 +3,15 @@
 ## Last Changes
 
 
+## v1.1.0
+
+- [#25](https://github.com/LaxarJS/widget-browser/issues/25): updated widgets and dependencies
+- [#24](https://github.com/LaxarJS/widget-browser/issues/24): using laxar-mocks instead of laxar-testing now
+- [#23](https://github.com/LaxarJS/widget-browser/issues/23): expanded widget definitions and updated laxar and widgets
+- [#22](https://github.com/LaxarJS/widget-browser/issues/22): added Travis-CI build integration
+    + NEW FEATURE: see ticket for details
+
+
 ## v1.0.0
 
 - [#20](https://github.com/LaxarJS/widget-browser/issues/20): upgraded to LaxarJS v1.0.0 and fixed breaking changes

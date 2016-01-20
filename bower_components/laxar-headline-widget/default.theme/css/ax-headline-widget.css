@@ -1,0 +1,77 @@
+.ax-headline-widget h1,
+.ax-headline-widget h2,
+.ax-headline-widget h3,
+.ax-headline-widget h4,
+.ax-headline-widget h5,
+.ax-headline-widget h6,
+.ax-headline-widget .ax-local-wrapper-left {
+  display: table;
+}
+
+.ax-headline-widget h1 > div,
+.ax-headline-widget h2 > div,
+.ax-headline-widget h3 > div,
+.ax-headline-widget h4 > div,
+.ax-headline-widget h5 > div,
+.ax-headline-widget h6 > div,
+.ax-headline-widget .ax-local-wrapper-left > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.ax-headline-widget h1,
+.ax-headline-widget h2,
+.ax-headline-widget h3,
+.ax-headline-widget h4,
+.ax-headline-widget h5,
+.ax-headline-widget h6 {
+  width: 100%;
+}
+
+.ax-headline-widget h1 > div,
+.ax-headline-widget h2 > div,
+.ax-headline-widget h3 > div,
+.ax-headline-widget h4 > div,
+.ax-headline-widget h5 > div,
+.ax-headline-widget h6 > div,
+.ax-headline-widget .ax-local-wrapper-left > div {
+  vertical-align: middle;
+}
+
+.ax-headline-widget .btn {
+  margin-bottom: 0;
+}
+
+.ax-headline-widget .btn-link {
+  padding: 0;
+}
+
+.ax-headline-widget .ax-local-buttons-left .btn {
+  margin-right: 7px;
+}
+
+.ax-headline-widget .ax-local-buttons-right {
+  text-align: right;
+}
+
+.ax-headline-widget .ax-local-buttons-right .btn + .btn {
+  margin-left: 7px;
+}
+
+.ax-headline-widget .ax-local-intro-text {
+  color: #4d4d4d;
+}
+
+.ax-headline-widget h1 + .ax-local-intro-text,
+.ax-headline-widget h2 + .ax-local-intro-text,
+.ax-headline-widget h3 + .ax-local-intro-text {
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.ax-headline-widget h4 + .ax-local-intro-text,
+.ax-headline-widget h5 + .ax-local-intro-text,
+.ax-headline-widget h6 + .ax-local-intro-text {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}

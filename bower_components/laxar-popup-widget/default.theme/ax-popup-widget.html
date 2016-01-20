@@ -1,0 +1,23 @@
+<div class="modal-backdrop fade in"
+     data-ng-show="model.isOpen"
+     data-ng-click="model.handleBackdropClicked()"></div>
+
+<div data-ax-id="model.popupLayerId"
+     class="modal"
+     data-ng-class="{ 'ax-show-on-top': features.visibility.onTop, 'ax-popup': true, 'ax-is-omitted': !model.isOpen }"
+     data-ax-layer="model.layerConfiguration"
+     data-ax-layer-show="model.isOpen"
+     data-ng-click="model.handleBackdropClicked()">
+   <div class="modal-dialog">
+      <div class="modal-content"
+         data-ng-click="model.preventClosingPopup( $event )">
+         <button type="button"
+                 class="close"
+                 data-ng-click="model.handleCloseIconClicked()"
+                 data-ng-show="model.closeIconAvailable"
+            ><span aria-hidden="true">&times;</span></button>
+         <div class="ax-popup-body" data-ax-layout="model.layout"></div>
+      </div>
+   </div>
+</div>
+

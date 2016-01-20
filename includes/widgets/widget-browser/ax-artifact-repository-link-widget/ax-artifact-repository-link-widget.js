@@ -17,7 +17,6 @@ define( [
    Controller.$inject = [ '$scope' ];
 
    function Controller( $scope ) {
-
       $scope.resources = {
          display: null
       };

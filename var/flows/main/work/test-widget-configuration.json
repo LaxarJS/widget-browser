@@ -1,0 +1,17 @@
+{
+   "laxar-test-merge-results": {
+      "main": {
+         "src": [
+            "var/tests/bower_components/laxar-developer-tools-widget/test-results.xml",
+            "var/tests/bower_components/laxar-markdown-display-widget/test-results.xml",
+            "var/tests/bower_components/laxar-media-widget/test-results.xml",
+            "var/tests/bower_components/laxar-messages-widget/test-results.xml",
+            "var/tests/includes/widgets/widget-browser/ax-artifact-repository-link-widget/test-results.xml",
+            "var/tests/includes/widgets/widget-browser/ax-widget-browser-widget/test-results.xml",
+            "var/tests/includes/widgets/widget-browser/ax-widget-information-widget/test-results.xml",
+            "var/tests/includes/widgets/widget-browser/ax-widget-listing-activity/test-results.xml"
+         ],
+         "dest": "var/flows/main/tooling/test-results.xml"
+      }
+   }
+}

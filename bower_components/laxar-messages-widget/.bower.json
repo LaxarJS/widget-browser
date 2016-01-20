@@ -1,0 +1,27 @@
+{
+  "name": "laxar-messages-widget",
+  "version": "4.2.0",
+  "license": "MIT",
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/LaxarJS/ax-messages-widget.git"
+  },
+  "dependencies": {
+    "laxar": "~1.2.0",
+    "laxar-patterns": "~1.2.0",
+    "laxar-uikit": "~1.1.0"
+  },
+  "devDependencies": {
+    "laxar-mocks": "1.0.0"
+  },
+  "homepage": "https://github.com/LaxarJS/ax-messages-widget",
+  "_release": "4.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v4.2.0",
+    "commit": "193a1f6bd16c4346504179fe480dd73d21d614c4"
+  },
+  "_source": "git://github.com/LaxarJS/ax-messages-widget.git",
+  "_target": "~4.2.0",
+  "_originalSource": "laxar-messages-widget"
+}

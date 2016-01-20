@@ -4,66 +4,78 @@
  * http://laxarjs.org/license
  */
 define( [
-   '../ax-artifact-repository-link-widget',
-   'laxar/laxar_testing',
+   'json!../widget.json',
+   'laxar-mocks',
    './data/widget_bower_manifest'
-], function( widgetModule, ax, widgetBowerManifest ) {
+], function( descriptor, axMocks, widgetBowerManifest ) {
    'use strict';
 
-   describe( 'An AxArtifactRepositoryLinkWidget', function() {
+   describe( 'An ax-artifact-repository-link-widget', function() {
+      var widgetEventBus;
+      var widgetScope;
+      var testEventBus;
 
-      var testBed;
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      function setup( features ) {
-         testBed = ax.testing.portalMocksAngular.createControllerTestBed( 'widget-browser/ax-artifact-repository-link-widget' );
-         testBed.featuresMock = features;
+      function createSetup( widgetConfiguration ) {
 
-         testBed.useWidgetJson();
-         testBed.setup();
+         beforeEach( axMocks.createSetupForWidget( descriptor ) );
+
+         beforeEach( function() {
+            axMocks.widget.configure( widgetConfiguration );
+         } );
+
+         beforeEach( axMocks.widget.load );
+
+         beforeEach( function() {
+            widgetScope = axMocks.widget.$scope;
+            widgetEventBus = axMocks.widget.axEventBus;
+            testEventBus = axMocks.eventBus;
+            axMocks.triggerStartupEvents();
+            testEventBus.flush();
+         } );
       }
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       afterEach( function() {
-         testBed.tearDown();
+         axMocks.tearDown();
       } );
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       describe( 'with a configured feature display', function() {
 
-         beforeEach( function() {
-            setup( {
-               'display': {
-                  'resource': 'bowerResourceId'
-               }
-            } );
-            testBed.eventBusMock.publish( 'beginLifecycleRequest' );
-            jasmine.Clock.tick( 0 );
-         } );
+         var widgetConfiguration = {
+            'display': {
+               'resource': 'bowerResourceId'
+            }
+         };
+
+         createSetup( widgetConfiguration );
 
          /////////////////////////////////////////////////////////////////////////////////////////////////////
 
          it( 'acts as slave for the configured resource (R1.1)', function() {
-            expect( testBed.scope.eventBus.subscribe )
+            expect( widgetEventBus.subscribe )
                .toHaveBeenCalledWith( 'didReplace.bowerResourceId', jasmine.any( Function ) );
-            expect( testBed.scope.eventBus.subscribe )
+            expect( widgetEventBus.subscribe )
                .toHaveBeenCalledWith( 'didUpdate.bowerResourceId', jasmine.any( Function ) );
-            expect( testBed.scope.resources.display ).toBeNull();
+            expect( widgetScope.resources.display ).toBeNull();
 
-            testBed.eventBusMock.publish( 'didReplace.bowerResourceId', { resource: 'bowerResourceId', data: widgetBowerManifest } );
-            jasmine.Clock.tick( 0 );
+            testEventBus.publish( 'didReplace.bowerResourceId', { resource: 'bowerResourceId', data: widgetBowerManifest } );
+            testEventBus.flush();
 
-            expect( testBed.scope.resources.display ).not.toBeNull();
+            expect( widgetScope.resources.display ).not.toBeNull();
          } );
 
          /////////////////////////////////////////////////////////////////////////////////////////////////////
 
          it( 'gets the url of the artifact from the configured resource (R1.2)', function() {
-            testBed.eventBusMock.publish( 'didReplace.bowerResourceId', { resource: 'bowerResourceId', data: widgetBowerManifest } );
-            jasmine.Clock.tick( 0 );
+            testEventBus.publish( 'didReplace.bowerResourceId', { resource: 'bowerResourceId', data: widgetBowerManifest } );
+            testEventBus.flush();
 
-            expect( testBed.scope.resources.display.repository.url ).toEqual( widgetBowerManifest.repository.url );
+            expect( widgetScope.resources.display.repository.url ).toEqual( widgetBowerManifest.repository.url );
          } );
 
       } );
@@ -72,13 +84,19 @@ define( [
 
       describe( 'with a configured feature display and configured link text', function() {
 
+         var widgetConfiguration = {
+            'display': {
+               'resource': 'bowerResourceId',
+               'i18nHtmlText': 'Link to the repository'
+            }
+         };
+
+         createSetup( widgetConfiguration );
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
          it( 'allows to configure the link text (R1.3)', function() {
-            setup( {
-               'display': {
-                  'resource': 'bowerResourceId',
-                  'i18nHtmlText': 'Browse artifact repository'
-               }
-            } );
+           expect( widgetScope.features.display.i18nHtmlText ).toEqual( 'Link to the repository' );
          } );
       } );
    } );

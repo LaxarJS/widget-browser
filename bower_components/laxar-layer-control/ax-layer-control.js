@@ -16,6 +16,9 @@ define( [
 
    var assert = ax.assert;
    var directiveName = 'axLayer';
+   var waitAnimationsTimeout;
+   var checkSizeTimeout;
+   var hideElementOutsideTabTimeout;
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -46,6 +49,12 @@ define( [
             } );
 
             scope.$on( '$destroy', function() {
+               clearTimeout( waitAnimationsTimeout );
+               clearTimeout( checkSizeTimeout );
+               clearTimeout( hideElementOutsideTabTimeout );
+               $( window.document ).off( namespaced( 'keyup' ), escapeKeyHandler );
+               $( window.document ).off( namespaced( 'click' ), outsideClickHandler );
+
                try {
                   scope.layer.hide();
                }
@@ -246,7 +255,8 @@ define( [
 
          var newData = getResizingWatchData( self, $layer );
          if( newData.equalTo( watchData ) ) {
-            setTimeout( checkSize, CHECK_TIMEOUT );
+            clearTimeout( checkSizeTimeout );
+            checkSizeTimeout = setTimeout( checkSize, CHECK_TIMEOUT );
             return;
          }
 
@@ -256,7 +266,8 @@ define( [
             var newHeights = getResizingWatchData( self, $layer );
             if( !watchData.equalTo( newHeights ) ) {
                watchData = newHeights;
-               setTimeout( waitForAnimationsFinished, WAIT_TIMEOUT );
+               clearTimeout( waitAnimationsTimeout );
+               waitAnimationsTimeout = setTimeout( waitForAnimationsFinished, WAIT_TIMEOUT );
                return;
             }
             watchData = newHeights;
@@ -265,8 +276,8 @@ define( [
 
             checkSize();
          }
-
-         setTimeout( waitForAnimationsFinished, WAIT_TIMEOUT );
+         clearTimeout( waitAnimationsTimeout );
+         waitAnimationsTimeout = setTimeout( waitForAnimationsFinished, WAIT_TIMEOUT );
       }
 
       checkSize();
@@ -366,7 +377,8 @@ define( [
          }
 
          var currentActiveElement = document.activeElement;
-         setTimeout( function() {
+         clearTimeout( hideElementOutsideTabTimeout );
+         hideElementOutsideTabTimeout = setTimeout( function() {
             if( currentActiveElement === document.activeElement ) {
                // Firefox doesn't register, if the tab leads us to a control outside of the active document
                // (i.e. some control in firebug)

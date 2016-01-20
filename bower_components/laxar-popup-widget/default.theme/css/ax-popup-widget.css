@@ -1,0 +1,15 @@
+.ax-popup-widget .ax-show-on-top {
+   z-index: 2000;
+}
+.ax-popup-widget .modal-dialog {
+   padding-top: 30px;
+   padding-bottom: 30px;
+   margin-top: 0;
+   margin-bottom: 0;
+}
+.ax-popup-widget .modal-content > button.close {
+   top: 15px;
+   right: 15px;
+   z-index: 1;
+   position: absolute;
+}

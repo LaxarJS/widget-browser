@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+@import "variables_all";
+
+$ax-margin: 0 0 $ax-unit-vertical !default;
+$ax-btn-margin: $ax-unit-vertical 0 0 !default;
+
+.ax-command-bar-widget {
+   margin: $ax-margin;
+
+   width: 100%;
+   display: table;
+
+   .btn {
+      margin: $ax-btn-margin;
+   }
+
+   .btn-link {
+      padding-left: 0;
+      padding-right: 0;
+   }
+
+   .ax-local-left-area {
+      text-align: left;
+      padding-left: 0 !important;
+   }
+
+   .ax-local-center-area {
+      text-align: center;
+   }
+
+   .ax-local-right-area {
+      text-align: right;
+   }
+
+   .ax-local-horizontal {
+      display: table-cell !important;
+      float: none !important;
+
+      &.ax-local-left-area > .btn {
+         margin-right: $ax-unit-horizontal;
+
+         &:last-child {
+            margin-right: 0;
+         }
+      }
+      &.ax-local-center-area > .btn {
+         margin-left: $ax-unit-horizontal-half;
+         margin-right: $ax-unit-horizontal-half;
+      }
+      &.ax-local-right-area > .btn {
+         margin-left: $ax-unit-horizontal;
+
+         &:first-child {
+            margin-left: 0;
+         }
+      }
+   }
+
+   .ax-local-vertical {
+      > .btn {
+         display: block;
+      }
+
+      &.ax-local-center-area > .btn { margin-left: auto; margin-right: auto; }
+      &.ax-local-right-area  > .btn { margin-left: auto; }
+   }
+}

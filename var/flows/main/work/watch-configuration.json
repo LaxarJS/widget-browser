@@ -1,0 +1,142 @@
+{
+   "watch": {
+      "main-reload": {
+         "files": [
+            "application/flow/flow.json",
+            "includes/themes/cube.theme/css/theme.css",
+            "application/pages/widget-browser.json",
+            "includes/themes/cube.theme/layouts/application/css/application.css",
+            "application/layouts/application/cube.theme/css/application.css",
+            "application/layouts/application/default.theme/css/application.css",
+            "includes/themes/cube.theme/layouts/application/application.html",
+            "application/layouts/application/cube.theme/application.html",
+            "application/layouts/application/default.theme/application.html",
+            "includes/themes/cube.theme/widgets/ax-developer-tools-widget/ax-developer-tools-widget.html",
+            "includes/themes/cube.theme/widgets/ax-developer-tools-widget/css/ax-developer-tools-widget.css",
+            "includes/themes/cube.theme/widgets/ax-markdown-display-widget/ax-markdown-display-widget.html",
+            "includes/themes/cube.theme/widgets/ax-markdown-display-widget/css/ax-markdown-display-widget.css",
+            "includes/themes/cube.theme/widgets/ax-media-widget/ax-media-widget.html",
+            "includes/themes/cube.theme/widgets/ax-media-widget/css/ax-media-widget.css",
+            "includes/themes/cube.theme/widgets/ax-messages-widget/ax-messages-widget.html",
+            "includes/themes/cube.theme/widgets/ax-messages-widget/css/ax-messages-widget.css",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-artifact-repository-link-widget/ax-artifact-repository-link-widget.html",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-artifact-repository-link-widget/css/ax-artifact-repository-link-widget.css",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/widget.json",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/default.theme/ax-artifact-repository-link-widget.html",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/cube.theme/ax-artifact-repository-link-widget.html",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/default.theme/css/ax-artifact-repository-link-widget.css",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/cube.theme/css/ax-artifact-repository-link-widget.css",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/ax-artifact-repository-link-widget.js",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-widget-browser-widget/ax-widget-browser-widget.html",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-widget-browser-widget/css/ax-widget-browser-widget.css",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/widget.json",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/default.theme/ax-widget-browser-widget.html",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/cube.theme/ax-widget-browser-widget.html",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/default.theme/css/ax-widget-browser-widget.css",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/cube.theme/css/ax-widget-browser-widget.css",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/ax-widget-browser-widget.js",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-widget-information-widget/ax-widget-information-widget.html",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-widget-information-widget/css/ax-widget-information-widget.css",
+            "includes/widgets/widget-browser/ax-widget-information-widget/widget.json",
+            "includes/widgets/widget-browser/ax-widget-information-widget/default.theme/ax-widget-information-widget.html",
+            "includes/widgets/widget-browser/ax-widget-information-widget/cube.theme/ax-widget-information-widget.html",
+            "includes/widgets/widget-browser/ax-widget-information-widget/default.theme/css/ax-widget-information-widget.css",
+            "includes/widgets/widget-browser/ax-widget-information-widget/cube.theme/css/ax-widget-information-widget.css",
+            "includes/widgets/widget-browser/ax-widget-information-widget/ax-widget-information-widget.js",
+            "includes/widgets/widget-browser/ax-widget-listing-activity/widget.json",
+            "includes/widgets/widget-browser/ax-widget-listing-activity/ax-widget-listing-activity.js",
+            "includes/themes/cube.theme/controls/ax-i18n-control/css/ax-i18n-control.css"
+         ],
+         "event": [
+            "changed"
+         ]
+      },
+      "main-update": {
+         "files": [
+            "application/flow/*",
+            "includes/themes/cube.theme/css/*",
+            "application/pages/*",
+            "includes/themes/cube.theme/layouts/application/css/*",
+            "application/layouts/application/cube.theme/css/*",
+            "application/layouts/application/default.theme/css/*",
+            "includes/themes/cube.theme/layouts/application/*",
+            "application/layouts/application/cube.theme/*",
+            "application/layouts/application/default.theme/*",
+            "includes/themes/cube.theme/widgets/ax-developer-tools-widget/*",
+            "includes/themes/cube.theme/widgets/ax-developer-tools-widget/css/*",
+            "includes/themes/cube.theme/widgets/ax-markdown-display-widget/*",
+            "includes/themes/cube.theme/widgets/ax-markdown-display-widget/css/*",
+            "includes/themes/cube.theme/widgets/ax-media-widget/*",
+            "includes/themes/cube.theme/widgets/ax-media-widget/css/*",
+            "includes/themes/cube.theme/widgets/ax-messages-widget/*",
+            "includes/themes/cube.theme/widgets/ax-messages-widget/css/*",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-artifact-repository-link-widget/*",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-artifact-repository-link-widget/css/*",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/*",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/default.theme/*",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/cube.theme/*",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/default.theme/css/*",
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/cube.theme/css/*",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-widget-browser-widget/*",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-widget-browser-widget/css/*",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/*",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/default.theme/*",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/cube.theme/*",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/default.theme/css/*",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/cube.theme/css/*",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-widget-information-widget/*",
+            "includes/themes/cube.theme/widgets/widget-browser/ax-widget-information-widget/css/*",
+            "includes/widgets/widget-browser/ax-widget-information-widget/*",
+            "includes/widgets/widget-browser/ax-widget-information-widget/default.theme/*",
+            "includes/widgets/widget-browser/ax-widget-information-widget/cube.theme/*",
+            "includes/widgets/widget-browser/ax-widget-information-widget/default.theme/css/*",
+            "includes/widgets/widget-browser/ax-widget-information-widget/cube.theme/css/*",
+            "includes/widgets/widget-browser/ax-widget-listing-activity/*",
+            "includes/themes/cube.theme/controls/ax-i18n-control/css/*"
+         ],
+         "event": [
+            "changed"
+         ],
+         "tasks": [
+            "laxar-resources:main"
+         ],
+         "options": {
+            "event": [
+               "added",
+               "deleted"
+            ],
+            "spawn": false
+         }
+      },
+      "main-rebuild": {
+         "files": [
+            "application/flow/flow.json",
+            "application/pages/widget-browser.json"
+         ],
+         "tasks": [
+            "laxar-build:main"
+         ],
+         "options": {
+            "spawn": false
+         }
+      },
+      "main-merge-require-config": {
+         "files": [
+            "includes/widgets/widget-browser/ax-artifact-repository-link-widget/require_config.js",
+            "includes/widgets/widget-browser/ax-widget-browser-widget/require_config.js",
+            "includes/widgets/widget-browser/ax-widget-information-widget/require_config.js",
+            "includes/widgets/widget-browser/ax-widget-listing-activity/require_config.js",
+            "require_config.js"
+         ],
+         "event": [
+            "changed"
+         ],
+         "tasks": [
+            "laxar-merge-require-config:main"
+         ],
+         "options": {
+            "spawn": false
+         }
+      }
+   }
+}

@@ -1,0 +1,58 @@
+/**
+ * Copyright 2015 aixigo AG
+ * Released under the MIT license.
+ * http://laxarjs.org/license
+ */
+@charset "UTF-8";
+
+.ax-messages-widget .close:after {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ax-messages-widget .alert {
+  padding: 10px 43px 10px 13px;
+}
+
+.ax-messages-widget .close {
+  color: inherit;
+  position: relative;
+  margin-top: -3px;
+  margin-right: -21px;
+}
+
+.ax-messages-widget .close:after {
+  content: "\f00d";
+}
+
+.ax-messages-widget .ax-local-without-frame {
+  margin-bottom: 20px;
+}
+
+.ax-messages-widget .ax-local-list > li {
+  margin-bottom: 10px;
+}
+
+.ax-messages-widget .ax-local-flat-list > li {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.ax-messages-widget .ax-local-flat {
+  background-color: #eeeeee;
+  border: 1px solid #999999;
+}
+
+.ax-messages-widget .ax-local-separate .alert {
+  padding-left: 40px;
+}
+
+.ax-messages-widget li:last-child {
+  margin-bottom: 0;
+}

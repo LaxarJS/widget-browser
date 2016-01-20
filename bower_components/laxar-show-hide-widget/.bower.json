@@ -1,0 +1,27 @@
+{
+  "name": "laxar-show-hide-widget",
+  "version": "2.3.0",
+  "license": "MIT",
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/LaxarJS/ax-show-hide-widget.git"
+  },
+  "dependencies": {
+    "laxar": "~1.2.0",
+    "laxar-patterns": "~1.2.0",
+    "laxar-uikit": "~1.1.0"
+  },
+  "devDependencies": {
+    "laxar-mocks": "1.0.0"
+  },
+  "homepage": "https://github.com/LaxarJS/ax-show-hide-widget",
+  "_release": "2.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.3.0",
+    "commit": "56b76deab49a22c647da2b5be7d9a9cebabdd8e1"
+  },
+  "_source": "git://github.com/LaxarJS/ax-show-hide-widget.git",
+  "_target": "^2.3.0",
+  "_originalSource": "laxar-show-hide-widget"
+}

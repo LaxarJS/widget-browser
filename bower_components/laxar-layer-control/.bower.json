@@ -1,6 +1,6 @@
 {
   "name": "laxar-layer-control",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A layer with stacking and focus-handling as an AngularJS directive, for LaxarJS widgets.",
   "authors": [],
   "license": "MIT",
@@ -17,11 +17,11 @@
     "laxar": "^1.0.0"
   },
   "homepage": "https://github.com/LaxarJS/ax-layer-control",
-  "_release": "1.0.0",
+  "_release": "1.0.2",
   "_resolution": {
     "type": "version",
-    "tag": "v1.0.0",
-    "commit": "efc4575b7103d442dc2d47c461a26adf7418adc7"
+    "tag": "v1.0.2",
+    "commit": "2ce64939aedf82ad438eb9a990a8b3613240fb6a"
   },
   "_source": "git://github.com/LaxarJS/ax-layer-control.git",
   "_target": "^1.0.0",

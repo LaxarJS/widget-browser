@@ -1,15 +1,16 @@
 /**
  * Copyright 2015 aixigo AG
  * Released under the MIT license.
- * http://laxarjs.org/license
+ * http://www.laxarjs.org
  */
 ( function( global ) {
    'use strict';
    global.laxarSpec = {
-      title: 'AxWidgetInformationWidget Specification',
+      title: 'ax-widget-information-widget Specification',
       tests: [
          'ax-widget-information-widget.spec'
       ],
-      requireConfig: {}
+      testRunner: 'laxar-mocks',
+      jasmineMajorVersion: 2
    };
 } )( this );

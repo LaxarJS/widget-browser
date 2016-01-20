@@ -1,0 +1,11 @@
+<div data-ax-accordion="{ header: '> div > div:first-child', heightStyle: 'content' }"
+     data-ax-accordion-on-before-activate="model.onBeforeActivate( index )"
+     data-ax-accordion-selected-panel="model.selectedPanel">
+
+   <div data-ng-repeat="panel in model.panels"
+        class="ax-accordion-group">
+      <div data-ng-class="panel.classes" data-ng-bind-html="panel.htmlLabel"></div>
+      <div data-ax-widget-area
+           data-ax-widget-area-binding="panel.areaName"></div>
+   </div>
+</div>

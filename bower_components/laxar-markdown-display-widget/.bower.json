@@ -1,0 +1,30 @@
+{
+  "name": "laxar-markdown-display-widget",
+  "version": "2.3.0",
+  "license": "MIT",
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/LaxarJS/ax-markdown-display-widget.git"
+  },
+  "dependencies": {
+    "laxar": "~1.2.0",
+    "laxar-patterns": "~1.2.0",
+    "laxar-uikit": "~1.1.0",
+    "jquery": "jquery/jquery#^1.11.x",
+    "marked": "chjj/marked#^0.3.x",
+    "URIjs": "medialize/URI.js#^1.14.1"
+  },
+  "devDependencies": {
+    "laxar-mocks": "1.0.0"
+  },
+  "homepage": "https://github.com/LaxarJS/ax-markdown-display-widget",
+  "_release": "2.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.3.0",
+    "commit": "d405443d364c58b50e6211467f3271d0d6a699ce"
+  },
+  "_source": "git://github.com/LaxarJS/ax-markdown-display-widget.git",
+  "_target": "~2.3.0",
+  "_originalSource": "laxar-markdown-display-widget"
+}

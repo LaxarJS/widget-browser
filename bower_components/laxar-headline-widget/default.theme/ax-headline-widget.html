@@ -1,0 +1,89 @@
+<h1 data-ng-if="features.headline.i18nHtmlText && model.level == 1">
+   <div>
+      <div class="ax-local-wrapper-left">
+         <div class="ax-local-buttons-left"
+              data-ax-button-list="model.areas.left"
+              data-ax-button-list-click="handleButtonClicked( button )"></div>
+         <div class="ax-local-text"
+              data-ng-bind-html="features.headline.i18nHtmlText | axLocalize:i18n"></div>
+      </div>
+   </div>
+   <div class="ax-local-buttons-right"
+        data-ax-button-list="model.areas.right"
+        data-ax-button-list-click="handleButtonClicked( button )"></div>
+</h1>
+<h2 data-ng-if="features.headline.i18nHtmlText && model.level == 2">
+   <div>
+      <div class="ax-local-wrapper-left">
+         <div class="ax-local-buttons-left"
+              data-ax-button-list="model.areas.left"
+              data-ax-button-list-click="handleButtonClicked( button )"></div>
+         <div class="ax-local-text"
+              data-ng-bind-html="features.headline.i18nHtmlText | axLocalize:i18n"></div>
+      </div>
+   </div>
+   <div class="ax-local-buttons-right"
+        data-ax-button-list="model.areas.right"
+        data-ax-button-list-click="handleButtonClicked( button )"></div>
+</h2>
+<h3 data-ng-if="features.headline.i18nHtmlText && model.level == 3">
+   <div>
+      <div class="ax-local-wrapper-left">
+         <div class="ax-local-buttons-left"
+              data-ax-button-list="model.areas.left"
+              data-ax-button-list-click="handleButtonClicked( button )"></div>
+         <div class="ax-local-text"
+              data-ng-bind-html="features.headline.i18nHtmlText | axLocalize:i18n"></div>
+      </div>
+   </div>
+   <div class="ax-local-buttons-right"
+        data-ax-button-list="model.areas.right"
+        data-ax-button-list-click="handleButtonClicked( button )"></div>
+</div>
+</h3>
+<h4 data-ng-if="features.headline.i18nHtmlText && model.level == 4">
+   <div>
+      <div class="ax-local-wrapper-left">
+         <div class="ax-local-buttons-left"
+              data-ax-button-list="model.areas.left"
+              data-ax-button-list-click="handleButtonClicked( button )"></div>
+         <div class="ax-local-text"
+              data-ng-bind-html="features.headline.i18nHtmlText | axLocalize:i18n"></div>
+      </div>
+   </div>
+   <div class="ax-local-buttons-right"
+        data-ax-button-list="model.areas.right"
+        data-ax-button-list-click="handleButtonClicked( button )"></div>
+</h4>
+<h5 data-ng-if="features.headline.i18nHtmlText && model.level == 5">
+   <div>
+      <div class="ax-local-wrapper-left">
+         <div class="ax-local-buttons-left"
+              data-ax-button-list="model.areas.left"
+              data-ax-button-list-click="handleButtonClicked( button )"></div>
+         <div class="ax-local-text"
+              data-ng-bind-html="features.headline.i18nHtmlText | axLocalize:i18n"></div>
+      </div>
+   </div>
+   <div class="ax-local-buttons-right"
+        data-ax-button-list="model.areas.right"
+        data-ax-button-list-click="handleButtonClicked( button )"></div>
+</h5>
+<h6 data-ng-if="features.headline.i18nHtmlText && model.level == 6">
+   <div>
+      <div class="ax-local-wrapper-left">
+         <div class="ax-local-buttons-left"
+              data-ax-button-list="model.areas.left"
+              data-ax-button-list-click="handleButtonClicked( button )"></div>
+         <div class="ax-local-text"
+              data-ng-bind-html="features.headline.i18nHtmlText | axLocalize:i18n"></div>
+      </div>
+   </div>
+   <div class="ax-local-buttons-right"
+        data-ax-button-list="model.areas.right"
+        data-ax-button-list-click="handleButtonClicked( button )"></div>
+</h6>
+
+<div data-ng-if="features.intro.i18nHtmlText"
+     data-ng-bind-html="features.intro.i18nHtmlText | axLocalize:i18n"
+     class="ax-local-intro-text"></div>

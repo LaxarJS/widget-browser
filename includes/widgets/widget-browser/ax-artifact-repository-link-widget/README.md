@@ -1,4 +1,4 @@
-# AxArtifactRepositoryLinkWidget
+# ax-artifact-repository-link-widget
 The AxArtifactRepositoryLinkWidget displays a link to a repository of a bower artifact.
 The name of the artifact and the URL to the repository are received by the widget through a resource.
 The resource contains the bower manifest (`bower.json`) of the artifact.
