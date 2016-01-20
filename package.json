@@ -19,7 +19,7 @@
       "grunt": "~0.4.4",
       "grunt-cli": "^0.1.13",
       "grunt-contrib-compress": "~0.7.0",
-      "grunt-laxar": "1.1.0",
-      "grunt-laxar-compass": "0.3.0"
+      "grunt-laxar": "~1.1.0",
+      "grunt-laxar-compass": "~0.3.0"
    }
 }

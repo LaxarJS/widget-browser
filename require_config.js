@@ -61,37 +61,26 @@ var require = {
       }
    ],
    paths: {
+
       // LaxarJS Core:
       requirejs: 'requirejs/require',
-      jquery: 'jquery/dist/jquery',
-      angular: 'angular/angular',
-      'angular-mocks': 'angular-mocks/angular-mocks',
-      'angular-route': 'angular-route/angular-route',
-      'angular-sanitize': 'angular-sanitize/angular-sanitize',
-      jjv: 'jjv/lib/jjv',
-      jjve: 'jjve/jjve',
+      text: 'requirejs-plugins/lib/text',
+      json: 'requirejs-plugins/src/json',
 
-      // LaxarJS Core Testing:
-      jasmine: 'jasmine/lib/jasmine-core/jasmine',
-      q_mock: 'q_mock/q',
+      'laxar': 'laxar/dist/laxar.with-deps',
+      'laxar-patterns': 'laxar-patterns/dist/laxar-patterns',
+      'laxar-uikit': 'laxar-uikit/dist/laxar-uikit',
+      'laxar-uikit/controls': 'laxar-uikit/dist/controls',
+      'laxar-path-default-theme': 'laxar-uikit/dist/themes/default.theme',
 
       // LaxarJS Testing:
       'laxar-mocks': 'laxar-mocks/dist/laxar-mocks',
       jasmine2: 'jasmine2/lib/jasmine-core/jasmine',
       'promise-polyfill': 'promise-polyfill/Promise',
-
-      // LaxarJS Core Legacy:
-      text: 'requirejs-plugins/lib/text',
-      json: 'requirejs-plugins/src/json',
+      jquery: 'jquery/dist/jquery',
 
       // LaxarJS Patterns:
       'json-patch': 'fast-json-patch/src/json-patch-duplex',
-
-      // LaxarJS UIKit:
-      jquery_ui: 'jquery_ui/ui',
-      'bootstrap-tooltip': 'bootstrap-sass-official/assets/javascripts/bootstrap/tooltip',
-      'bootstrap-affix': 'bootstrap-sass-official/assets/javascripts/bootstrap/affix',
-      trunk8: 'trunk8/trunk8',
 
       // App Parts:
       'laxar-path-root': '..',
@@ -101,14 +90,11 @@ var require = {
       'laxar-path-themes': '../includes/themes',
       'laxar-path-flow': '../application/flow/flow.json',
 
-      'laxar-application-dependencies': '../var/static/laxar_application_dependencies',
-
-      'laxar': 'laxar/dist/laxar',
-      'laxar/laxar_testing': 'laxar/dist/laxar_testing',
-      'laxar-patterns': 'laxar-patterns/dist/laxar-patterns',
-      'laxar-uikit': 'laxar-uikit/dist/laxar-uikit',
-      'laxar-uikit/controls': 'laxar-uikit/dist/controls',
-      'laxar-path-default-theme': 'laxar-uikit/dist/themes/default.theme',
+      // AngularJS:
+      angular: 'angular/angular',
+      'angular-mocks': 'angular-mocks/angular-mocks',
+      'angular-route': 'angular-route/angular-route',
+      'angular-sanitize': 'angular-sanitize/angular-sanitize',
 
       // Widgets:
       underscore: 'underscore/underscore'
