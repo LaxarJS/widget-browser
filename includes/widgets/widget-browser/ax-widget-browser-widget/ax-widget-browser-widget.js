@@ -207,7 +207,7 @@ define( [
 
       function publishTestRunnerResource( testRunnerResourceName, widget ) {
          var url = widget.specification.split( '/' );
-         url[ url.length - 1 ] = 'spec/spec_runner.html';
+         url[ url.length - 1 ] = 'spec/spec_runner.html?folderDepth=' + url.length;
          url = url.join( '/' );
          $scope.eventBus.publish( 'didReplace.' + testRunnerResourceName, {
             resource: testRunnerResourceName,

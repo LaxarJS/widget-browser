@@ -3,6 +3,11 @@
 ## Last Changes
 
 
+## v1.1.1
+
+- [#26](https://github.com/LaxarJS/widget-browser/issues/26): widgets: fix generated url of spec test
+
+
 ## v1.1.0
 
 - [#25](https://github.com/LaxarJS/widget-browser/issues/25): updated widgets and dependencies
