@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+- [#26](https://github.com/LaxarJS/widget-browser/issues/26): widgets: fix generated url of spec test
+
 
 ## v1.1.0
 
