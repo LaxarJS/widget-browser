@@ -3,6 +3,11 @@
 ## Last Changes
 
 
+## v3.2.1
+
+- [#19](https://github.com/LaxarJS/ax-popup-widget/issues/19): fix headline of readme
+
+
 ## v3.2.0
 
 - [#18](https://github.com/LaxarJS/ax-popup-widget/issues/18): Use laxar-mocks instead of laxar-testing now
