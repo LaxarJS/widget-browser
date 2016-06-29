@@ -19,14 +19,16 @@
     "laxar-accordion-control": "^1.0.0",
     "laxar-button-list-control": "^1.0.0",
     "laxar-layer-control": "^1.0.0",
-    "laxar-developer-tools-widget": "~2.0.2",
     "laxar-accordion-widget": "^2.4.0",
     "laxar-command-bar-widget": "^2.4.0",
+    "laxar-details-layer-widget": "^1.1.2",
+    "laxar-developer-tools-widget": "^2.0.2",
     "laxar-headline-widget": "^3.4.0",
     "laxar-html-display-widget": "^2.3.0",
-    "laxar-markdown-display-widget": "~2.3.0",
-    "laxar-media-widget": "~2.3.0",
-    "laxar-messages-widget": "~4.2.0",
+    "laxar-log-activity": "^3.0.0",
+    "laxar-markdown-display-widget": "^2.3.0",
+    "laxar-media-widget": "^2.3.0",
+    "laxar-messages-widget": "^4.2.0",
     "laxar-popup-widget": "^3.2.0",
     "laxar-show-hide-widget": "^2.3.0"
   },
@@ -34,5 +36,8 @@
     "es5-shim": "es-shims/es5-shim#^2.3.x",
     "jasmine2": "jasmine#2.3.x",
     "laxar-mocks": "~1.0.0"
+  },
+  "resolutions": {
+    "moment": "2.9.x"
   }
 }

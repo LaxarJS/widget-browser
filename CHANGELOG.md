@@ -2,6 +2,9 @@
 
 ## Last Changes
 
+- [#29](https://github.com/LaxarJS/widget-browser/issues/29): widgets: updated widgets
+- [#28](https://github.com/LaxarJS/widget-browser/issues/28): widgets: added laxar-log-activity
+- [#27](https://github.com/LaxarJS/widget-browser/issues/27): widgets: added laxar-details-layer-widget
 - [#26](https://github.com/LaxarJS/widget-browser/issues/26): widgets: fix generated url of spec test
 
 
