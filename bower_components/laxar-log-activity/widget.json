@@ -1,0 +1,58 @@
+{
+   "name": "ax-log-activity",
+   "description": "Collects and sends log messages to a configured service.",
+
+   "integration": {
+      "technology": "plain",
+      "type": "activity"
+   },
+
+   "features": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+
+         "logging": {
+            "type": "object",
+            "description": "Specifies if and how log messages should be collected and sent.",
+            "properties": {
+
+               "enabled": {
+                  "type": "boolean",
+                  "description": "Tells if log processing should be performed at all.",
+                  "default": true
+               },
+
+               "requestPolicy": {
+                  "type": "string",
+                  "description": "Specifies if the messages are pushed as an array or each message on its own",
+                  "enum": [ "BATCH", "PER_MESSAGE" ],
+                  "default": "BATCH"
+               },
+
+               "threshold": {
+                  "type": "object",
+                  "description": "Specifies how often to publish collected log messages.",
+                  "default": {
+                     "seconds": 120,
+                     "messages": 100
+                  },
+                  "properties": {
+                     "seconds": {
+                        "type": "integer",
+                        "description": "The maximum number of seconds to keep log messages before publishing them.",
+                        "default": 120
+                     },
+                     "messages": {
+                        "type": "integer",
+                        "description": "The maximum number of log messages to gather before publishing them.",
+                        "default": 100
+                     }
+                  }
+               }
+            }
+         }
+
+      }
+   }
+}

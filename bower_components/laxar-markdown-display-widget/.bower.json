@@ -24,7 +24,7 @@
     "tag": "v2.3.0",
     "commit": "d405443d364c58b50e6211467f3271d0d6a699ce"
   },
-  "_source": "git://github.com/LaxarJS/ax-markdown-display-widget.git",
-  "_target": "~2.3.0",
+  "_source": "https://github.com/LaxarJS/ax-markdown-display-widget.git",
+  "_target": "^2.3.0",
   "_originalSource": "laxar-markdown-display-widget"
 }

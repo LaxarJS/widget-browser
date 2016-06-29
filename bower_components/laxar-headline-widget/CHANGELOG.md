@@ -3,6 +3,11 @@
 ## Last Changes
 
 
+## v3.5.0
+
+- [#13](https://github.com/LaxarJS/ax-headline-widget/issues/13): performance: one-time-bind feature configuration
+
+
 ## v3.4.0
 
 - [#12](https://github.com/LaxarJS/ax-headline-widget/issues/12): Use laxar-mocks instead of laxar-testing now

@@ -1,0 +1,130 @@
+{
+   "name": "ax-details-layer-widget",
+   "description": "Displays a simple details layer, growing from a source element with animation to its full size.",
+
+   "integration": {
+      "technology": "angular",
+      "type": "widget"
+   },
+
+   "features": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+
+         "area": {
+            "type": "object",
+            "properties": {
+               "name": {
+                  "type": "string",
+                  "format": "topic",
+                  "default": "content",
+                  "description": "Name of the area to offer for contents."
+               }
+            }
+         },
+
+         "open": {
+            "type": "object",
+            "description": "Open the details layer upon action request.",
+            "properties": {
+               "onActions": {
+                  "type": "array",
+                  "description": "Names of the actions that trigger opening of the details layer.",
+                  "items": {
+                     "type": "string",
+                     "format": "topic",
+                     "axRole": "inlet"
+                  },
+                  "default": []
+               },
+
+               "resetPosition": {
+                  "type": "boolean",
+                  "default": true,
+                  "description": "If true (default) the popup content will be scrolled to top when opened."
+               }
+            }
+         },
+
+         "close": {
+            "type": "object",
+            "description": "Close the details layer upon action request.",
+            "properties": {
+               "onActions": {
+                  "type": "array",
+                  "description": "Names of the actions that trigger closing of the details layer.",
+                  "items": {
+                     "type": "string",
+                     "format": "topic",
+                     "axRole": "inlet"
+                  },
+                  "default": []
+               }
+            }
+         },
+
+         "closeIcon": {
+            "type": "object",
+            "description": "Allow the user to close the details layer using an icon or the escape key.",
+            "properties": {
+               "enabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "If true the popup is closed when escape key or the close icon is pressed."
+               }
+            }
+         },
+
+         "animateFrom": {
+            "type": "object",
+            "description": "Configuration for the animation source.",
+            "properties": {
+               "activeElement": {
+                  "type": "boolean",
+                  "default": true,
+                  "description": "If true the layer will grow from the current active element when the event is received."
+               },
+               "actionSelectorPath": {
+                  "type": "string",
+                  "default": null,
+                  "description": "JSON path to the action event property to interpret as css selector to animate from."
+               }
+            }
+         },
+
+         "navigation": {
+            "type": "object",
+            "description": "Specify a parameter name and value to enable URL representation of this layer's visiblity state",
+            "properties": {
+               "parameterName": {
+                  "type": "string",
+                  "description": "Place parameter to use for indicating the currently visible details"
+               },
+
+               "parameterValue": {
+                  "type": "string",
+                  "description": "Parameter value associated with opening this details layer instance."
+               }
+            }
+         },
+
+         "logTag": {
+            "type": "object",
+            "description": "Configuration for a log tag to set while the layer is opened",
+            "properties": {
+               "name": {
+                  "type": "string",
+                  "description": "Name of the log tag. Should be four upper case letters."
+               },
+
+               "value": {
+                  "type": "string",
+                  "description": "Value for the log tag."
+               }
+            }
+         }
+
+      }
+   }
+}

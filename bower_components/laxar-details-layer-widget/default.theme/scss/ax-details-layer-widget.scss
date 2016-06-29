@@ -1,0 +1,45 @@
+/**
+ * Copyright 2015 aixigo AG
+ * Released under the MIT license
+ * www.laxarjs.org
+ */
+@charset "UTF-8";
+
+.ax-details-layer-widget {
+
+   .ax-details-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+
+      opacity: 1;
+      background-color: white;
+
+      transform-origin: top left;
+
+      &.ax-details-layer-with-source-animation {
+         transition: all 500ms ease-in-out;
+         transition-property: top, left, height, transform, opacity;
+      }
+   }
+
+   .ax-details-layer-close-button {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      cursor: pointer;
+   }
+
+   .ax-details-layer-content {
+      position: relative;
+      top: 80px;
+      z-index: 1002;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: calc(100% - 80px);
+      width: 100%;
+   }
+
+}

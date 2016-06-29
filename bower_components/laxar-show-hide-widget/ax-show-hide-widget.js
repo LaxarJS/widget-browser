@@ -32,8 +32,8 @@ define( [
 
       patterns.visibility.handlerFor( $scope, {
          // set nested area visibility depending on the `areaShowing` state and on our own visibility
-         onAnyAreaRequest: function() {
-            return $scope.isVisible && ( $scope.model.areaShowing || $scope.model.areaLoading );
+         onAnyAreaRequest: function( event ) {
+            return event.visible && ( $scope.model.areaShowing || $scope.model.areaLoading );
          }
       } );
 

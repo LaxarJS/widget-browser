@@ -1,0 +1,17 @@
+{
+   "name": "laxar-log-activity",
+   "version": "3.0.0",
+   "license": "MIT",
+   "repository": {
+      "type": "https",
+      "url": "https://github.com/LaxarJS/ax-log-acitity.git"
+   },
+   "dependencies": {
+      "laxar": "~1.2.0",
+      "moment": "moment#2.3.x",
+      "jquery": "jquery#1.11.x"
+   },
+   "devDependencies": {
+      "laxar-mocks": "1.0.0"
+   }
+}

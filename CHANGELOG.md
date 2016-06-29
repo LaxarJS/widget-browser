@@ -2,9 +2,16 @@
 
 ## Last Changes
 
+## v1.2.1
 
-## v1.1.1
+- [#30](https://github.com/LaxarJS/widget-browser/issues/30): fixed version number in theme
 
+
+## v1.2.0
+
+- [#29](https://github.com/LaxarJS/widget-browser/issues/29): widgets: updated widgets
+- [#28](https://github.com/LaxarJS/widget-browser/issues/28): widgets: added laxar-log-activity
+- [#27](https://github.com/LaxarJS/widget-browser/issues/27): widgets: added laxar-details-layer-widget
 - [#26](https://github.com/LaxarJS/widget-browser/issues/26): widgets: fix generated url of spec test
 
 

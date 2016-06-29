@@ -294,9 +294,9 @@ define( [
                      area: 'testArea',
                      visible: false
                   } );
-                  testEventBus.publish( 'changeAreaVisibilityRequest.testWidget.content.true', {
+                  testEventBus.publish( 'changeAreaVisibilityRequest.testWidget.content.false', {
                      area: 'testWidget.content',
-                     visible: true
+                     visible: false
                   } );
                   testEventBus.flush();
                } );

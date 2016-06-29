@@ -21,7 +21,7 @@
     "tag": "v2.0.3",
     "commit": "7147bc3d2a1bcf1f2ca6e9e2ea9b24614c85ce26"
   },
-  "_source": "git://github.com/LaxarJS/ax-developer-tools-widget.git",
-  "_target": "~2.0.2",
+  "_source": "https://github.com/LaxarJS/ax-developer-tools-widget.git",
+  "_target": "^2.0.2",
   "_originalSource": "laxar-developer-tools-widget"
 }

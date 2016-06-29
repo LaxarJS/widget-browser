@@ -22,7 +22,7 @@
     "tag": "v2.3.0",
     "commit": "a65aa4f702aee5e5ea5cd66e7b1301810ca99a42"
   },
-  "_source": "git://github.com/LaxarJS/ax-media-widget.git",
-  "_target": "~2.3.0",
+  "_source": "https://github.com/LaxarJS/ax-media-widget.git",
+  "_target": "^2.3.0",
   "_originalSource": "laxar-media-widget"
 }

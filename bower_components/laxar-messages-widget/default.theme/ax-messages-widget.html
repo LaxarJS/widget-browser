@@ -1,6 +1,6 @@
 <div data-ax-messages-auto-scroll
      data-ng-if="model.messagesForView.length > 0"
-     data-ng-switch="model.messageViewType">
+     data-ng-switch=":: model.messageViewType">
 
    <!--- Flat messages array without frame -->
    <ul data-ng-switch-when="list"
@@ -19,7 +19,7 @@
       <button type="button"
               class="close"
               data-ng-click="actions.hideAllMessages()"
-              data-ng-show="features.dismiss.enabled"></button>
+              data-ng-show=":: features.dismiss.enabled"></button>
       <ul class="ax-local-list ax-local-flat-list"
           data-ng-class="{'ax-last': $last}">
          <li data-ng-repeat="message in model.messagesForView"
@@ -38,7 +38,7 @@
          <button type="button"
                  class="close"
                  data-ng-click="actions.hideMessagesByLevel( level )"
-                 data-ng-show="features.dismiss.enabled"></button>
+                 data-ng-show=":: features.dismiss.enabled"></button>
 
          <ul class="ax-local-list">
             <li data-ng-repeat="message in model.messagesForViewByLevel[ level ]">
@@ -56,7 +56,7 @@
          <button type="button"
                  class="close"
                  data-ng-click="actions.hideMessage( message )"
-                 data-ng-show="features.dismiss.enabled"></button>
+                 data-ng-show=":: features.dismiss.enabled"></button>
          <div data-ng-bind-html="message.htmlText"></div>
       </div>
    </div>

@@ -3,7 +3,13 @@
 ## Last Changes
 
 
+## v4.3.0
+
+- [#15](https://github.com/LaxarJS/ax-messages-widget/issues/15): performance: one-time-bind feature configuration
+
+
 ## v4.2.0
+
 - [#14](https://github.com/LaxarJS/ax-messages-widget/issues/14): Use laxar-mocks instead of laxar-testing now
 
 

@@ -297,6 +297,12 @@ define( [
 
          /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+         it( 'sets the active class of the initially opened panel', function() {
+            expect( widgetScope.model.panels[ 0 ].classes.active ).toBe( true );
+         } );
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
          it( 'the selected tab is highlighted (R1.14)', function() {
             widgetScope.model.onBeforeActivate( 0 );
              testEventBus.flush();
@@ -319,6 +325,33 @@ define( [
              testEventBus.flush();
             expect( widgetScope.model.onBeforeActivate( 1 ) ).toBe( true );
          } );
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+         describe( 'when set to visible', function() {
+
+            beforeEach( function() {
+               var widgetArea = widgetScope.widget.area;
+               testEventBus.publish( 'didChangeAreaVisibility.' + widgetArea + '.true', {
+                  area: widgetArea,
+                  visible: true
+               } );
+               testEventBus.flush();
+            } );
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            it( 'requests change of the visibility state for the initially visible area (#14)', function() {
+               var area = widgetScope.widget.id + '.firstArea';
+               expect( widgetEventBus.publishAndGatherReplies )
+                  .toHaveBeenCalledWith( 'changeAreaVisibilityRequest.' + area + '.true', {
+                     area: area,
+                     visible: true
+                  }, { deliverToSender: false } );
+            } );
+
+         } );
+
       } );
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////

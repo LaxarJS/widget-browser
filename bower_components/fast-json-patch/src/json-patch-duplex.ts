@@ -1,36 +1,25 @@
 /*!
  * https://github.com/Starcounter-Jack/JSON-Patch
- * json-patch-duplex.js version: 0.5.6
+ * json-patch-duplex.js version: 0.5.7
  * (c) 2013 Joachim Wester
  * MIT license
  */
 
-interface Object {
-  observe : any;
-  deliverChangeRecords : any;
-  unobserve : any;
-  setPrototypeOf : any;
+interface HTMLElement {
+  attachEvent : Function;
+  detachEvent : Function;
 }
+
 
 var OriginalError = Error;
 
 module jsonpatch {
-  /* Do nothing if module is already defined.
-     Doesn't look nice, as we cannot simply put
-     `!jsonpatch &&` before this immediate function call
-     in TypeScript.
-     */
-  if (jsonpatch.observe) {
-      return;
-  }
-
-
   var _objectKeys = function (obj) {
     if (_isArray(obj)) {
       var keys = new Array(obj.length);
 
-      for (var i = 0; i < keys.length; i++) {
-        keys[i] = i.toString();
+      for (var k = 0; k < keys.length; k++) {
+        keys[k] = "" + k;
       }
 
       return keys;
@@ -299,12 +288,7 @@ module jsonpatch {
   }
 
   export function unobserve(root, observer) {
-    generate(observer);
-    clearTimeout(observer.next);
-
-    var mirror = getMirror(root);
-    removeObserverFromMirror(mirror, observer);
-
+    observer.unobserve();
   }
 
   function deepClone(obj:any) {
@@ -338,7 +322,6 @@ module jsonpatch {
     mirror.value = deepClone(obj);
 
     if (callback) {
-      //callbacks.push(callback); this has no purpose
       observer.callback = callback;
       observer.next = null;
       var intervals = this.intervals || [100, 1000, 10000, 60000];
@@ -380,6 +363,25 @@ module jsonpatch {
     }
     observer.patches = patches;
     observer.object = obj;
+
+    observer.unobserve = function () {
+        generate(observer);
+        clearTimeout(observer.next);
+        removeObserverFromMirror(mirror, observer);
+
+        if (typeof window !== 'undefined') {
+            if (window.removeEventListener) {
+                window.removeEventListener('mousedown', fastCheck);
+                window.removeEventListener('mouseup', fastCheck);
+                window.removeEventListener('keydown', fastCheck);
+            }
+            else {
+                document.documentElement.detachEvent('onmousedown', fastCheck);
+                document.documentElement.detachEvent('onmouseup', fastCheck);
+                document.documentElement.detachEvent('onkeydown', fastCheck);
+            }
+        }
+    };
 
     mirror.observers.push(new ObserverInfo(callback, observer));
 
@@ -575,7 +577,7 @@ module jsonpatch {
     /**
      * Recursively checks whether an object has any undefined values inside.
      */
-    export function hasUndefined(obj:any): boolean {
+    function hasUndefined(obj:any): boolean {
         if (obj === undefined) {
             return true;
         }

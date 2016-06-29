@@ -3,6 +3,16 @@
 ## Last Changes
 
 
+## v2.3.2
+
+- [#9](https://github.com/LaxarJS/ax-show-hide-widget/issues/9): Fixed broken visibility test
+
+
+## v2.3.1
+
+- [#8](https://github.com/LaxarJS/ax-show-hide-widget/issues/8): Fixed visibility inside ax-accordion-widget
+
+
 ## v2.3.0
 
 - [#7](https://github.com/LaxarJS/ax-show-hide-widget/issues/7): Use laxar-mocks instead of laxar-testing now

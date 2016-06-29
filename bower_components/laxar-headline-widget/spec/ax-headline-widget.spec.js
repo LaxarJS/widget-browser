@@ -78,13 +78,7 @@ define( [
 
          /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-         // R1.1, R1.2: No complex ui tests for simple HTML markup with AngularJS directives.
-
-         /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-         it( 'transforms the configured features into the correct model (R1.3)', function() {
-            expect( widgetScope.model.level ).toEqual( 4 );
-         } );
+         // R1.1, R1.2, R1.3: No complex ui tests for simple HTML markup with AngularJS directives.
 
       } );
 

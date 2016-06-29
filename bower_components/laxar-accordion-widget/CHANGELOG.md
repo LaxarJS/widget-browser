@@ -3,6 +3,16 @@
 ## Last Changes
 
 
+## v2.4.2
+
+- [#15](https://github.com/LaxarJS/ax-accordion-widget/issues/15): fixed active css class initially not being set
+
+
+## v2.4.1
+
+- [#14](https://github.com/LaxarJS/ax-accordion-widget/issues/14): visibility: the visibility of the initially selected area is now published
+
+
 ## v2.4.0
 
 - [#13](https://github.com/LaxarJS/ax-accordion-widget/issues/13): Remove unnecessary injection in test setup

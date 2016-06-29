@@ -1250,7 +1250,7 @@ define( 'laxar/lib/directives/layout/layout',[
  *
  * When requiring `laxar`, it is available as `laxar.string`.
  *
- * @module object
+ * @module string
  */
 define( 'laxar/lib/utilities/string',[], function() {
    'use strict';
@@ -2101,10 +2101,13 @@ define( 'laxar/lib/event_bus/event_bus',[
       function didCollector( event, meta ) {
          givenDidResponses.push( { event: event, meta: meta } );
 
-         var senderIndex = willWaitingForDid.indexOf( meta.sender );
-         if( senderIndex !== -1 ) {
-            willWaitingForDid.splice( senderIndex, 1 );
-         }
+         var senderIndex;
+         do {
+            senderIndex = willWaitingForDid.indexOf( meta.sender );
+            if( senderIndex !== -1 ) {
+               willWaitingForDid.splice( senderIndex, 1 );
+            }
+         } while( senderIndex !== -1 );
 
          if( willWaitingForDid.length === 0 && cycleFinished ) {
             finish();
@@ -2124,19 +2127,19 @@ define( 'laxar/lib/event_bus/event_bus',[
          }
       }, options.pendingDidTimeout );
 
-      this.publish( eventName, optionalEvent, options ).then( function() {
-         if( willWaitingForDid.length === 0 ) {
-            // either there was no will or all did responses were already given in the same cycle as the will
-            finish();
-            return;
-         }
-
-         cycleFinished = true;
-      } );
+      this.publish( eventName, optionalEvent, options )
+         .then( function() {
+            self.unsubscribe( willCollector );
+            if( willWaitingForDid.length === 0 ) {
+               // either there was no will or all did responses were already given in the same cycle as the will
+               finish();
+               return;
+            }
+            cycleFinished = true;
+         } );
 
       function finish( wasCanceled ) {
          clearTimeout( timeoutRef );
-         self.unsubscribe( willCollector );
          self.unsubscribe( didCollector );
          ( wasCanceled ? deferred.reject : deferred.resolve )( givenDidResponses );
       }
@@ -7455,7 +7458,7 @@ define( 'laxar/lib/runtime/flow',[
                   } );
             } )
             .then( null, function( error ) {
-               log.error( error );
+               log.error( 'Error during navigation: [0]', error );
             } );
 
          /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -7776,7 +7779,7 @@ define( 'laxar/lib/runtime/flow',[
 
       if( result.errors.length ) {
          result.errors.forEach( function( error ) {
-            log.error( '[0]', error.message );
+            log.error( 'Failed validating flow file: [0]', error.message );
          } );
 
          throw new Error( 'Illegal flow.json format' );
@@ -7869,11 +7872,12 @@ define( 'laxar/lib/loaders/page_loader',[
    '../utilities/object',
    '../utilities/string',
    '../utilities/path',
+   '../logging/log',
    '../json/validator',
    './features_provider',
    'json!../../static/schemas/page.json',
    '../tooling/pages'
-], function( assert, object, string, path, jsonValidator, featuresProvider, pageSchema, pageTooling ) {
+], function( assert, object, string, path, log, jsonValidator, featuresProvider, pageSchema, pageTooling ) {
    'use strict';
 
    var SEGMENTS_MATCHER = /[_/-]./g;
@@ -7948,10 +7952,14 @@ define( 'laxar/lib/loaders/page_loader',[
             return processExtends( self, page, extensionChain );
          } )
          .then( function() {
+            generateMissingIds( self, page );
+            // we need to check ids before and after expanding compositions
+            checkForDuplicateIds( self, page );
             return processCompositions( self, page, pageName );
          } )
          .then( function() {
-            return checkForDuplicateWidgetIds( self, page );
+            checkForDuplicateIds( self, page );
+            removeDisabledWidgets( self, page );
          } )
          .then( function() {
             pageTooling.setPageDefinition( pageName, page, pageTooling.FLAT );
@@ -8011,21 +8019,18 @@ define( 'laxar/lib/loaders/page_loader',[
       function processNestedCompositions( page, instanceId, compositionChain ) {
 
          var promise = self.q_.when();
-         var seenCompositionIdCount = {};
 
          object.forEach( page.areas, function( widgets ) {
             /*jshint loopfunc:true*/
             for( var i = widgets.length - 1; i >= 0; --i ) {
-               ( function( widgetSpec, index ) {
+               ( function( widgetSpec ) {
                   if( widgetSpec.enabled === false ) {
                      return;
                   }
 
+                  ensureWidgetSpecHasId( self, widgetSpec );
+
                   if( has( widgetSpec, 'widget' ) ) {
-                     if( !has( widgetSpec, 'id' ) ) {
-                        var widgetName = widgetSpec.widget.split( '/' ).pop();
-                        widgetSpec.id = nextId( self, widgetName.replace( SEGMENTS_MATCHER, dashToCamelcase ) );
-                     }
                      return;
                   }
 
@@ -8037,24 +8042,16 @@ define( 'laxar/lib/loaders/page_loader',[
                         throwError( topPage, message );
                      }
 
-                     if( !has( widgetSpec, 'id' ) ) {
-                        var escapedCompositionName =
-                           widgetSpec.composition.replace( SEGMENTS_MATCHER, dashToCamelcase );
-                        widgetSpec.id = nextId( self, escapedCompositionName );
-                     }
-
-                     if( widgetSpec.id in seenCompositionIdCount ) {
-                        seenCompositionIdCount[ widgetSpec.id ]++;
-                     }
-                     else {
-                        seenCompositionIdCount[ widgetSpec.id ] = 1;
-                     }
+                     var compositionUrl = assetUrl( self.baseUrl_, compositionName );
 
                      // Loading compositionUrl can be started asynchronously, but replacing the according widgets
                      // in the page needs to take place in order. Otherwise the order of widgets could be messed up.
                      promise = promise
                         .then( function() {
-                           return load( self, assetUrl( self.baseUrl_, compositionName ) );
+                           return load( self, compositionUrl )
+                              .catch( function() {
+                                 throwError( { name: page.name }, 'Composition "' + compositionName + '" could not be found at location "' + compositionUrl + '"' );
+                              } );
                         } )
                         .then( function( composition ) {
                            return prefixCompositionIds( composition, widgetSpec );
@@ -8071,10 +8068,10 @@ define( 'laxar/lib/loaders/page_loader',[
                               } );
                         } )
                         .then( function( composition ) {
-                           mergeCompositionAreasWithPageAreas( composition, page, widgets, index );
+                           mergeCompositionAreasWithPageAreas( composition, page, widgets, widgetSpec );
                         } );
                   }
-               } )( widgets[ i ], i );
+               } )( widgets[ i ] );
             }
          } );
 
@@ -8086,8 +8083,6 @@ define( 'laxar/lib/loaders/page_loader',[
             pageTooling.setCompositionDefinition( topPageName, instanceId, page, pageTooling.COMPACT );
          }
 
-         checkForDuplicateCompositionIds( page, seenCompositionIdCount );
-
          return promise;
       }
 
@@ -8095,10 +8090,10 @@ define( 'laxar/lib/loaders/page_loader',[
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   function mergeCompositionAreasWithPageAreas( composition, page, widgets, index ) {
+   function mergeCompositionAreasWithPageAreas( composition, page, widgets, compositionSpec ) {
       object.forEach( composition.areas, function( compositionAreaWidgets, areaName ) {
          if( areaName === '.' ) {
-            replaceEntryAtIndexWith( widgets, index, compositionAreaWidgets );
+            insertAfterEntry( widgets, compositionSpec, compositionAreaWidgets );
             return;
          }
 
@@ -8109,6 +8104,18 @@ define( 'laxar/lib/loaders/page_loader',[
 
          mergeWidgetLists( page.areas[ areaName ], compositionAreaWidgets, page );
       } );
+
+      removeEntry( widgets, compositionSpec );
+
+      function insertAfterEntry( arr, entry, replacements ) {
+         var index = arr.indexOf( entry );
+         arr.splice.apply( arr, [ index, 0 ].concat( replacements ) );
+      }
+
+      function removeEntry( arr, entry, replacements ) {
+         var index = arr.indexOf( entry );
+         arr.splice( index, 1 );
+      }
    }
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -8216,33 +8223,30 @@ define( 'laxar/lib/loaders/page_loader',[
    }
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-   function checkForDuplicateCompositionIds( page, idCount ) {
-      var duplicates = Object.keys( idCount ).filter( function( compositionId ) {
-         return idCount[ compositionId ] > 1;
-      } );
-
-      if( duplicates.length ) {
-         throwError( page, 'Duplicate composition ID(s): ' + duplicates.join( ', ' ) );
-      }
-   }
-
-   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
    //
    // Additional Tasks
    //
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   function checkForDuplicateWidgetIds( self, page ) {
-      var idCount = {};
-
+   function removeDisabledWidgets( self, page ) {
       object.forEach( page.areas, function( widgetList, index ) {
          page.areas[ index ] = widgetList.filter( function( widgetSpec ) {
             if( widgetSpec.enabled === false ) {
                return false;
             }
-            idCount[ widgetSpec.id ] = idCount[ widgetSpec.id ] ? idCount[ widgetSpec.id ] + 1 : 1;
             return true;
+         } );
+      } );
+   }
+
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   function checkForDuplicateIds( self, page ) {
+      var idCount = {};
+
+      object.forEach( page.areas, function( widgetList, index ) {
+         object.forEach( widgetList, function( widgetSpec ) {
+            idCount[ widgetSpec.id ] = idCount[ widgetSpec.id ] ? idCount[ widgetSpec.id ] + 1 : 1;
          } );
       } );
 
@@ -8251,8 +8255,44 @@ define( 'laxar/lib/loaders/page_loader',[
       } );
 
       if( duplicates.length ) {
-         throwError( page, 'Duplicate widget ID(s): ' + duplicates.join( ', ' ) );
+         throwError( page, 'Duplicate widget/composition ID(s): ' + duplicates.join( ', ' ) );
       }
+   }
+
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   function generateDefaultWidgetSpecName( widgetSpec ) {
+      var name;
+      if( widgetSpec.hasOwnProperty( 'widget' ) ) {
+         name = widgetSpec.widget.split( '/' ).pop();
+      }
+      else if( widgetSpec.hasOwnProperty( 'composition' ) ) {
+         name = widgetSpec.composition;
+      }
+      else if( widgetSpec.hasOwnProperty( 'layout' ) ) {
+         name = widgetSpec.layout;
+      }
+      // Assume that non-standard items do not require a specific name.
+      return name ? name.replace( SEGMENTS_MATCHER, dashToCamelcase ) : '';
+   }
+
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   function ensureWidgetSpecHasId( self, widgetSpec ) {
+      if( widgetSpec.hasOwnProperty( 'id' ) ) {
+         return;
+      }
+      widgetSpec.id = nextId( self, generateDefaultWidgetSpecName( widgetSpec ) );
+   }
+
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   function generateMissingIds( self, page ) {
+      object.forEach( page.areas, function( widgetList ) {
+         object.forEach( widgetList, function( widgetSpec ) {
+            ensureWidgetSpecHasId( self, widgetSpec );
+         } );
+      } );
    }
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -8338,10 +8378,6 @@ define( 'laxar/lib/loaders/page_loader',[
 
    function topicFromId( id ) {
       return id.replace( ID_SEPARATOR_MATCHER, SUBTOPIC_SEPARATOR ).replace( SEGMENTS_MATCHER, dashToCamelcase );
-   }
-
-   function replaceEntryAtIndexWith( arr, index, replacements ) {
-      arr.splice.apply( arr, [ index, 1 ].concat( replacements ) );
    }
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////

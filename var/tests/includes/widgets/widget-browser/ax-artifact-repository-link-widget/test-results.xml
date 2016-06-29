@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="PhantomJS 1.9.8 (Linux)" package="includes.widgets.widget-browser.ax-artifact-repository-link-widget" timestamp="2016-01-20T15:41:05" id="0" hostname="dpcl068.ac.aixigo.de" tests="3" errors="0" failures="0" time="0.271">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34"/>
+    </properties>
+    <testcase name="acts as slave for the configured resource (R1.1)" time="0.241" classname="includes.widgets.widget-browser.ax-artifact-repository-link-widget PhantomJS 1.9.8 (Linux).An ax-artifact-repository-link-widget with a configured feature display"/>
+    <testcase name="gets the url of the artifact from the configured resource (R1.2)" time="0.013" classname="includes.widgets.widget-browser.ax-artifact-repository-link-widget PhantomJS 1.9.8 (Linux).An ax-artifact-repository-link-widget with a configured feature display"/>
+    <testcase name="allows to configure the link text (R1.3)" time="0.017" classname="includes.widgets.widget-browser.ax-artifact-repository-link-widget PhantomJS 1.9.8 (Linux).An ax-artifact-repository-link-widget with a configured feature display and configured link text"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>

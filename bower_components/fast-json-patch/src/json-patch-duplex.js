@@ -1,6 +1,6 @@
 /*!
  * https://github.com/Starcounter-Jack/JSON-Patch
- * json-patch-duplex.js version: 0.5.6
+ * json-patch-duplex.js version: 0.5.7
  * (c) 2013 Joachim Wester
  * MIT license
  */
@@ -12,19 +12,11 @@ var __extends = (this && this.__extends) || function (d, b) {
 var OriginalError = Error;
 var jsonpatch;
 (function (jsonpatch) {
-    /* Do nothing if module is already defined.
-       Doesn't look nice, as we cannot simply put
-       `!jsonpatch &&` before this immediate function call
-       in TypeScript.
-       */
-    if (jsonpatch.observe) {
-        return;
-    }
     var _objectKeys = function (obj) {
         if (_isArray(obj)) {
             var keys = new Array(obj.length);
-            for (var i = 0; i < keys.length; i++) {
-                keys[i] = i.toString();
+            for (var k = 0; k < keys.length; k++) {
+                keys[k] = "" + k;
             }
             return keys;
         }
@@ -176,8 +168,7 @@ var jsonpatch;
             var patch = {
                 op: "add",
                 path: path + escapePathComponent(this.name),
-                value: this.object[this.name]
-            };
+                value: this.object[this.name] };
             patches.push(patch);
         },
         'delete': function (patches, path) {
@@ -266,10 +257,7 @@ var jsonpatch;
         }
     }
     function unobserve(root, observer) {
-        generate(observer);
-        clearTimeout(observer.next);
-        var mirror = getMirror(root);
-        removeObserverFromMirror(mirror, observer);
+        observer.unobserve();
     }
     jsonpatch.unobserve = unobserve;
     function deepClone(obj) {
@@ -298,7 +286,6 @@ var jsonpatch;
         observer = {};
         mirror.value = deepClone(obj);
         if (callback) {
-            //callbacks.push(callback); this has no purpose
             observer.callback = callback;
             observer.next = null;
             var intervals = this.intervals || [100, 1000, 10000, 60000];
@@ -339,6 +326,23 @@ var jsonpatch;
         }
         observer.patches = patches;
         observer.object = obj;
+        observer.unobserve = function () {
+            generate(observer);
+            clearTimeout(observer.next);
+            removeObserverFromMirror(mirror, observer);
+            if (typeof window !== 'undefined') {
+                if (window.removeEventListener) {
+                    window.removeEventListener('mousedown', fastCheck);
+                    window.removeEventListener('mouseup', fastCheck);
+                    window.removeEventListener('keydown', fastCheck);
+                }
+                else {
+                    document.documentElement.detachEvent('onmousedown', fastCheck);
+                    document.documentElement.detachEvent('onmouseup', fastCheck);
+                    document.documentElement.detachEvent('onkeydown', fastCheck);
+                }
+            }
+        };
         mirror.observers.push(new ObserverInfo(callback, observer));
         return observer;
     }
@@ -529,7 +533,6 @@ var jsonpatch;
         }
         return false;
     }
-    jsonpatch.hasUndefined = hasUndefined;
     /**
      * Validates a single operation. Called from `jsonpatch.validate`. Throws `JsonPatchError` in case of an error.
      * @param {object} operation - operation object (patch)

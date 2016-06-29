@@ -67,7 +67,6 @@ define( [
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       $scope.model = {
-         level: $scope.features.headline.level,
          areas: {
             left: [],
             right: []
