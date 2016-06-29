@@ -2,6 +2,10 @@
 
 ## Last Changes
 
+## v1.2.1
+
+- [#30](https://github.com/LaxarJS/widget-browser/issues/30): fixed version number in theme
+
 
 ## v1.2.0
 
