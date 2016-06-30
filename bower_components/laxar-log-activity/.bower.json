@@ -1,10 +1,10 @@
 {
   "name": "laxar-log-activity",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "MIT",
   "repository": {
     "type": "https",
-    "url": "https://github.com/LaxarJS/ax-log-acitity.git"
+    "url": "https://github.com/LaxarJS/ax-log-activity.git"
   },
   "dependencies": {
     "laxar": "~1.2.0",
@@ -15,11 +15,11 @@
     "laxar-mocks": "1.0.0"
   },
   "homepage": "https://github.com/LaxarJS/ax-log-activity",
-  "_release": "3.0.0",
+  "_release": "3.0.1",
   "_resolution": {
     "type": "version",
-    "tag": "v3.0.0",
-    "commit": "49c543a8fa85565d334d0d313e1404546e101bda"
+    "tag": "v3.0.1",
+    "commit": "0ca65da4df3c45f969c8507533bb407312f75e6e"
   },
   "_source": "https://github.com/LaxarJS/ax-log-activity.git",
   "_target": "^3.0.0",
