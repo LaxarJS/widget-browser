@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+- [#33](https://github.com/LaxarJS/widget-browser/issues/33): widgets: updated widgets and cube theme
+
 
 ## v1.2.0
 
