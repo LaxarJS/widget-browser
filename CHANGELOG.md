@@ -2,6 +2,7 @@
 
 ## Last Changes
 
+- [#34](https://github.com/LaxarJS/widget-browser/issues/34): fixed spec test of ax-widget-browser-widget
 - [#33](https://github.com/LaxarJS/widget-browser/issues/33): widgets: updated widgets and cube theme
 
 

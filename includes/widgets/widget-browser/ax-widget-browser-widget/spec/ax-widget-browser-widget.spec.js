@@ -392,7 +392,7 @@ define( [
                      resource: 'testRunner',
                      data: {
                         mimeType: 'text/html',
-                        location: 'myIncludes/widgets/widget-browser/ax-widget-browser-widget/spec/spec_runner.html',
+                        location: 'myIncludes/widgets/widget-browser/ax-widget-browser-widget/spec/spec_runner.html?folderDepth=5',
                         name: 'Spec Test'
                      }
                   }, {
