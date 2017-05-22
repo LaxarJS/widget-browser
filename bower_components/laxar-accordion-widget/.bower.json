@@ -1,6 +1,6 @@
 {
   "name": "laxar-accordion-widget",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "license": "MIT",
   "repository": {
     "type": "https",
@@ -10,17 +10,17 @@
     "laxar": "~1.2.0",
     "laxar-patterns": "~1.2.0",
     "laxar-uikit": "~1.1.0",
-    "laxar-accordion-control": "^1.0.0"
+    "laxar-accordion-control": "^1.0.3"
   },
   "devDependencies": {
     "laxar-mocks": "1.0.0"
   },
   "homepage": "https://github.com/LaxarJS/ax-accordion-widget",
-  "_release": "2.4.2",
+  "_release": "2.4.3",
   "_resolution": {
     "type": "version",
-    "tag": "v2.4.2",
-    "commit": "63bc9694dfc3d02a67f6d31e9aacb9a7b7e00115"
+    "tag": "v2.4.3",
+    "commit": "2e34d058717821179138bd48b4cea80e0637d857"
   },
   "_source": "https://github.com/LaxarJS/ax-accordion-widget.git",
   "_target": "^2.4.0",

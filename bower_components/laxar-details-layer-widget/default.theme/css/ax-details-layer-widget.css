@@ -17,9 +17,9 @@
 }
 .ax-details-layer-widget .ax-details-layer.ax-details-layer-with-source-animation {
   -webkit-transition: all 500ms ease-in-out;
-          transition: all 500ms ease-in-out;
-  -webkit-transition-property: top, left, height, -webkit-transform, opacity;
-          transition-property: top, left, height, transform, opacity;
+  transition: all 500ms ease-in-out;
+  -webkit-transition-property: top, left, height, opacity, -webkit-transform;
+  transition-property: top, left, height, transform, opacity;
 }
 .ax-details-layer-widget .ax-details-layer-close-button {
   position: absolute;

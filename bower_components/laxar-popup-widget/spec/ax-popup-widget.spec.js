@@ -184,6 +184,18 @@ define( [
 
          /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+         it( 'checks if it was not destroyed before accessing the scope asynchronously (#20)', function() {
+            spyOn( ax.log, 'error' ).and.callThrough();
+            testEventBus.subscribe( 'didChangeFlag', function() {
+               widgetScope.$destroy();
+               delete widgetScope.model;
+            } );
+            publishTakeActionRequestWithAction( 'myOpenAction' );
+            expect( ax.log.error ).not.toHaveBeenCalled();
+         } );
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
          it( 'triggers change requests for the visibility of the provided areas when opened/closed (R4.4)', function() {
             publishTakeActionRequestWithAction( 'myOpenAction' );
             expect( widgetEventBus.publishAndGatherReplies ).toHaveBeenCalledWith(

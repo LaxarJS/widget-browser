@@ -27,7 +27,7 @@
     "tag": "v1.2.0",
     "commit": "c911cbd7913c6a69b09510d2b9e4f24458bc7257"
   },
-  "_source": "git://github.com/LaxarJS/dist-laxar-patterns.git",
+  "_source": "https://github.com/LaxarJS/dist-laxar-patterns.git",
   "_target": "^1.2.0",
   "_originalSource": "laxar-patterns"
 }

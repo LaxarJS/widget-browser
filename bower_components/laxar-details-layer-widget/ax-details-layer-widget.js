@@ -39,10 +39,22 @@ define( [
                handleCloseAction();
             }
          },
+         backdropClicked: function() {
+            if( $scope.features.backdropClose.enabled ) {
+               handleCloseAction();
+            }
+         },
          whenVisibilityChanged: function( visible ) {
             visibilityRequestPublisher( visible );
          }
       };
+
+      if( $scope.features.close.action ) {
+         var closeActionPublisher = patterns.actions.publisherForFeature( $scope, 'close' );
+         $scope.$on( layerDirectiveClosedEvent, function() {
+            closeActionPublisher();
+         } );
+      }
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -65,6 +77,9 @@ define( [
          $scope.model.sourceElementSelector = $scope.features.animateFrom.actionSelectorPath ?
             ax.object.path( event, $scope.features.animateFrom.actionSelectorPath, null ) :
             null;
+         $scope.model.skipAnimations = $scope.features.skipAnimations.actionSelectorPath ?
+            ax.object.path( event, $scope.features.skipAnimations.actionSelectorPath, false ) :
+            false;
 
          publishPlaceParameter();
 
@@ -120,11 +135,13 @@ define( [
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    var layerDirectiveName = 'axDetailsLayer';
+   var layerDirectiveClosedEvent = layerDirectiveName + '.layerClosed';
    var layerDirective = [ '$window', '$document', function( $window, $document ) {
       return {
          scope: {
             isOpen: '=' + layerDirectiveName + 'IsOpen',
             sourceElementSelector: '=' + layerDirectiveName + 'SourceElementSelector',
+            skipAnimations: '=' + layerDirectiveName + 'SkipAnimations',
             useActiveElement: '=' + layerDirectiveName + 'UseActiveElement',
             onClose: '=' + layerDirectiveName + 'OnClose',
             whenVisibilityChanged: '=' + layerDirectiveName + 'WhenVisibilityChanged',
@@ -133,7 +150,7 @@ define( [
          link: function( scope, element ) {
 
             element.css( 'display', 'none' );
-            var backdropElement = element.parent().find( '.modal-backdrop' );
+            var backdropElement = $querySelector( '.modal-backdrop', element.parent() );
 
             var escapeCloseHandler = function( event ) {
                if( event.keyCode === 27 && typeof scope.onClose === 'function' ) {
@@ -141,7 +158,6 @@ define( [
                }
             };
 
-            var previousPageYOffset;
             var lastTabWasShifted = false;
 
             var sourceElement = null;
@@ -149,6 +165,8 @@ define( [
                if( open === wasOpen ) {
                   return;
                }
+
+               backdropElement.toggleClass( 'fade', !( scope.skipAnimations && open ) );
 
                if( open && scope.useActiveElement ) {
                   sourceElement = document.activeElement;
@@ -168,7 +186,7 @@ define( [
                if( open ) {
                   document.addEventListener( 'focus', checkFocus, true );
                   $document.on( 'keydown', tabCaptureListener );
-                  openLayer( sourceElement );
+                  openLayer( sourceElement, scope.skipAnimations );
                }
                else {
                   document.removeEventListener( 'focus', checkFocus );
@@ -201,10 +219,9 @@ define( [
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
             function findFirstOrLast( useLargest ) {
-               var nodes = [];
-               element.find( 'input,a,button,textarea,select,[tabindex]' ).each( function( index ) {
-                  nodes.push( this );
-               } );
+               var nodes = [].slice.call(
+                  element[ 0 ].querySelectorAll( 'input,a,button,textarea,select,[tabindex]' )
+               );
 
                return nodes.reduce( function( previousNode, currentNode ) {
 
@@ -263,14 +280,15 @@ define( [
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
             scope.$on( '$destroy', function() {
+               document.removeEventListener( 'focus', checkFocus );
                sourceElement = null;
             } );
 
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
-            function openLayer( sourceElement ) {
-               var boundingBox = sourceElement && sourceElement.getBoundingClientRect();
-               if( sourceElement ) {
+            function openLayer( sourceElement, skipAnimations ) {
+               if( sourceElement && !skipAnimations ) {
+                  var boundingBox = sourceElement.getBoundingClientRect();
                   var scaling = boundingBox.width / viewportWidth();
                   element.css( 'height', ( boundingBox.height / scaling ) + 'px' );
                   element.css( 'transform',
@@ -281,6 +299,7 @@ define( [
                   element.addClass( 'ax-details-layer-with-source-animation' );
                }
 
+               backdropElement.removeClass( 'ng-hide' );
                element.css( 'display', 'block' );
 
                /*jshint -W030:false */
@@ -288,18 +307,18 @@ define( [
 
                // scroll content layer to top:
                if( scope.resetOnOpen ) {
-                  var content = ng.element( '.ax-details-layer-content', element )[ 0 ];
+                  var content = element[ 0 ].querySelector( '.ax-details-layer-content' );
                   content.scrollTop = 0;
                }
 
-               if( sourceElement ) {
+               if( sourceElement && !skipAnimations ) {
                   element.css( 'height', '' );
                   element.css( 'opacity', 1 );
                   element.css( 'transform', 'translate3d(0, 0, 0) scale3d( 1, 1, 1)' );
                   element.one( 'transitionend', completeOpening );
                }
                else {
-                  completeOpening();
+                  completeOpening( skipAnimations );
                }
                // Issue (#8):
                // For iOS Safari: we need to make the body fixed in order to prevent background scrolling.
@@ -311,13 +330,26 @@ define( [
 
                ///////////////////////////////////////////////////////////////////////////////////////////////
 
-               function completeOpening() {
+               function completeOpening( skipAnimations ) {
+                  if( !scope.isOpen ) {
+                     // the layer was opened and instantly closed again
+                     return;
+                  }
+
                   ng.element( document.body )
                      .on( 'keyup', escapeCloseHandler )
                      .addClass( 'modal-open' );
+                  if( skipAnimations ) {
+                     backdropElement.css( 'transition', 'none' );
+                     /*jshint -W030:false */
+                     backdropElement[ 0 ].offsetWidth; // Triggering reflow for the disabled transition
+                  }
                   backdropElement.addClass( 'ax-details-layer-open' );
                   element.removeClass( 'ax-details-layer-with-source-animation' );
                   scope.whenVisibilityChanged( true );
+                  if( skipAnimations ) {
+                     backdropElement.css( 'transition', '' );
+                  }
                }
             }
 
@@ -327,7 +359,6 @@ define( [
                if( isWebKit() ) {
                   restoreBodyScrolling();
                }
-               var boundingBox = sourceElement && sourceElement.getBoundingClientRect();
                backdropElement.removeClass( 'ax-details-layer-open' );
                ng.element( document.body )
                   .off( 'keyup', escapeCloseHandler )
@@ -335,6 +366,7 @@ define( [
                if( sourceElement ) {
                   element.addClass( 'ax-details-layer-with-source-animation' );
 
+                  var boundingBox = sourceElement.getBoundingClientRect();
                   var scaling = boundingBox.width / viewportWidth();
                   element.css( 'height', ( boundingBox.height / scaling ) + 'px' );
                   element.css( 'opacity', 0 );
@@ -351,9 +383,21 @@ define( [
                ///////////////////////////////////////////////////////////////////////////////////////////////
 
                function completeClosing() {
+                  if( scope.isOpen ) {
+                     // the layer was closed and instantly opened again
+                     return;
+                  }
+
                   element.removeClass( 'ax-details-layer-with-source-animation' );
-                  element.css( 'display', 'none' );
+                  element.css( {
+                     'display': 'none',
+                     'transform': '',
+                     'opacity': '',
+                     'height': ''
+                  } );
+                  backdropElement.addClass( 'ng-hide' );
                   scope.whenVisibilityChanged( false );
+                  scope.$emit( layerDirectiveClosedEvent );
                }
             }
 
@@ -362,7 +406,8 @@ define( [
             function preventBodyScrolling() {
                // Following body scroll prevention taken from here:
                // https://github.com/luster-io/prevent-overscroll
-               ng.element( '.ax-details-layer-content', element )
+
+               $querySelector( '.ax-details-layer-content' )
                   .on( 'touchstart', handleContentTouchStart )
                   .on( 'touchmove', handleContentTouchMove );
 
@@ -372,7 +417,7 @@ define( [
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
             function restoreBodyScrolling() {
-               ng.element( '.ax-details-layer-content', element )
+               $querySelector( '.ax-details-layer-content' )
                   .off( 'touchstart', handleContentTouchStart )
                   .off( 'touchmove', handleContentTouchMove );
 
@@ -382,7 +427,7 @@ define( [
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
             function handleContentTouchStart() {
-               var contentElement = ng.element( '.ax-details-layer-content', element )[0];
+               var contentElement = element[ 0 ].querySelector( '.ax-details-layer-content' );
                var top = contentElement.scrollTop;
                var totalScroll = contentElement.scrollHeight;
                var currentScroll = top + contentElement.offsetHeight;
@@ -400,7 +445,7 @@ define( [
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
             function handleContentTouchMove( event ) {
-               var contentElement = ng.element( '.ax-details-layer-content', element )[0];
+               var contentElement = element[ 0 ].querySelector( '.ax-details-layer-content' );
                // If the content is actually scrollable, i.e. the content is long enough
                // that scrolling can occur
                if( contentElement.offsetHeight < contentElement.scrollHeight ) {
@@ -411,7 +456,6 @@ define( [
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
             function handleBodyTouchMove( event ) {
-               // console.log( event.target, event.originalEvent._isDetailsLayer );
                // In this case, the default behavior is scrolling the body, which
                // would result in an overflow. Since we don't want that, we preventDefault.
                if( !event.originalEvent._isDetailsLayer ) {
@@ -429,6 +473,13 @@ define( [
 
             function isWebKit() {
                return navigator.userAgent.match( /AppleWebKit/ );
+            }
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            function $querySelector( selector, $context ) {
+               $context = typeof $context === 'undefined' ? element : $context;
+               return ng.element( $context[ 0 ].querySelector( selector ) );
             }
          }
       };

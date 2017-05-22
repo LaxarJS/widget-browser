@@ -2,13 +2,41 @@
 
 ## Last Changes
 
-## v1.1.2
+## v1.4.4
 
+- [#28](https://github.com/LaxarJS/ax-details-layer-widget/issues/28): removing event listener when layer is destroyed and fixed using jQuery instead of jqLite
+
+
+## v1.4.3
+
+- [#27](https://github.com/LaxarJS/ax-details-layer-widget/issues/27): fixed using jQuery instead of jqLite
+
+
+## v1.4.2
+
+- [#24](https://github.com/LaxarJS/ax-details-layer-widget/issues/24): fixed opening and closing in quick succession
+
+
+## v1.4.1
+
+- [#23](https://github.com/LaxarJS/ax-details-layer-widget/issues/23): fixed css classes not being changed
+
+
+## v1.4.0
+
+- [#22](https://github.com/LaxarJS/ax-details-layer-widget/issues/22): added possibility to open without animations
+    + NEW FEATURE: see ticket for details
+
+
+## v1.3.0
+
+- [#21](https://github.com/LaxarJS/ax-details-layer-widget/issues/21): added optional close action
+
+
+## v1.2.0
+
+- [#20](https://github.com/LaxarJS/ax-details-layer-widget/issues/20): added backdrop close feature
 - [#19](https://github.com/LaxarJS/ax-details-layer-widget/issues/19): implemented alternative background scrolling prevention
-
-
-## v1.1.1
-
 - [#17](https://github.com/LaxarJS/ax-details-layer-widget/issues/17): prevent that an element in the background can get the focus by tabbing
 
 

@@ -1,6 +1,6 @@
 {
   "name": "laxar-popup-widget",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "license": "MIT",
   "repository": {
     "type": "https",
@@ -16,11 +16,11 @@
     "laxar-mocks": "~1.0.0"
   },
   "homepage": "https://github.com/LaxarJS/ax-popup-widget",
-  "_release": "3.2.1",
+  "_release": "3.2.2",
   "_resolution": {
     "type": "version",
-    "tag": "v3.2.1",
-    "commit": "04e70fbe12f7f5d22d14c6bba765e8c58d170f6c"
+    "tag": "v3.2.2",
+    "commit": "fbc156187dbf0ed0615a69b3cc90119c8a866de0"
   },
   "_source": "https://github.com/LaxarJS/ax-popup-widget.git",
   "_target": "^3.2.0",

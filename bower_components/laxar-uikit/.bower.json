@@ -29,7 +29,7 @@
     "tag": "v1.1.0",
     "commit": "e7509a5d1f83edc442d24e364a268520898767e4"
   },
-  "_source": "git://github.com/LaxarJS/dist-laxar-uikit.git",
+  "_source": "https://github.com/LaxarJS/dist-laxar-uikit.git",
   "_target": "^1.1.0",
   "_originalSource": "laxar-uikit"
 }

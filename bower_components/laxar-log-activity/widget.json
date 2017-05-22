@@ -25,7 +25,7 @@
 
                "requestPolicy": {
                   "type": "string",
-                  "description": "Specifies if the messages are pushed as an array or each message on its own",
+                  "description": "Specifies if the messages are pushed as an array or each message on its own.",
                   "enum": [ "BATCH", "PER_MESSAGE" ],
                   "default": "BATCH"
                },
@@ -49,6 +49,47 @@
                         "default": 100
                      }
                   }
+               },
+
+               "retry": {
+                  "type": "object",
+                  "description": "Specify if the activity should retry to submit messages.",
+                  "default": {
+                     "enabled": false
+                  },
+                  "properties": {
+                     "enabled": {
+                        "type": "boolean",
+                        "description": "Enable or disable the feature.",
+                        "default": false
+                     },
+                     "seconds": {
+                        "type": "integer",
+                        "description": "The time interval in seconds between the retries. Should be higher than 'threshold.seconds'.",
+                        "default": 180
+                     },
+                     "retries": {
+                        "type": "integer",
+                        "description": "Number of retries until messages are deleted.",
+                        "default": 10
+                     }
+                  }
+               }
+            }
+         },
+
+         "instanceId": {
+            "type": "object",
+            "properties": {
+               "enabled": {
+                  "type": "boolean",
+                  "description": "Configure if an instance ID is added to the headers of a POST request.",
+                  "default": false
+               },
+               "header": {
+                  "type": "string",
+                  "description": "The name of the header that includes the temporary identifier for the current browser session.",
+                  "default": "x-laxar-log-tags"
                }
             }
          }

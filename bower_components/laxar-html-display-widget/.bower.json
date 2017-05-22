@@ -22,7 +22,7 @@
     "tag": "v2.3.0",
     "commit": "2527fec29235535c7cbb13839f7e135bb88ab1ea"
   },
-  "_source": "git://github.com/LaxarJS/ax-html-display-widget.git",
+  "_source": "https://github.com/LaxarJS/ax-html-display-widget.git",
   "_target": "^2.3.0",
   "_originalSource": "laxar-html-display-widget"
 }

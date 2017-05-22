@@ -15,30 +15,71 @@ define( [
 
    var formatMessage = createMessageFormatter();
 
+   var buffer_ = [];
+   var resendBuffer = [];
+   var retryTimeout;
+   var retryMilliseconds;
+   var nextSubmit = null;
+   var logResourceUrl_;
+
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    var injections = [ 'axContext' ];
 
    var logController = function( context ) {
+
+      //function for the spec tests
+      context.clearBuffer = function() {
+         buffer_.length = 0;
+         resendBuffer = [];
+         nextSubmit = null;
+         retryTimeout = null;
+         retryMilliseconds = null;
+      };
+
       if( !context.features.logging.enabled ) {
          return;
       }
-      var logResourceUrl_ = ax.configuration.get( 'widgets.laxar-log-activity.resourceUrl', null );
+      logResourceUrl_ = ax.configuration.get( 'widgets.laxar-log-activity.resourceUrl', null );
       if( !logResourceUrl_ ) {
          ax.log.error( 'laxar-log-activity: resourceUrl not configured' );
          return;
       }
+
       var instanceId = ax.log.gatherTags()[ 'INST' ];
+      var headers = {};
+      if( context.features.instanceId.enabled ) {
+         headers[ context.features.instanceId.header ] = '[INST:' + instanceId + ']';
+      }
+
       var waitMilliseconds = context.features.logging.threshold.seconds * 1000;
       var waitMessages = context.features.logging.threshold.messages;
 
-      var buffer_ = [];
+      if( context.features.logging.retry.enabled ) {
+         var resendRetries = context.features.logging.retry.retries;
+         if( resendBuffer.length > 0 ) {
+            scheduleNextResend();
+         }
+      }
+
       // Collect log messages and submit them periodically:
       ax.log.addLogChannel( handleLogItem );
-      var timeout = window.setTimeout( submit, waitMilliseconds );
+
+      var timeout;
+
+      var dateNow = Date.now();
+      if( nextSubmit && dateNow >= nextSubmit ) {
+         submit();
+      }
+      else {
+         scheduleNextSubmit( dateNow );
+      }
+
+
       context.eventBus.subscribe( 'endLifecycleRequest', function() {
          ax.log.removeLogChannel( handleLogItem );
          window.clearTimeout( timeout );
+         window.clearTimeout( retryTimeout );
       } );
 
       // Log error events:
@@ -51,6 +92,7 @@ define( [
       $( window ).on( 'beforeunload.laxar-log-activity', function() {
          submit( true );
          window.clearTimeout( timeout );
+         window.clearTimeout( retryTimeout );
       } );
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,6 +156,9 @@ define( [
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       function submit( synchronously ) {
+         nextSubmit = null;
+         scheduleNextSubmit( Date.now() );
+
          if( context.features.logging.requestPolicy === 'BATCH' ) {
             submitBatch( synchronously );
          }
@@ -124,37 +169,24 @@ define( [
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      function submitPerMessage( synchronously ) {
-         window.clearTimeout( timeout );
-         timeout = window.setTimeout( submitPerMessage, waitMilliseconds );
-         if( !buffer_.length ) {
-            return;
-         }
-
-         buffer_.forEach( function( message ) {
-            if( message.repetitions > 1 ) {
-               message.text += ' (repeated ' + message.repetitions + 'x)';
-            }
-            message.source = document.location.origin;
-            var requestBody = JSON.stringify( message );
-            postTo( logResourceUrl_, requestBody, synchronously );
-         } );
-
-         buffer_ = [];
-      }
-
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
       function submitBatch( synchronously ) {
-         var promises = [];
-         window.clearTimeout( timeout );
-         timeout = window.setTimeout( submitBatch, waitMilliseconds );
          if( !buffer_.length ) {
             return;
          }
+
          var requestBody = prepareRequestBody( buffer_ );
          buffer_ = [];
-         postTo( logResourceUrl_, requestBody, synchronously );
+         postTo( logResourceUrl_, requestBody, synchronously ).fail(
+            function() {
+               if( context.features.logging.retry.enabled && !synchronously ) {
+                  resendBuffer.push( {
+                     requestBody: requestBody,
+                     retriesLeft: resendRetries
+                  } );
+                  scheduleNextResend();
+               }
+            }
+         );
 
          /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -174,18 +206,84 @@ define( [
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+      function submitPerMessage( synchronously ) {
+         if( !buffer_.length ) {
+            return;
+         }
+
+         buffer_.forEach( function( message ) {
+            if( message.repetitions > 1 ) {
+               message.text += ' (repeated ' + message.repetitions + 'x)';
+            }
+            message.source = document.location.origin;
+            var requestBody = JSON.stringify( message );
+            postTo( logResourceUrl_, requestBody, synchronously ).fail(
+               function() {
+                  if( context.features.logging.retry.enabled && !synchronously ) {
+                     resendBuffer.push( {
+                        requestBody: requestBody,
+                        retriesLeft: resendRetries
+                     } );
+                     scheduleNextResend();
+                  }
+               }
+            );
+         } );
+         buffer_ = [];
+      }
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      function resendMessages( synchronously ) {
+         window.clearTimeout( retryTimeout );
+         resendBuffer = resendBuffer.filter( function( item ) { return item.retriesLeft > 0; } );
+         if( resendBuffer.length > 0 ) {
+            retryTimeout = window.setTimeout( resendMessages, retryMilliseconds );
+         }
+         resendBuffer.forEach( function( item ) {
+            --item.retriesLeft;
+            postTo( logResourceUrl_, item.requestBody, synchronously )
+               .then(
+                  function() { item.retriesLeft = 0; },
+                  function() { }
+               );
+         } );
+      }
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
       function postTo( url, requestBody, synchronously ) {
          $.support.cors = true;
          return $.ajax( {
-               type: 'POST',
-               url: url,
-               data: requestBody,
-               crossDomain: true,
-               async: synchronously !== true,
-               contentType: 'application/json',
-               dataType: 'json',
-               headers: { 'x-aixigo-log-tags': '[INST:' + instanceId + ']' }
+            type: 'POST',
+            url: url,
+            data: requestBody,
+            crossDomain: true,
+            async: synchronously !== true,
+            contentType: 'application/json',
+            headers: headers
          } );
+      }
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      function scheduleNextSubmit( dateNow ) {
+         window.clearTimeout( timeout );
+         if( nextSubmit ) {
+            timeout = window.setTimeout( submit, nextSubmit - dateNow );
+         }
+         else {
+            timeout = window.setTimeout( submit, waitMilliseconds );
+            nextSubmit = dateNow + waitMilliseconds;
+         }
+      }
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      function scheduleNextResend() {
+         window.clearTimeout( retryTimeout );
+         retryMilliseconds = context.features.logging.retry.seconds * 1000;
+         retryTimeout = window.setTimeout( resendMessages, retryMilliseconds );
       }
    };
 

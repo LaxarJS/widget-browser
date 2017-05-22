@@ -22,7 +22,7 @@
     "tag": "v2.4.0",
     "commit": "04396c9b1ebbe0dda7cc4cbbe68131ed92e3bc8e"
   },
-  "_source": "git://github.com/LaxarJS/ax-command-bar-widget.git",
+  "_source": "https://github.com/LaxarJS/ax-command-bar-widget.git",
   "_target": "^2.4.0",
   "_originalSource": "laxar-command-bar-widget"
 }

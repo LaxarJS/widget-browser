@@ -5,6 +5,7 @@
             {
                "src": [
                   "bower_components/laxar-uikit/dist/themes/default.theme/css/theme.css",
+                  "bower_components/laxar-developer-tools-widget/default.theme/css/ax-developer-tools-widget.css",
                   "bower_components/laxar-markdown-display-widget/default.theme/css/ax-markdown-display-widget.css",
                   "bower_components/laxar-media-widget/default.theme/css/ax-media-widget.css",
                   "bower_components/laxar-messages-widget/default.theme/css/ax-messages-widget.css",
@@ -18,6 +19,7 @@
             {
                "src": [
                   "includes/themes/cube.theme/css/theme.css",
+                  "bower_components/laxar-developer-tools-widget/default.theme/css/ax-developer-tools-widget.css",
                   "bower_components/laxar-markdown-display-widget/default.theme/css/ax-markdown-display-widget.css",
                   "bower_components/laxar-media-widget/default.theme/css/ax-media-widget.css",
                   "bower_components/laxar-messages-widget/default.theme/css/ax-messages-widget.css",

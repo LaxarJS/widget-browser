@@ -15,7 +15,7 @@ The laxar-log-activity collects log messages and submits them to a log service p
 
 ### Installation
 
-For installation instruction take a look at the [LaxarJS documentation](https://github.com/LaxarJS/laxar/blob/master/docs/manuals/installing_widgets.md).
+For installation instruction take a look at the [LaxarJS documentation](https://laxarjs.org/docs/laxar-latest/manuals/installing_widgets).
 
 
 ### Configuration example
@@ -34,6 +34,7 @@ For installation instruction take a look at the [LaxarJS documentation](https://
    }
 }
 ```
+
 Use this configuration on a page to get an laxar-log-activity instance which collects log messages and submits them to a configured service every 60 seconds or when having collected more than 150 messages.
 
 For full configuration options refer to the [widget.json](widget.json).
@@ -119,6 +120,13 @@ R1.18 The activity MUST submit the log level and message timestamp (ISO-8601) to
 R1.19 Placeholders, whose content should anonymized, MUST NOT be replaced.
 They MUST be submitted as a separate parameter to the log service.
 The activity MUST apply other formatting instructions (beside the anonymization) on the parameters before.
+
+R1.20 The activity MUST retry sending the messages in a configurable time interval and a configurable number of tries.
+The activity MUST delete the messages after the last try of transmission, whether the transmission was successful or not.
+
+R1.21 When the activity submits the messages, it MUST add a temporary identifier for the current browser session to the header.
+This feature MUST be disabled by default.
+The name of the header MUST be configurable.
 
 
 ## Integration

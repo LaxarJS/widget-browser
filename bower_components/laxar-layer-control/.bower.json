@@ -23,7 +23,7 @@
     "tag": "v1.0.2",
     "commit": "2ce64939aedf82ad438eb9a990a8b3613240fb6a"
   },
-  "_source": "git://github.com/LaxarJS/ax-layer-control.git",
+  "_source": "https://github.com/LaxarJS/ax-layer-control.git",
   "_target": "^1.0.0",
   "_originalSource": "laxar-layer-control"
 }

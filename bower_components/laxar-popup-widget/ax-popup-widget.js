@@ -91,6 +91,7 @@ define( [
             $scope.model.anchorElementId = event.anchorDomElement;
 
             publishVisibilityChange( true ).then( function() {
+               if( !$scope || !$scope.model ) { return; }
                $scope.model.isOpen = true;
                drawPopup( $scope );
             } );
@@ -125,6 +126,7 @@ define( [
          $scope.model.isOpening = true;
          return publishVisibilityFlag( state ).then( function() {
             return patterns.visibility.requestPublisherForWidget( $scope )( state ).then( function() {
+               if( !$scope || !$scope.model ) { return; }
                $scope.model.isOpening = false;
             } );
          } );

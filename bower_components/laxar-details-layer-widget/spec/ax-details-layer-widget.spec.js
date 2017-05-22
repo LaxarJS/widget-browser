@@ -7,14 +7,15 @@ define( [
    'json!../widget.json',
    'laxar',
    'laxar-mocks',
-   'angular-mocks'
-], function( descriptor, ax, axMocks, ngMocks ) {
+   'angular-mocks',
+   'angular'
+], function( descriptor, ax, axMocks, ngMocks, ng ) {
    'use strict';
 
    describe( 'The ax-details-layer-widget', function() {
 
       beforeEach( axMocks.createSetupForWidget( descriptor, {
-         knownMissingResources: []
+         knownMissingResources: [ 'laxar-details-layer-widget.html', 'laxar-details-layer-widget.css' ]
       } ) );
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,8 +23,12 @@ define( [
       beforeEach( function() {
          axMocks.widget.configure( {
             open: { onActions: [ 'open1', 'open2' ] },
-            close: { onActions: [ 'close1', 'close2' ] },
+            close: {
+               onActions: [ 'close1', 'close2' ],
+               action: 'afterClose'
+            },
             animateFrom: { actionSelectorPath: 'data.selector' },
+            skipAnimations: { actionSelectorPath: 'data.skipAnimations' },
             navigation: {
                parameterName: 'thePlace',
                parameterValue: 'testContent'
@@ -159,6 +164,9 @@ define( [
             beforeEach( function() {
                axMocks.eventBus.publish( 'takeActionRequest.close2', { action: 'close2' } );
                axMocks.eventBus.flush();
+               // fake close transition being finished
+               widgetDom.querySelector( '.ax-details-layer' )
+                  .dispatchEvent( new window.TransitionEvent( 'transitionend' ) );
             } );
 
             //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -173,6 +181,50 @@ define( [
                expect( [].slice.call( document.body.classList ) ).not.toContain( 'modal-open' );
             } );
 
+            /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            it( 'publishes the close action', function() {
+               expect( widgetEventBus.publishAndGatherReplies )
+                  .toHaveBeenCalledWith( 'takeActionRequest.afterClose', {
+                     action: 'afterClose'
+                  }, jasmine.any( Object ) );
+            } );
+
+         } );
+
+      } );
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      describe( 'when the open action with truthy skipAnimations is received', function() {
+
+         var ngElementPrototype;
+         beforeEach( function() {
+            ngElementPrototype = Object.getPrototypeOf( ng.element( widgetDom ) );
+            spyOn( ngElementPrototype, 'css' ).and.callThrough();
+
+            axMocks.eventBus.publish( 'takeActionRequest.open1', {
+               action: 'open1',
+               data: {
+                  selector: '#the-button',
+                  skipAnimations: true
+               }
+            } );
+            axMocks.eventBus.flush();
+         } );
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+         it( 'disables animations for the layer itself', function() {
+            expect( widgetDom.querySelector( '.ax-details-layer' ).classList )
+               .not.toContain( 'ax-details-layer-with-source-animation' );
+         } );
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+         it( 'disables transitions on the modal-backdrop', function() {
+            expect( ngElementPrototype.css ).toHaveBeenCalledWith( 'transition', 'none' );
+            expect( widgetDom.querySelector( '.modal-backdrop' ).classList ).not.toContain( 'fade' );
          } );
 
       } );
@@ -257,6 +309,33 @@ define( [
 
          it( 'it is closed when activating the close icon', function() {
             widgetScope.functions.close();
+
+            expect( widgetScope.model.isOpen ).toBe( false );
+         } );
+
+      } );
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      describe( 'if configured to be closeable by backdrop click and then opened', function() {
+
+         beforeEach( function() {
+            axMocks.widget.configure( 'backdropClose.enabled', true );
+         } );
+
+         beforeEach( axMocks.widget.load );
+         beforeEach( function() {
+            widgetEventBus = axMocks.widget.axEventBus;
+            widgetScope = axMocks.widget.$scope;
+
+            axMocks.eventBus.publish( 'takeActionRequest.open1', { action: 'open1' } );
+            axMocks.eventBus.flush();
+         } );
+
+         /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+         it( 'it is closed when clicking the modal backdrop', function() {
+            widgetScope.functions.backdropClicked();
 
             expect( widgetScope.model.isOpen ).toBe( false );
          } );

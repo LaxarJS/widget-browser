@@ -44,7 +44,7 @@
     "tag": "v2.3.4",
     "commit": "651426b6583020e2f3fdae56d2873514963ba65e"
   },
-  "_source": "git://github.com/pivotal/jasmine.git",
+  "_source": "https://github.com/pivotal/jasmine.git",
   "_target": "2.3.x",
   "_originalSource": "jasmine"
 }

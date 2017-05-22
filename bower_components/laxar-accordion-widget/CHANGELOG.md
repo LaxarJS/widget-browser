@@ -3,6 +3,11 @@
 ## Last Changes
 
 
+## v2.4.3
+
+- [#16](https://github.com/LaxarJS/ax-accordion-widget/issues/16): updated ax-accordion-control patch version to fix jQuery UI dependency
+
+
 ## v2.4.2
 
 - [#15](https://github.com/LaxarJS/ax-accordion-widget/issues/15): fixed active css class initially not being set

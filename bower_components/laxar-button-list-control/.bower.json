@@ -22,7 +22,7 @@
     "tag": "v1.0.0",
     "commit": "ee2a2c5e2a811ffc236786e5736a20a08cef2eb6"
   },
-  "_source": "git://github.com/LaxarJS/ax-button-list-control.git",
+  "_source": "https://github.com/LaxarJS/ax-button-list-control.git",
   "_target": "^1.0.0",
   "_originalSource": "laxar-button-list-control"
 }

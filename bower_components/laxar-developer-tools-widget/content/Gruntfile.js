@@ -72,6 +72,19 @@ module.exports = function( grunt ) {
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+   grunt.registerTask( 'dist-without-optimize', 'create a version with less files and not optimized bundle',
+      function() {
+         grunt.config.set( 'laxar-dist-js', {
+            options: {
+               'optimize': 'none'
+            }
+         } );
+         grunt.task.run( 'optimize' );
+      }
+   );
+
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
    grunt.loadNpmTasks( 'grunt-laxar' );
    grunt.loadNpmTasks( 'grunt-laxar-compass' );
    grunt.loadNpmTasks( 'grunt-babel' );

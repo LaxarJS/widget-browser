@@ -27,7 +27,7 @@
     "tag": "v1.0.0",
     "commit": "d15fb002d51d05cecf6d3a3305226c502c96a30f"
   },
-  "_source": "git://github.com/LaxarJS/dist-laxar-mocks.git",
+  "_source": "https://github.com/LaxarJS/dist-laxar-mocks.git",
   "_target": "~1.0.0",
   "_originalSource": "laxar-mocks"
 }

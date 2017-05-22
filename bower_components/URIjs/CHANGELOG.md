@@ -2,6 +2,44 @@
 
 The release notes tracked in this document are also made available on the [releases page](https://github.com/medialize/URI.js/releases)
 
+### 1.18.10 (March 30th 2017) ###
+
+* adding support for [CentralNic](https://en.wikipedia.org/wiki/CentralNic#Second-level_domains) Second Level Domains - [Issue #333](https://github.com/medialize/URI.js/issues/333)
+
+### 1.18.9 (March 6th 2017) ###
+
+* adding option `strict` to [`URITemplate()`](http://medialize.github.io/URI.js/uri-template.html) in order to throw an exception in case a placeholder could not be replaced - [PR #330](https://github.com/medialize/URI.js/issues/330)
+
+### 1.18.8 (February 27th 2017) ###
+
+* fixing [`.absoluteTo()`](http://medialize.github.io/URI.js/docs.html#absoluteto) to not resolve URIs containing a scheme - [Issue #328](https://github.com/medialize/URI.js/issues/328)
+
+### 1.18.7 (February 13th 2017) ###
+
+* fixing [`URI.withinString()`](http://medialize.github.io/URI.js/docs.html#static-withinString) to ignore `www.` and `http://.` - [Issue #327](https://github.com/medialize/URI.js/issues/327)
+
+### 1.18.6 (February 10th 2017) ###
+
+* fixing [`URITemplate()`](http://medialize.github.io/URI.js/uri-template.html) to allow `'` (single quotes) in literals - [PR #326](https://github.com/medialize/URI.js/pull/326)
+
+### 1.18.5 (January 30th 2017) ###
+
+* prevent `new URI(null)` from blowing up - [PR #321](https://github.com/medialize/URI.js/issues/321)
+* fixing [`URI.withinString()`](http://medialize.github.io/URI.js/docs.html#static-withinString) to properly handle fully contained parentheses - [Issue #325](https://github.com/medialize/URI.js/issues/325)
+
+### 1.18.4 (December 4th 2016) ###
+
+* fixing [`URI.withinString()`](http://medialize.github.io/URI.js/docs.html#static-withinString) to capture balanced parentheses - [Issue #247](https://github.com/medialize/URI.js/issues/247)
+
+### 1.18.3 (November 17th 2016) ###
+
+* fixing UMD wrappers to properly detect CommonJS - [Issue #318](https://github.com/medialize/URI.js/issues/318), [PR #319](https://github.com/medialize/URI.js/pull/319)
+
+### 1.18.2 (September 25th 2016) ###
+
+* fixing [`URI.withinString()`](http://medialize.github.io/URI.js/docs.html#static-withinString) to allow callback to return `undefined` or `string` - [Issue #303](https://github.com/medialize/URI.js/issues/303)
+* fixing [`.absoluteTo()`](http://medialize.github.io/URI.js/docs.html#absoluteto) to properly resolve relative paths for fragment-only URLs
+
 ### 1.18.1 (May 29th 2016) ###
 
 * fixing UMD wrapper of `jquery.URI.js` - [Issue #295](https://github.com/medialize/URI.js/issues/295)

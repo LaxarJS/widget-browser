@@ -60,6 +60,12 @@
                      "axRole": "inlet"
                   },
                   "default": []
+               },
+               "action": {
+                  "type": "string",
+                  "format": "topic",
+                  "axRole": "outlet",
+                  "description": "Name of the action that is published when the layer is closed and all animations are finished."
                }
             }
          },
@@ -76,6 +82,18 @@
             }
          },
 
+         "backdropClose": {
+            "type": "object",
+            "description": "Allow the user to close the popup by a backdrop click.",
+            "properties": {
+               "enabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "If true the popup is closed when the backdrop is clicked."
+               }
+            }
+         },
+
          "animateFrom": {
             "type": "object",
             "description": "Configuration for the animation source.",
@@ -87,8 +105,18 @@
                },
                "actionSelectorPath": {
                   "type": "string",
-                  "default": null,
                   "description": "JSON path to the action event property to interpret as css selector to animate from."
+               }
+            }
+         },
+
+         "skipAnimations": {
+            "type": "object",
+            "description": "Configuration for skipping the opening animations.",
+            "properties": {
+               "actionSelectorPath": {
+                  "type": "string",
+                  "description": "JSON path to the action event property holding a boolean value whether animations should be skipped."
                }
             }
          },
