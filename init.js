@@ -1,22 +1,32 @@
 /**
- * Copyright 2015 aixigo AG
+ * Copyright 2017 aixigo AG
  * Released under the MIT license.
- * http://laxarjs.org/license
+ * https://laxarjs.org/license
  */
-require( [
-   'laxar',
-   'laxar-application/var/flows/main/dependencies',
-   'json!laxar-application/var/flows/main/resources.json'
-], function( ax, mainDependencies, mainResources ) {
-   'use strict';
 
-   window.laxar.fileListings = {
-      application: mainResources,
-      bower_components: mainResources,
-      includes: mainResources
-   };
+import { create } from 'laxar';
+import artifacts from 'laxar-loader/artifacts?flow=main&theme=cube';
+import debugInfo from 'laxar-loader/debug-info?flow=main&theme=cube';
 
-   ax.bootstrap( mainDependencies );
+import * as angularAdapter from 'laxar-angular-adapter';
 
-} );
+const config = {
+   name: 'widget-browser',
+   router: {
+      query: {
+         enabled: true
+      },
+      navigo: {
+         useHash: true
+      }
+   },
+   logging: {
+      threshold: 'TRACE'
+   },
+   theme: 'cube'
+};
 
+create( [ angularAdapter ], artifacts, config )
+   .tooling( debugInfo )
+   .flow( 'main', document.querySelector( '[data-ax-page]' ) )
+   .bootstrap();

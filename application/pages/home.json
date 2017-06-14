@@ -1,0 +1,105 @@
+{
+   "layout": "application",
+   "areas": {
+      "axActivities": [
+         {
+            "widget": "widget-browser/widget-listing-activity",
+            "id": "widgetListing",
+            "features": {
+               "fileListing": {
+                  "list": [ "assets/widget-list.json" ]
+               },
+               "widgetListing": {
+                  "resource": "widgetList"
+               }
+            }
+         },
+         {
+            "widget": "laxar-developer-tools-widget",
+            "id": "laxarDeveloperTools",
+            "features": {
+               "button": {
+                  "enabled": false
+               },
+               "open": {
+                  "onGlobalMethod": "goDevelop"
+               }
+            }
+         }
+      ],
+      "messages": [
+         {
+            "widget": "laxar-messages-widget",
+            "id": "messages",
+            "features": {
+               "resource": {
+                  "list": [
+                     "documentation"
+                  ]
+               }
+            }
+         }
+      ],
+      "content1a": [
+         {
+            "widget": "widget-browser/widget-browser-widget",
+            "id": "widgetBrowser",
+            "features": {
+               "list": {
+                  "resource": "widgetList"
+               },
+               "select": {
+                  "parameter": "widgetId",
+                  "parameterList": [ "anchor" ],
+                  "information": {
+                     "resource": "widgetInformation"
+                  },
+                  "package": {
+                     "resource": "manifest"
+                  },
+                  "documentation": {
+                     "resource": "documentation"
+                  }
+               }
+            }
+         }
+      ],
+      "content1b": [
+         {
+            "widget": "laxar-markdown-display-widget",
+            "id": "documentation",
+            "features": {
+               "markdown": {
+                  "url": "README.md",
+                  "parameter": "anchor",
+                  "resource": "documentation"
+               }
+            }
+         }
+      ],
+      "content1c": [
+         {
+            "widget": "widget-browser/artifact-repository-link-widget",
+            "id": "repositoryLink",
+            "features": {
+               "display": {
+                  "resource": "manifest",
+                  "i18nHtmlText": "<i class='fa fa-github'></i> On GitHub"
+               }
+            }
+         },
+         {
+            "widget": "widget-browser/widget-information-widget",
+            "id": "widgetInformation",
+            "features": {
+               "widget": {
+                  "resource": "widgetInformation"
+               },
+               "package": {
+                  "resource": "manifest"
+               }
+            }
+         }
+      ]
+   }
+}

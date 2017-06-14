@@ -1,0 +1,18 @@
+{
+   "name": "widget-browser-widget",
+   "version": "3.2.0",
+   "license": "MIT",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/LaxarJS/widget-browser-widget.git"
+   },
+   "dependencies": {
+      "laxar": "^2.0.0",
+      "laxar-angular-adapter": "^2.0.0",
+      "laxar-uikit": "^2.0.0",
+      "angular": "^1.6.4"
+   },
+   "devDependencies": {
+      "laxar-mocks": "2.0.0-rc.2"
+   }
+}

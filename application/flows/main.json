@@ -1,0 +1,9 @@
+{
+   "places": {
+
+      "browse": {
+         "patterns": [ "/:widgetId/:anchor", "/:widgetId", "/" ],
+         "page": "home"
+      }
+   }
+}

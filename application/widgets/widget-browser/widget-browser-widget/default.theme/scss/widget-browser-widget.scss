@@ -1,0 +1,75 @@
+/**
+ * Copyright 2015 LaxarJS
+ * Released under the MIT license.
+ * http://laxarjs.org/license
+ */
+@charset "UTF-8";
+
+@import "variables_all";
+
+$ax-highlight-search-color: white !default;
+$ax-highlight-search-background: $brand-info !default;
+$ax-selected-color: white !default;
+$ax-selected-background: $brand-primary !default;
+
+.widget-browser-widget {
+
+   .ax-search-wrapper {
+      position: relative;
+   }
+
+   .fa-search {
+      position: absolute;
+      top: 0.7em;
+      right: 0.7em;
+      z-index: 3;
+      color: #aaa;
+
+      &.ax-active {
+         display: none;
+      }
+   }
+
+   .table,
+   .form-control {
+      font-size: 12px;
+   }
+
+   .table {
+      margin-top: 10px;
+      table-layout: fixed;
+   }
+
+   .form-control {
+      padding: 5px;
+   }
+
+   td {
+      padding: 3px 5px !important;
+      border-top: none !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+   }
+
+   tr:nth-child(5n+1) > td {
+      border-top: 13px solid transparent !important;
+   }
+
+   tr.selected td {
+      background-color: $ax-selected-background;
+      text-decoration: none;
+      cursor: default;
+
+      &,
+      a {
+         color: $ax-selected-color;
+         text-decoration: none;
+      }
+   }
+
+   .ax-widget-browser-highlight {
+      background-color: $ax-highlight-search-background;
+      color: $ax-highlight-search-color;
+   }
+}

@@ -1,0 +1,18 @@
+<h3 data-ng-bind-html="features.list.title.htmlLabel"></h3>
+<div class="ax-search-wrapper">
+   <input type="text" class="form-control" data-ng-model="search.name">
+   <i class='fa fa-search'
+      data-ng-class="{ 'ax-active': search.name }"></i>
+</div>
+<table class="table">
+   <tbody>
+   <tr class="selectable"
+       data-ng-class="{ selected: widget.name == model.selectedWidgetName }"
+       data-ng-repeat="widget in model.list | filter:search track by widget.name " >
+      <td><a
+         title="{{ widget.name }}"
+         data-ng-href="{{ widget.href }}"
+         data-ng-bind-html="widget.name | widgetBrowserHighlight:search.name"></a></td>
+   </tr>
+   </tbody>
+</table>
