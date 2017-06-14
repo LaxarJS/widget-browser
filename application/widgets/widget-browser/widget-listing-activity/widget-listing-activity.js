@@ -17,9 +17,9 @@ define( [
 
    var WIDGET_JSON = 'widget.json';
 
-   Controller.$inject = [ '$scope', '$http', '$q', 'axLog' ];
+   Controller.$inject = [ '$scope', '$http', '$q', '$sce', 'axLog' ];
 
-   function Controller( $scope, $http, $q, log ) {
+   function Controller( $scope, $http, $q, $sce, log ) {
       $scope.resources = {};
       $scope.model = {
          widgets: [],
@@ -58,7 +58,7 @@ define( [
          var promises = [];
          var widgets = [];
          urls.forEach( function( url ) {
-            promises.push( $http.get( url )
+            promises.push( $http.get( $sce.trustAsResourceUrl( url ) )
                .then( function( resp ) {
                   return resp;
                }, function( e ) {

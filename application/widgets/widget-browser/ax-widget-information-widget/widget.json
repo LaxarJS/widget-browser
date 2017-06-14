@@ -9,6 +9,8 @@
 
    "compatibility": [ "json-patch" ],
 
+   "styleSource": "scss/ax-widget-information-widget.scss",
+
    "features": {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "type": "object",

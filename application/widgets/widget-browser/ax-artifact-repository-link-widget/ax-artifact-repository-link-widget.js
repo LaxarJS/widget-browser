@@ -10,7 +10,7 @@ define( [
    'use strict';
 
    var moduleName = 'axArtifactRepositoryLinkWidget';
-   var module     = ng.module( moduleName, [] );
+   var module = ng.module( moduleName, [] );
 
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
