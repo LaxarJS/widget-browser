@@ -1,5 +1,5 @@
 {
-   "name": "ax-widget-listing-activity",
+   "name": "widget-listing-activity",
    "description": "Reads a file listing and extracts information on available widgets and activities.",
    "integration": {
       "technology": "angular",
@@ -33,7 +33,7 @@
                "applicationUrl": {
                   "type": "string",
                   "description": "The url of the application with the widgets. Default is the application in which the activity is included.",
-                  "default": null
+                  "default": ""
                }
             }
          },

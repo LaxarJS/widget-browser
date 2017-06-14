@@ -1,0 +1,9 @@
+{
+   "places": {
+
+      "home": {
+         "patterns": [ "/", "/:argument" ],
+         "page": "home"
+      }
+   }
+}

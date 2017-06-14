@@ -17,9 +17,9 @@ define( [
 
    var WIDGET_JSON = 'widget.json';
 
-   Controller.$inject = [ '$scope', '$http', '$q' ];
+   Controller.$inject = [ '$scope', '$http', '$q', 'axLog' ];
 
-   function Controller( $scope, $http, $q ) {
+   function Controller( $scope, $http, $q, log ) {
       $scope.resources = {};
       $scope.model = {
          widgets: [],
@@ -91,7 +91,7 @@ define( [
                      level: 'ERROR'
                   } ]
                } );
-               ax.log.error( '[0]. Error: [1:%o]', e.message, e.error );
+               log.error( '[0]. Error: [1:%o]', e.message, e.error );
             } );
       }
 

@@ -1,0 +1,51 @@
+{
+   "layout": "application",
+   "areas": {
+      "axActivities": [
+      ],
+      "messages": [
+         {
+            "widget": "laxar-messages-widget",
+            "id": "messages",
+            "features": {
+               "resource": {
+                  "list": [
+                     "documentation"
+                  ]
+               }
+            }
+         }
+      ],
+      "content1a": [
+
+      ],
+      "content1b": [
+         {
+            "widget": "laxar-markdown-display-widget",
+            "id": "documentation",
+            "features": {
+               "markdown": {
+                  "url": "README.md",
+                  "parameter": "anchor",
+                  "resource": "documentation"
+               }
+            }
+         }
+      ],
+      "content1c": [
+         {
+            "widget": "laxar-media-widget",
+            "id": "testRunner",
+            "features": {
+               "medium": {
+                  "resource": "testRunner",
+                  "showTitle": true
+               },
+               "layout": {
+                  "sizeToContent": true
+               }
+            }
+         }
+      ]
+   }
+}
