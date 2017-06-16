@@ -20,7 +20,7 @@ define( [
    function Controller( $scope ) {
       $scope.resources = {
          widget: null,
-         bower: null
+         package: null
       };
 
       $scope.model = {};
@@ -31,9 +31,9 @@ define( [
          onUpdateReplace: [ updateWidgetModel, updateModel, createDependenciesList ]
       } );
 
-      if( $scope.features.bower.resource ) {
-         patterns.resources.handlerFor( $scope ).registerResourceFromFeature( 'bower', {
-            onUpdateReplace: [ updateBowerModel, updateModel, createDependenciesList ]
+      if( $scope.features.package.resource ) {
+         patterns.resources.handlerFor( $scope ).registerResourceFromFeature( 'package', {
+            onUpdateReplace: [ updatePackageModel, updateModel, createDependenciesList ]
          } );
       }
 
@@ -57,20 +57,20 @@ define( [
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      function updateBowerModel() {
-         if( !$scope.resources.bower ){
-            $scope.model.bower = {};
+      function updatePackageModel() {
+         if( !$scope.resources.package ){
+            $scope.model.package = {};
          }
       }
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       function updateModel() {
-         if( !$scope.resources.widget && !$scope.resources.bower ) {
+         if( !$scope.resources.widget && !$scope.resources.package ) {
             $scope.model = {};
             return;
          }
-         $scope.model.version = ax.object.path( $scope.resources, 'bower.version' );
+         $scope.model.version = ax.object.path( $scope.resources, 'package.version' );
          if( $scope.model.version === undefined ) {
             $scope.model.version = ax.object.path( $scope.resources, 'widget.version.spec', 'Unspecified');
          }
@@ -79,12 +79,12 @@ define( [
       ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       function createDependenciesList() {
-         if( $scope.resources.bower === null || $scope.resources.bower.dependencies === undefined ) {
+         if( $scope.resources.package === null || $scope.resources.package.dependencies === undefined ) {
             $scope.model.dependencies = false;
             return;
          }
          $scope.model.dependencies = [];
-         ng.forEach( $scope.resources.bower.dependencies, function( version, library ) {
+         ng.forEach( $scope.resources.package.dependencies, function( version, library ) {
             var dependence =  {
                axLibrary: library,
                axVersion: version

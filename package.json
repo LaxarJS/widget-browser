@@ -17,11 +17,18 @@
   "dependencies": {
     "angular": "^1.5.7",
     "laxar": "^2.0.0-rc.3",
+    "laxar-accordion-widget": "^3.0.0-alpha.0",
     "laxar-angular-adapter": "^2.0.0-rc.1",
+    "laxar-command-bar-widget": "^3.0.0-alpha.0",
+    "laxar-details-layer-widget": "^2.0.0-alpha.0",
+    "laxar-headline-widget": "^4.0.0-alpha.1",
+    "laxar-html-display-widget": "^3.0.0-alpha.1",
+    "laxar-log-activity": "^4.0.0-alpha.1",
     "laxar-markdown-display-widget": "^3.0.0-alpha.1",
     "laxar-media-widget": "^3.0.0-alpha.0",
     "laxar-messages-widget": "^5.0.0-alpha.1",
     "laxar-patterns": "^2.0.0-rc.2",
+    "laxar-show-hide-widget": "^3.0.0-alpha.0",
     "laxar-uikit": "^2.0.0-rc.1"
   },
   "devDependencies": {

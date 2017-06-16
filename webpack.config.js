@@ -2,9 +2,10 @@
  * Copyright 2017
  * Released under the MIT license
  */
+/* eslint-env node */
+
 const path = require( 'path' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
-const WebpackJasmineHtmlRunnerPlugin = require( 'webpack-jasmine-html-runner-plugin' );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -33,7 +34,8 @@ module.exports = ( env = {} ) => {
          extensions: [ '.js' ],
          alias: {
             'default.theme': 'laxar-uikit/themes/default.theme',
-            'cube.theme': 'laxar-cube.theme'
+            'cube.theme': 'laxar-cube.theme',
+            'laxar': path.resolve( __dirname, './lib/laxar')
          }
       },
 
@@ -81,6 +83,6 @@ module.exports = ( env = {} ) => {
          ]
       }
    };
-}
+};
 
 function resolve( p ) { return path.resolve( __dirname, p ); }

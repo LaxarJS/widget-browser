@@ -2,7 +2,7 @@
    "places": {
 
       "home": {
-         "patterns": [ "/", "/:argument" ],
+         "patterns": [ "/:widgetId/:anchor", "/:widgetId", "/" ],
          "page": "home"
       }
    }

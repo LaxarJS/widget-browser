@@ -70,14 +70,14 @@
               }
             }
           },
-          "bower": {
+          "package": {
             "type": "object",
             "properties": {
               "resource": {
                 "type": "string",
                 "format": "topic",
                 "axRole": "outlet",
-                "description": "The topic of the resource with the bower.json content."
+                "description": "The topic of the resource with the package.json content."
               }
             }
           },

@@ -11,16 +11,16 @@ import * as patterns from 'laxar-patterns';
 
 const ERROR_MESSAGES = {
    WIDGET_INFORMATION: 'Failed to load widget information from ',
-   WIDGET_BOWER: 'Failed to load bower configuration of widget from ',
+   WIDGET_PACKAGE: 'Failed to load package configuration of widget from ',
    WIDGET_DOCUMENTATION: 'Failed to find documentation of widget from ',
    TEST_RUNNER: 'Failed to evaluate url of Test Runner.'
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Controller.$inject = [ '$scope', '$http', '$sce', 'axFlowService' ];
+Controller.$inject = [ '$scope', '$http', 'axFlowService' ];
 
-function Controller( $scope, $http, $sce, flowService ) {
+function Controller( $scope, $http, flowService ) {
    const features = $scope.features;
    $scope.resources = {};
    const resources = $scope.resources;
@@ -31,7 +31,7 @@ function Controller( $scope, $http, $sce, flowService ) {
    const model = $scope.model;
 
    const informationResourceName = ax.object.path( features, 'select.information.resource', null );
-   const bowerResourceName = ax.object.path( features, 'select.bower.resource', null );
+   const packageResourceName = ax.object.path( features, 'select.package.resource', null );
    const documentationResourceName = ax.object.path( features, 'select.documentation.resource', null );
    const testRunnerResourceName = ax.object.path( features, 'select.testRunner.resource', null );
 
@@ -54,7 +54,6 @@ function Controller( $scope, $http, $sce, flowService ) {
    ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    function publishSelectedWidget() {
-
       if( !model.selectedWidgetName ) {
          return;
       }
@@ -74,8 +73,8 @@ function Controller( $scope, $http, $sce, flowService ) {
          );
       }
 
-      if( bowerResourceName ) {
-         publishBowerResource( bowerResourceName, widget, ERROR_MESSAGES.WIDGET_BOWER );
+      if( packageResourceName ) {
+         publishPackageResource( packageResourceName, widget, ERROR_MESSAGES.WIDGET_PACKAGE );
       }
 
       if( documentationResourceName ) {
@@ -94,7 +93,7 @@ function Controller( $scope, $http, $sce, flowService ) {
    ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    function getDataAndPublishResource( url, resourceName, errorMessage ) {
-      $http.get( $sce.trustAsResourceUrl( url ) )
+      $http.get( url )
          .then( resp => {
             $scope.eventBus.publish( `didReplace.${resourceName}`, {
                resource: resourceName,
@@ -122,11 +121,11 @@ function Controller( $scope, $http, $sce, flowService ) {
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   function publishBowerResource( bowerResourceName, widget, errorMessage ) {
+   function publishPackageResource( packageResourceName, widget, errorMessage ) {
       let url = widget.specification.split( '/' );
-      url[ url.length - 1 ] = 'bower.json';
+      url[ url.length - 1 ] = 'package.json';
       url = url.join( '/' );
-      getDataAndPublishResource( url, bowerResourceName, errorMessage );
+      getDataAndPublishResource( url, packageResourceName, errorMessage );
    }
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -222,15 +221,17 @@ function Controller( $scope, $http, $sce, flowService ) {
    function createList() {
       model.list = resources.list.widgets.map( widget => {
          const name = widget.name;
+         const specification = widget.specification;
          const placeParameters = {};
          placeParameters[ $scope.features.select.parameter ] = name;
          $scope.features.select.parameterList.forEach( parameter => {
             placeParameters[ parameter ] = '';
          } );
+         let url = flowService.constructAbsoluteUrl( '_self', placeParameters );
          return {
             name,
-            href: flowService.constructAbsoluteUrl( '_self', placeParameters ),
-            specification: widget.specification
+            href: url,
+            specification
          };
       } );
    }
@@ -247,9 +248,9 @@ function Controller( $scope, $http, $sce, flowService ) {
          } );
       }
 
-      if( bowerResourceName ) {
-         $scope.eventBus.publish( `didReplace.${bowerResourceName}`, {
-            resource: bowerResourceName,
+      if( packageResourceName ) {
+         $scope.eventBus.publish( `didReplace.${packageResourceName}`, {
+            resource: packageResourceName,
             data: null
          }, {
             deliverToSender: false
@@ -278,7 +279,7 @@ function Controller( $scope, $http, $sce, flowService ) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export const name = ng.module( 'axWidgetBrowserWidget', [] )
+export const name = ng.module( 'axWidgetBrowserWidget', [ 'ngSanitize' ] )
    .controller( 'AxWidgetBrowserWidgetController', Controller )
    .filter( 'axWidgetBrowserHighlight', () => {
       return function( widgetName, searchTerm ) {
