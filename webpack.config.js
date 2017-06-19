@@ -5,12 +5,27 @@
 /* eslint-env node */
 
 const path = require( 'path' );
+const fileExists = require('file-exists');
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackJasmineHtmlRunnerPlugin = require( 'webpack-jasmine-html-runner-plugin' );
+const widgetList = require( './application/assets/widget-list.json' );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-module.exports = ( env = {} ) => {
+module.exports = ( env = {} ) =>
+   env.browserSpec ?
+      Object.assign( config( env ), {
+         entry: WebpackJasmineHtmlRunnerPlugin.entry( './application/widgets/**/spec/*.spec.js' ),
+         output: {
+            path: resolve( 'spec-output' ),
+            publicPath: '/spec-output/',
+            filename: '[name].bundle.js'
+         }
+      } ) :
+      config( env );
 
+function config( env ) {
    const publicPath = env.production ? '/dist/' : '/build/';
 
    return {
@@ -26,9 +41,15 @@ module.exports = ( env = {} ) => {
       },
 
       plugins: [
-         ...( env.production ? [ new ExtractTextPlugin( { filename: '[name].bundle.css' } ) ] : [] )
+         ...( env.production ? [ new ExtractTextPlugin( { filename: '[name].bundle.css' } ) ] :
+      [ new WebpackJasmineHtmlRunnerPlugin() ] ),
+         new CopyWebpackPlugin(
+            copyFilesForWidgetListing( publicPath ).concat( {
+               from: path.resolve(__dirname, './application/assets/widget-list.json' ),
+               to: path.resolve( __dirname, `./${publicPath}/assets/widget-list.json` )
+            } )
+         )
       ],
-
       resolve: {
          modules: [ path.resolve( __dirname, 'node_modules' ) ],
          extensions: [ '.js' ],
@@ -83,6 +104,26 @@ module.exports = ( env = {} ) => {
          ]
       }
    };
-};
+}
 
 function resolve( p ) { return path.resolve( __dirname, p ); }
+
+function copyFilesForWidgetListing( publicPath ) {
+   const copyOperations = [];
+
+   widgetList.forEach( widgetPath => {
+      const sourcePath = path.resolve( __dirname, `./${widgetPath}` );
+      const buildPath = path.resolve( __dirname, `./${publicPath}/assets/widgets/${widgetPath}` );
+
+      [ 'package.json', 'widget.json', 'README.md' ].forEach( fileName => {
+         fileExists( path.resolve( sourcePath, fileName ), ( err, exists ) => {
+            if( !exists || err ) { return; }
+            copyOperations.push( {
+               from: path.resolve( sourcePath, fileName ),
+               to: path.resolve( buildPath, fileName )
+            } );
+         } );
+      } );
+   } );
+   return copyOperations;
+}

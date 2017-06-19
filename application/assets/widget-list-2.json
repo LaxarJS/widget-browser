@@ -8,6 +8,5 @@
    "node_modules/laxar-markdown-display-widget",
    "node_modules/laxar-media-widget",
    "node_modules/laxar-messages-widget",
-   "node_module/laxar-show-hide-widget",
-   "application/widgets/widget-browser/widget-listing-activity"
+   "node_modules/laxar-show-hide-widget"
 ]

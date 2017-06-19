@@ -7,6 +7,7 @@
             "id": "widgetListing",
             "features": {
                "fileListing": {
+                  "applicationUrl": "http://localhost:8081/",
                   "list": [ "build/assets/widget-list.json" ]
                },
                "widgetListing": {
