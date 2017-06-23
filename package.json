@@ -30,9 +30,8 @@
     "laxar-markdown-display-widget": "^3.0.0-alpha.1",
     "laxar-media-widget": "^3.0.0-alpha.0",
     "laxar-messages-widget": "^5.0.0-alpha.1",
-    "laxar-patterns": "^2.0.0-rc.2",
-    "laxar-show-hide-widget": "^3.0.0-alpha.0",
-    "laxar-uikit": "^2.0.0-rc.1"
+    t
+
   },
   "devDependencies": {
     "angular": "^1.5.7",
@@ -73,6 +72,7 @@
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0",
     "webpack-jasmine-html-runner-plugin": "^0.7.0",
+    "write-file-webpack-plugin": "^4.1.0",
     "yo": "~1.8.5"
   }
 }

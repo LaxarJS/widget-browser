@@ -59,7 +59,8 @@ function Controller( $scope ) {
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    function updateModel() {
-      if( !$scope.resources.widget && !$scope.resources.package ) {
+      if( ( !$scope.resources.widget || ng.equals( $scope.resources.widget, {} ) ) &&
+          ( !$scope.resources.package || ng.equals( $scope.resources.package, {} ) ) ) {
          $scope.model = {};
          return;
       }

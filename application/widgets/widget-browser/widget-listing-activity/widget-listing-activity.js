@@ -103,7 +103,8 @@ function Controller( $scope, $http, $q, $sce, log ) {
 
    function createWidgetEntry( widgetPath ) {
       const widgetName = widgetPath.substring( widgetPath.lastIndexOf( '/' ) + 1 );
-      const widgetUrl = $scope.model.applicationUrl + widgetPath;
+      const widgetUrl = $scope.model.applicationUrl + 'assets/widgets/' + widgetPath;
+      console.log($scope.model.applicationUrl)
       return {
          name: widgetName,
          url: widgetUrl,

@@ -7,7 +7,8 @@
             "id": "widgetListing",
             "features": {
                "fileListing": {
-                  "list": [ "build/assets/widget-list.json" ]
+                  "applicationUrl": "http://user/~jschulte/finder-demo/",
+                  "list": [ "assets/widget-list.json" ]
                },
                "widgetListing": {
                   "resource": "widgetList"

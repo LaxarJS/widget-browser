@@ -23,7 +23,7 @@ function Controller( $scope, $sce ) {
    } );
 
    function stripGitFromUrl( repository ) {
-      if( typeof ( repository.url ) !== 'string' ) {
+      if( repository === undefined || typeof ( repository.url ) !== 'string' ) {
          return '';
       }
       if( repository.type !== 'git' ) {

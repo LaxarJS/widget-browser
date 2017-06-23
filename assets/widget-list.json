@@ -1,0 +1,13 @@
+[
+   "node_modules/laxar-accordion-widget",
+   "node_modules/laxar-command-bar-widget",
+   "node_modules/laxar-details-layer-widget",
+   "node_modules/laxar-headline-widget",
+   "node_modules/laxar-html-display-widget",
+   "node_modules/laxar-log-activity",
+   "node_modules/laxar-markdown-display-widget",
+   "node_modules/laxar-media-widget",
+   "node_modules/laxar-messages-widget",
+   "node_module/laxar-show-hide-widget",
+   "application/widgets/widget-browser/widget-listing-activity"
+]

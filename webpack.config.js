@@ -10,6 +10,7 @@ const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackJasmineHtmlRunnerPlugin = require( 'webpack-jasmine-html-runner-plugin' );
 const widgetList = require( './application/assets/widget-list.json' );
+const WriteFilePlugin = require( 'write-file-webpack-plugin' );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -28,6 +29,12 @@ module.exports = ( env = {} ) =>
 function config( env ) {
    const publicPath = env.production ? '/dist/' : '/build/';
 
+   const copyFileList = copyFilesForWidgetListing( '' );
+   copyFileList.push( {
+      from: path.resolve( __dirname, './application/assets/widget-list.json' ),
+      to: path.resolve( __dirname, './assets/widget-list.json' )
+   } );
+
    return {
       devtool: '#source-map',
       entry: {
@@ -41,15 +48,12 @@ function config( env ) {
       },
 
       plugins: [
+         new WriteFilePlugin(),
          ...( env.production ? [ new ExtractTextPlugin( { filename: '[name].bundle.css' } ) ] :
       [ new WebpackJasmineHtmlRunnerPlugin() ] ),
-         new CopyWebpackPlugin(
-            copyFilesForWidgetListing( publicPath ).concat( {
-               from: path.resolve(__dirname, './application/assets/widget-list.json' ),
-               to: path.resolve( __dirname, `./${publicPath}/assets/widget-list.json` )
-            } )
-         )
+         new CopyWebpackPlugin( copyFileList )
       ],
+
       resolve: {
          modules: [ path.resolve( __dirname, 'node_modules' ) ],
          extensions: [ '.js' ],
