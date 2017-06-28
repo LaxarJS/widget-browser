@@ -1,6 +1,6 @@
 {
   "name": "widget-browser-widget",
-  "description": "The WidgetBrowserWidget displays a list of all widget and activities and lets the user select one.",
+  "description": "The widget-browser-widget displays a list of all widget and activities and lets the user select one.",
   "integration": {
     "technology": "angular",
     "type": "widget"

@@ -1,6 +1,7 @@
 /**
- * Copyright 2017
- * Released under the MIT license
+ * Copyright 2017 aixigo AG
+ * Released under the MIT license.
+ * https://laxarjs.org/license
  */
 exports.paths = {
    controls: './application/controls',

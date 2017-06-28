@@ -1,6 +1,6 @@
 {
    "name": "artifact-repository-link-widget",
-   "description": "The AxArtifactRepositoryLinkWidget displays a link to the repository of a dynamic widget.",
+   "description": "The artifact-repository-link-widget displays a link to the repository of a dynamic widget.",
 
    "integration": {
       "technology": "angular",

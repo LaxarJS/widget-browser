@@ -1,51 +1,46 @@
 /**
- * Copyright 2015 aixigo AG
+ * Copyright 2017 aixigo AG
  * Released under the MIT license.
- * http://laxarjs.org/license
+ * https://laxarjs.org/license
  */
-define( [], function() {
-   'use strict';
-   /*jshint quotmark:true*/
 
-   return {
-      "name": "MyOtherWidget",
+export const widgetInformationWithVersion = {
+   'name': 'MyOtherWidget',
 
-      "version": {
-         "spec": "0.1.0"
-      },
+   'version': {
+      'spec': '0.1.0'
+   },
 
-      "integration": {
-         "technology": "angular",
-         "type": "widget"
-      },
+   'integration': {
+      'technology': 'angular',
+      'type': 'widget'
+   },
 
-      "features": {
-         "myFeature": {
-            "type": "object",
-            "properties": {
-               "title": {
-                  "type": "object",
-                  "properties": {
-                     "htmlLabel": {
-                        "type": "string",
-                        "description": "Title for the myFeature section."
-                     }
+   'features': {
+      'myFeature': {
+         'type': 'object',
+         'properties': {
+            'title': {
+               'type': 'object',
+               'properties': {
+                  'htmlLabel': {
+                     'type': 'string',
+                     'description': 'Title for the myFeature section.'
                   }
                }
             }
-         },
-         "myOtherFeature": {
-            "type": "object",
-            "properties": {
-               "resource": {
-                  "type": "string",
-                  "description": "The topic of the resource for the myFeature.",
-                  "format": "topic",
-                  "required": true
-               }
+         }
+      },
+      'myOtherFeature': {
+         'type': 'object',
+         'properties': {
+            'resource': {
+               'type': 'string',
+               'description': 'The topic of the resource for the myFeature.',
+               'format': 'topic',
+               'required': true
             }
          }
       }
-   };
-
-} );
+   }
+};

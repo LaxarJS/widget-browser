@@ -1,11 +1,13 @@
 /**
- * Copyright 2017
- * Released under the MIT license
+ * Copyright 2017 aixigo AG
+ * Released under the MIT license.
+ * https://laxarjs.org/license
  */
 /* eslint-env node */
 
 const path = require( 'path' );
-const fileExists = require('file-exists');
+const fs = require( 'fs' );
+
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackJasmineHtmlRunnerPlugin = require( 'webpack-jasmine-html-runner-plugin' );
@@ -119,9 +121,10 @@ function copyFilesForWidgetListing( publicPath ) {
       const sourcePath = path.resolve( __dirname, `./${widgetPath}` );
       const buildPath = path.resolve( __dirname, `./${publicPath}/assets/widgets/${widgetPath}` );
 
-      [ 'package.json', 'widget.json', 'README.md' ].forEach( fileName => {
-         fileExists( path.resolve( sourcePath, fileName ), ( err, exists ) => {
-            if( !exists || err ) { return; }
+      [ 'package.json', 'widget.json', 'README.md', 'docs' ].forEach( fileName => {
+
+         fs.exists( path.resolve( sourcePath, fileName ), exists => {
+            if( !exists ) { return; }
             copyOperations.push( {
                from: path.resolve( sourcePath, fileName ),
                to: path.resolve( buildPath, fileName )

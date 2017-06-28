@@ -2,13 +2,9 @@
    "name": "laxar-headline-widget",
    "description": "Shows a headline, possibly followed by a subtitle and/or buttons.",
    "integration": {
-      "technology": "angular",
+      "technology": "plain",
       "type": "widget"
    },
-
-   "controls": [
-      "laxar-button-list-control"
-   ],
 
    "styleSource": "scss/laxar-headline-widget.scss",
 

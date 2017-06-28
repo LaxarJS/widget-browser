@@ -1,4 +1,4 @@
-# laxar-markdown-display-widget [![Build Status](https://travis-ci.org/LaxarJS/ax-markdown-display-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/ax-markdown-display-widget)
+# laxar-markdown-display-widget [![Build Status](https://travis-ci.org/LaxarJS/laxar-markdown-display-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/laxar-markdown-display-widget)
 The laxar-markdown-display-widget converts [Markdown]-formatted text to HTML content and displays it.
 
 
@@ -26,7 +26,7 @@ npm install laxar-markdown-display-widget
 ### Configuration example
 ```json
 {
-   "widget": "laxarjs/laxar-markdown-display-widget",
+   "widget": "laxar-markdown-display-widget",
    "features": {
       "markdown": {
          "parameter": "anchor",

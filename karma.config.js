@@ -20,6 +20,13 @@ const assetsPatterns = [
    resolve( 'node_modules/laxar-uikit/themes/default.theme/+(css|fonts)/*.*' )
 ];
 
+// const specsPattern = resolve( 'application/widgets/widget-browser/widget-browser-widget/spec/*.spec.js' );
+// const assetsPatterns = [
+//    resolve( 'application/widgets/widget-browser/widget-browser-widget/*.+(scss|html)' ),
+//    resolve( 'node_modules/laxar-uikit/themes/default.theme/+(css|fonts)/*.*' )
+// ];
+
+
 if( require.main === module ) {
    const configs = require( 'glob' ).sync( specsPattern ).map( karmaConfigForWidget );
    run( configs );

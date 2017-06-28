@@ -24,14 +24,15 @@
     "laxar-angular-adapter": "^2.0.0-rc.1",
     "laxar-command-bar-widget": "^3.0.0-alpha.0",
     "laxar-details-layer-widget": "^2.0.0-alpha.0",
+    "laxar-developer-tools-widget": "^3.0.0-alpha.0",
     "laxar-headline-widget": "^4.0.0-alpha.1",
     "laxar-html-display-widget": "^3.0.0-alpha.1",
     "laxar-log-activity": "^4.0.0-alpha.1",
     "laxar-markdown-display-widget": "^3.0.0-alpha.1",
     "laxar-media-widget": "^3.0.0-alpha.0",
     "laxar-messages-widget": "^5.0.0-alpha.1",
-    t
-
+    "laxar-show-hide-widget": "^3.0.0-alpha.0",
+    "laxar-popup-widget": "^4.0.0-alpha.1"
   },
   "devDependencies": {
     "angular": "^1.5.7",
@@ -53,6 +54,7 @@
     "file-loader": "^0.9.0",
     "img-loader": "^1.3.1",
     "jasmine-core": "^2.5.2",
+    "json-loader": "^0.5.4",
     "karma": "^1.4.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
