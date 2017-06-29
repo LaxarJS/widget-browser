@@ -38,12 +38,6 @@
       "laxar-popup-widget": "^4.0.0-rc.0"
    },
    "devDependencies": {
-      "laxar-dox": "^2.0.0",
-      "laxar-infrastructure": "^2.0.0",
-      "promise-polyfill": "^6.0.2",
-      "script-loader": "^0.7.0",
-      "whatwg-fetch": "^1.0.0",
-
       "angular-mocks": "^1.6.4",
       "angular-sanitize": "^1.6.4",
       "babel-core": "^6.21.0",
