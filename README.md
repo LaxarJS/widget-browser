@@ -15,6 +15,7 @@ git clone --recursive \
  https://github.com/LaxarJS/widget-browser.git
 cd widget-browser
 npm install
+npm dist
 npm start
 ```
 
