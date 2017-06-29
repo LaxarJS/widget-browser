@@ -34,9 +34,6 @@ function Controller( $scope, $sce ) {
       if( repository === undefined || typeof ( repository.url ) !== 'string' ) {
          return '';
       }
-      if( repository.type !== 'git' ) {
-         return repository.url;
-      }
       return repository.url.replace(/(^git\+)|(\.git$)/g, '');
    }
 }

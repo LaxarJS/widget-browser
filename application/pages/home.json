@@ -60,9 +60,6 @@
                   },
                   "documentation": {
                      "resource": "documentation"
-                  },
-                  "testRunner": {
-                     "resource": "testRunner"
                   }
                }
             }

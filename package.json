@@ -31,7 +31,7 @@
       "laxar-headline-widget": "^4.0.0",
       "laxar-html-display-widget": "^3.0.0",
       "laxar-log-activity": "^4.0.0",
-      "laxar-markdown-display-widget": "^3.0.0",
+      "laxar-markdown-display-widget": "^3.0.1",
       "laxar-media-widget": "^3.0.0",
       "laxar-messages-widget": "^5.0.0-rc.0",
       "laxar-show-hide-widget": "^3.0.0-rc.1",
