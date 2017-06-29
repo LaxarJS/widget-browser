@@ -7,14 +7,17 @@
 
 const path = require( 'path' );
 const fs = require( 'fs' );
+const webpack = require( 'webpack' );
+
+const widgetListFileName = 'widget-list.json';
 
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackJasmineHtmlRunnerPlugin = require( 'webpack-jasmine-html-runner-plugin' );
-const widgetList = require( './application/assets/widget-list.json' );
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WriteFilePlugin = require( 'write-file-webpack-plugin' );
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const widgetList = require( `./application/assets/${widgetListFileName}` );
+
 
 module.exports = ( env = {} ) =>
    env.browserSpec ?
@@ -29,13 +32,27 @@ module.exports = ( env = {} ) =>
       config( env );
 
 function config( env ) {
-   const publicPath = env.production ? '/dist/' : '/build/';
+   const outputPath = env.production ? 'dist/' : 'build/';
 
    const copyFileList = copyFilesForWidgetListing( '' );
    copyFileList.push( {
-      from: path.resolve( __dirname, './application/assets/widget-list.json' ),
-      to: path.resolve( __dirname, './assets/widget-list.json' )
+      from: path.resolve( __dirname, `./application/assets/${widgetListFileName}` ),
+      to: path.resolve( __dirname, `./assets/${widgetListFileName}` )
    } );
+
+   let plugins;
+   if( env.production ) {
+      plugins = [
+         new WriteFilePlugin(),
+         new ExtractTextPlugin( { filename: '[name].bundle.css' } ),
+         new CopyWebpackPlugin( copyFileList )
+      ];
+   }
+   else {
+      plugins = [
+         new WebpackJasmineHtmlRunnerPlugin()
+      ];
+   }
 
    return {
       devtool: '#source-map',
@@ -44,25 +61,20 @@ function config( env ) {
       },
 
       output: {
-         path: path.resolve( __dirname, `./${publicPath}` ),
-         publicPath,
-         filename: env.production ? '[name].bundle.min.js' : '[name].bundle.js'
+         path: resolve( `./${outputPath}` ),
+         publicPath: outputPath,
+         filename: env.production ? '[name].bundle.min.js' : '[name].bundle.js',
+         chunkFilename: env.production ? '[name].bundle.min.js' : '[name].bundle.js'
       },
 
-      plugins: [
-         new WriteFilePlugin(),
-         ...( env.production ? [ new ExtractTextPlugin( { filename: '[name].bundle.css' } ) ] :
-      [ new WebpackJasmineHtmlRunnerPlugin() ] ),
-         new CopyWebpackPlugin( copyFileList )
-      ],
+      plugins,
 
       resolve: {
-         modules: [ path.resolve( __dirname, 'node_modules' ) ],
+         modules: [ resolve( 'node_modules' ) ],
          extensions: [ '.js' ],
          alias: {
             'default.theme': 'laxar-uikit/themes/default.theme',
-            'cube.theme': 'laxar-cube.theme',
-            'laxar': path.resolve( __dirname, './lib/laxar')
+            'cube.theme': 'laxar-cube.theme'
          }
       },
 
@@ -83,29 +95,41 @@ function config( env ) {
                test: /\.(gif|jpe?g|png|ttf|woff2?|svg|eot|otf)(\?.*)?$/,
                loader: 'file-loader',
                options: {
-                  name: env.production ? 'assets/[name]-[sha1:hash:8].[ext]' : 'assets/[path]-[name].[ext]'
+                  name: env.production ? 'assets/[name]-[sha1:hash:8].[ext]' : 'assets/[name].[ext]'
                }
             },
             {  // ... after optimizing graphics with the image-loader ...
                test: /\.(gif|jpe?g|png|svg)$/,
                loader: 'img-loader?progressive=true'
             },
-            {  // ... and resolving CSS url(s) with the css loader
+            {  // ... and resolving CSS url()s with the css loader
                // (extract-loader extracts the CSS string from the JS module returned by the css-loader)
                test: /\.(css|s[ac]ss)$/,
                loader: env.production ?
-                  ExtractTextPlugin.extract( { fallback: 'style-loader', use: 'css-loader' } ) :
-                  'style-loader!css-loader'
+                  ExtractTextPlugin.extract( {
+                     fallback: 'style-loader',
+                     use: env.production ? 'css-loader' : 'css-loader?sourceMap',
+                     publicPath: ''
+                  } ) :
+                  'style-loader!css-loader?sourceMap'
             },
             {
                test: /[/]default[.]theme[/].*[.]s[ac]ss$/,
                loader: 'sass-loader',
-               options: require( 'laxar-uikit/themes/default.theme/sass-options' )
+               options: Object.assign(
+                  {},
+                  require( 'laxar-uikit/themes/default.theme/sass-options' ),
+                  { sourceMap: true }
+               )
             },
             {
                test: /[/](laxar-)?cube[.]theme[/].*[.]s[ac]ss$/,
                loader: 'sass-loader',
-               options: require( 'laxar-cube.theme/sass-options' )
+               options: Object.assign(
+                  {},
+                  require( 'laxar-cube.theme/sass-options' ),
+                  { sourceMap: true }
+               )
             }
          ]
       }

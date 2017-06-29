@@ -16,16 +16,10 @@
             "type": "object",
             "description": "Extract widget information from a file listing.",
             "properties": {
-               "resource": {
-                  "type": "string",
-                  "format": "topic",
-                  "axRole": "outlet",
-                  "description": "The name of a resource containing the application url and the path to the file listing as provided by the directory tree grunt task."
-               },
                "list": {
                   "type": "array",
                   "description": "A list with json files which contain information about used widgets.",
-                  "default": [ "var/listing/includes_resources.json" ],
+                  "default": [ "widget-list.json" ],
                   "items": {
                      "type": "string"
                   }

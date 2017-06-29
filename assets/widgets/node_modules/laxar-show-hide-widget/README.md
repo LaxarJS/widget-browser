@@ -1,4 +1,4 @@
-# laxar-show-hide-widget [![Build Status](https://travis-ci.org/LaxarJS/ax-show-hide-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/ax-show-hide-widget)
+# laxar-show-hide-widget [![Build Status](https://travis-ci.org/LaxarJS/laxar-show-hide-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/laxar-show-hide-widget)
 
 Toggles the visibility of an area upon receiving events.
 
@@ -15,7 +15,7 @@ The widget does not display anything, but provides an area for other widgets and
 
 ## Usage
 ### Installation
-For installation instruction take a look at the [LaxarJS documentation](https://github.com/LaxarJS/laxar/blob/master/docs/manuals/installing_widgets.md).
+For installation instruction take a look at the [LaxarJS documentation](https://laxarjs.org/docs/laxar-v2-latest/manuals/installing_widgets).
 
 ### Configuration Example
 ```json
@@ -144,5 +144,5 @@ Refer to the [bower.json](bower.json) for the specific version that is normative
 * [LaxarJS Concepts]
 * [LaxarJS Patterns]
 
-[LaxarJS Concepts]: https://github.com/LaxarJS/laxar/blob/master/docs/concepts.md "LaxarJS Concepts"
-[LaxarJS Patterns]: https://github.com/LaxarJS/laxar_patterns/blob/master/docs/index.md "LaxarJS Patterns"
+[LaxarJS Concepts]: https://laxarjs.org/docs/laxar-v2-latest/concepts/ "LaxarJS Concepts"
+[LaxarJS Patterns]: https://laxarjs.org/docs/laxar-patterns-v2-latest/ "LaxarJS Patterns"

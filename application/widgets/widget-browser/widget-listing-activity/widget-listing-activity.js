@@ -12,14 +12,15 @@ import * as patterns from 'laxar-patterns';
 
 const WIDGET_JSON = 'widget.json';
 
-Controller.$inject = [ '$scope', '$http', '$q', '$sce', 'axLog' ];
+Controller.$inject = [ '$scope', '$http', '$q', '$sce', 'axLog', 'axConfiguration' ];
 
-function Controller( $scope, $http, $q, $sce, log ) {
+function Controller( $scope, $http, $q, $sce, log, configuration ) {
    $scope.resources = {};
    $scope.model = {
       widgets: [],
       applicationUrl: applicationUrl()
    };
+   const assetsPath = configuration.get( 'assets', 'assets/widgets/' );
 
    const publishResource = $q.defer();
    $scope.eventBus.subscribe( 'beginLifecycleRequest', () => {
@@ -103,8 +104,7 @@ function Controller( $scope, $http, $q, $sce, log ) {
 
    function createWidgetEntry( widgetPath ) {
       const widgetName = widgetPath.substring( widgetPath.lastIndexOf( '/' ) + 1 );
-      const widgetUrl = $scope.model.applicationUrl + 'assets/widgets/' + widgetPath;
-      console.log($scope.model.applicationUrl)
+      const widgetUrl = $scope.model.applicationUrl + assetsPath + widgetPath;
       return {
          name: widgetName,
          url: widgetUrl,

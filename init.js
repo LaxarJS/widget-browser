@@ -24,10 +24,7 @@ const config = {
    logging: {
       threshold: 'TRACE'
    },
-   theme: 'cube',
-   tooling: {
-      enabled: true
-   }
+   theme: 'cube'
 };
 
 create( [ angularAdapter ], artifacts, config )

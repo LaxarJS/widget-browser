@@ -1,4 +1,4 @@
-# laxar-accordion-widget [![Build Status](https://travis-ci.org/LaxarJS/ax-accordion-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/ax-accordion-widget)
+# laxar-accordion-widget [![Build Status](https://travis-ci.org/LaxarJS/laxar-accordion-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/laxar-accordion-widget)
 
 > LaxarJS widget written in AngularJS v1 that provides multiple widget areas in the form of an accordion
 

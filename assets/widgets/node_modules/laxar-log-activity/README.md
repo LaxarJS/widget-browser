@@ -1,4 +1,4 @@
-# laxar-log-activity [![Build Status](https://travis-ci.org/LaxarJS/ax-log-activity.svg?branch=master)](https://travis-ci.org/LaxarJS/ax-log-activity)
+# laxar-log-activity [![Build Status](https://travis-ci.org/LaxarJS/laxar-log-activity.svg?branch=master)](https://travis-ci.org/LaxarJS/laxar-log-activity)
 
 > LaxarJS v2 plain activity that collects log messages and submits them to a log service periodically and before page navigation
 

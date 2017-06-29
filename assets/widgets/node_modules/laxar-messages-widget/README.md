@@ -1,6 +1,6 @@
-# ax-messages-widget [![Build Status](https://travis-ci.org/LaxarJS/ax-messages-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/ax-messages-widget)
+# laxar-messages-widget [![Build Status](https://travis-ci.org/LaxarJS/laxar-messages-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/laxar-messages-widget)
 
-The ax-messages-widget displays messages to the user, for example to communicate validation results like errors, warnings and hints.
+The laxar-messages-widget displays messages to the user, for example to communicate validation results like errors, warnings and hints.
 
 
 ## Content
@@ -14,19 +14,19 @@ The ax-messages-widget displays messages to the user, for example to communicate
 
 ## Appearance
 
-![Illustration of the ax-messages-widget](docs/img/example_1.png)
+![Illustration of the laxar-messages-widget](docs/img/example_1.png)
 
 Flat view without border and without button.
 
-![Illustration of the ax-messages-widget](docs/img/example_2.png)
+![Illustration of the laxar-messages-widget](docs/img/example_2.png)
 
 Flat view with enclosing Border and button to dismiss messages.
 
-![Illustration of the ax-messages-widget](docs/img/example_3.png)
+![Illustration of the laxar-messages-widget](docs/img/example_3.png)
 
 Each message individually, with its own border and button.
 
-![Illustration of the ax-messages-widget](docs/img/example_4.png)
+![Illustration of the laxar-messages-widget](docs/img/example_4.png)
 
 Messages are grouped by status class with a border and button per status class.
 
@@ -42,7 +42,7 @@ For installation instruction take a look at the [LaxarJS documentation](https://
 
 ```json
 {
-   "widget": "laxarjs/ax-messages-widget",
+   "widget": "laxarjs/laxar-messages-widget",
    "features": {
       "layout": {
          "variant": 1
@@ -53,7 +53,7 @@ For installation instruction take a look at the [LaxarJS documentation](https://
    }
 }
 ```
-Use this configuration on a page to get an ax-messages-widget instance which displays messages regarding all resources of a page.
+Use this configuration on a page to get an laxar-messages-widget instance which displays messages regarding all resources of a page.
 
 For full configuration options refer to the [widget.json](widget.json).
 

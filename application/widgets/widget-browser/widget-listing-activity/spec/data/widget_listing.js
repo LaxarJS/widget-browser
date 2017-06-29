@@ -4,128 +4,25 @@
  * http://laxarjs.org/license
  */
 export const widgetListing = {
-   widgetListingMyIncludes: {
-      myIncludes: {
-         widgets: {
-            system: {
-               widget_information_widget: {
-                  'default.theme': {
-                     css: {
-                        'widget_information_widget.css': 'file'
-                     },
-                     'widget_information_widget.html': 'file'
-                  },
-                  'widget.json': 'file'
-               }
-            },
-            portal: {
-               action_sequence_activity: {
-                  'widget.json': 'file'
-               },
-               accordion_widget: {
-                  'default.theme': {
-                     'accordion_widget.html': 'file'
-                  },
-                  'widget.json': 'file'
-               },
-               command_bar_widget: {
-                  'default.theme': {
-                     css: {
-                        'command_bar_widget.css': 'file'
-                     },
-                     'command_bar_widget.html': 'file'
-                  },
-                  'widget.json': 'file'
-               },
-               markdown_display_widget: {
-                  'default.theme': {
-                     'markdown_display_widget.html': 'file'
-                  },
-                  'widget.json': 'file'
-               },
-               messages_widget: {
-                  'default.theme': {
-                     css: {
-                        'messages_widget.css': 'file'
-                     },
-                     'messages_widget.html': 'file'
-                  },
-                  'widget.json': 'file'
-               },
-               media_widget: {
-                  'default.theme': {
-                     css: {
-                        'media_widget.css': 'file'
-                     },
-                     'media_widget.html': 'file'
-                  },
-                  'widget.json': 'file'
-               }
-            }
-         }
-      }
-   },
-   systemWidgetListing: {
-      includes: {
-         widgets: {
-            system: {
-               widget_information_widget: {
-                  'default.theme': {
-                     css: {
-                        'widget_information_widget.css': 'file'
-                     },
-                     'widget_information_widget.html': 'file'
-                  },
-                  'widget.json': 'file'
-               }
-            }
-         }
-      }
-   },
-   bowerComponentsWidgetListing: {
-      bower_components: {
-         command_bar_widget: {
-            'default.theme': {
-               css: {
-                  'command_bar_widget.css': 'file'
-               },
-               'command_bar_widget.html': 'file'
-            },
-            'widget.json': 'file'
-         },
-         action_sequence_activity: {
-            'widget.json': 'file'
-         },
-         accordion_widget: {
-            'default.theme': {
-               'accordion_widget.html': 'file'
-            },
-            'widget.json': 'file'
-         },
-         markdown_display_widget: {
-            'default.theme': {
-               'markdown_display_widget.html': 'file'
-            },
-            'widget.json': 'file'
-         },
-         media_widget: {
-            'default.theme': {
-               css: {
-                  'media_widget.css': 'file'
-               },
-               'media_widget.html': 'file'
-            },
-            'widget.json': 'file'
-         },
-         messages_widget: {
-            'default.theme': {
-               css: {
-                  'messages_widget.css': 'file'
-               },
-               'messages_widget.html': 'file'
-            },
-            'widget.json': 'file'
-         }
-      }
-   }
+   widgetListNodeModules: [
+      'node_modules/laxar-accordion-widget',
+      'node_modules/laxar-command-bar-widget',
+      'node_modules/laxar-details-layer-widget',
+      'node_modules/laxar-developer-tools-widget',
+      'node_modules/laxar-headline-widget',
+      'node_modules/laxar-html-display-widget',
+      'node_modules/laxar-log-activity',
+      'node_modules/laxar-markdown-display-widget',
+      'node_modules/laxar-media-widget',
+      'node_modules/laxar-messages-widget',
+      'node_modules/laxar-show-hide-widget',
+      'node_modules/laxar-popup-widget'
+   ],
+   widgetListMyApplicationWidgets: [
+      'application/widgets/widget-information-widget',
+      'application/widgets/widget-browser-widget',
+      'application/widgets/widget-listing-activity',
+      'application/widgets/artifact-repository-link-widget',
+      'node_modules/laxar-markdown-display-widget'
+   ]
 };

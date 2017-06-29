@@ -18,8 +18,16 @@ function Controller( $scope, $sce ) {
       url: ''
    };
    resources.handlerFor( $scope ).registerResourceFromFeature( 'display', () => {
-      $scope.model.url = stripGitFromUrl( $scope.resources.display.repository );
-      $scope.model.url = $sce.trustAsHtml( $scope.model.url );
+      if( $scope.resources.display && $scope.resources.display.repository ) {
+         $scope.model.url = stripGitFromUrl( $scope.resources.display.repository );
+      }
+
+      if( typeof $scope.model.url === 'string' ) {
+         $scope.model.url = $sce.trustAsHtml( $scope.model.url );
+      }
+      else {
+         $scope.model.url = '';
+      }
    } );
 
    function stripGitFromUrl( repository ) {

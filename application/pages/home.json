@@ -7,9 +7,7 @@
             "id": "widgetListing",
             "features": {
                "fileListing": {
-                  "list": [
-                     "assets/widget-list.json"
-                  ]
+                  "list": [ "assets/widget-list.json" ]
                },
                "widgetListing": {
                   "resource": "widgetList"

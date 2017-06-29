@@ -1,4 +1,4 @@
-# ax-popup-widget [![Build Status](https://travis-ci.org/LaxarJS/ax-popup-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/ax-popup-widget)
+# laxar-popup-widget [![Build Status](https://travis-ci.org/LaxarJS/laxar-popup-widget.svg?branch=master)](https://travis-ci.org/LaxarJS/laxar-popup-widget)
 Shows a modal popup with content areas for other widgets.
 
 ## Content
@@ -11,7 +11,7 @@ Shows a modal popup with content areas for other widgets.
 ## Appearance
 ![Illustration of the laxar-popup-widget](docs/img/example_1.png)
 
-An laxar-popup-widget with displays a popup with a headline and a text.
+A laxar-popup-widget displays a popup with a headline and a text.
 
 
 
@@ -28,7 +28,7 @@ npm install laxar-popup-widget
 ```json
 "popups": [
    {
-      "widget": "laxarjs/ax-popup-widget",
+      "widget": "laxarjs/laxar-popup-widget",
       "id": "myPopup",
       "features": {
          "content": {

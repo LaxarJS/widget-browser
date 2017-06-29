@@ -1,21 +1,6 @@
-{
-  "includes": {
-    "widgets": {
-      "widget-browser": {
-        "artifact-repository-link-widget": {
-          "widget.json": true
-        },
-        "widget-browser-widget": {
-          "widget.json": true
-        },
-        "widget-information-widget": {
-          "widget.json": true
-        },
-        "widget-listing-activity": {
-          "widget.json": true
-        }
-      }
-    }
-  }
-}
-
+[
+   "application/widgets/widget-browser/artifact-repository-link-widget",
+   "application/widgets/widget-browser/widget-browser-widget",
+   "application/widgets/widget-browser/widget-information-widget",
+   "application/widgets/widget-browser/widget-listing-activity"
+]

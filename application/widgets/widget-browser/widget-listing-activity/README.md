@@ -38,25 +38,19 @@ The activity reads the information about widgets from the file 'http://localhost
 For full configuration options refer to the [widget.json](widget.json).
 
 ## Features
+
 ### 1. Readout File List (fileListing)
-*R1.1* The activity MUST allow the configuration of a file listing resource.
-It MUST act as a slave of the resource according to the master/slave pattern
 
-*R1.2* If the activity gets an update of the resource or the resource is replaced by events, it MUST delete all old widget and activity information and reads them out from scratch.
-
-*R1.3* The activity expects a path to a file inside the resource.
-The activity MUST determine the content of the file as a JSON-String and parse it.
+*R1.1* The activity MUST allow the configuration of a list with files.
+Each file should have a list with widget paths.
+The activity MUST determine the content of the files as a JSON-String and parse it.
 The activity MUST extract all widget and activity information from the result object.
 
-*R1.4* If an error encounters during the readout, the activity SHOULD propagate the error via `didValidate` event.
+*R1.2* If an error encounters during the readout, the activity SHOULD propagate the error via `didValidate` event.
 
-*R1.5* The activity MUST support a configurable list with static URLs to the widget and activity information instead of the URL from the resource.
-
-*R1.6* The activity MUST allow the configuration of an URL to an application with widgets.
-This URL is for the static source (R1.5) configuration only.
+*R1.3* The activity MUST allow the configuration of an URL to an application with widgets.
 If none URL is configured, the activity MUST use the application in which it is embedded as source.
 
-*R1.7* The activity MUST detect a property from the file listing object as a widget information object if it has a property `widget.json`.
 
 ### 2. Propagation of the Widget Listing (widgetListing)
 *R2.1* The activity MUST allow the configuration of a widget list resource and MUST be the *master* of the resource according to the master/slave pattern.

@@ -7,8 +7,6 @@
       "type": "widget"
    },
 
-   "compatibility": [ "json-patch" ],
-
    "controls": [],
 
    "features": {
