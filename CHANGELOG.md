@@ -2,6 +2,9 @@
 
 ## Last Changes
 
+
+## v2.0.0
+
 - [#32](https://github.com/LaxarJS/widget-browser/issues/32): use LaxarJS v2 and the corresponding widgets
 
 
