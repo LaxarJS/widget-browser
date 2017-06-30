@@ -305,10 +305,6 @@ async@^2.0.0, async@^2.1.2, async@^2.1.5:
   dependencies:
     lodash "^4.14.0"
 
-async@~0.2.6:
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/async/-/async-0.2.10.tgz#b6bbe0b0674b9d719708ca38de8c237cb526c3d1"
-
 async@~0.9.0:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
@@ -1340,12 +1336,6 @@ commander@~2.8.1:
   dependencies:
     graceful-readlink ">= 1.0.0"
 
-commander@~2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
-  dependencies:
-    graceful-readlink ">= 1.0.0"
-
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -2007,14 +1997,6 @@ download@^4.0.0, download@^4.1.2:
     vinyl-fs "^2.2.0"
     ware "^1.2.0"
 
-dox@~0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/dox/-/dox-0.9.0.tgz#be97b085cb9f4a0b7e80835d547e77b8687d0a0c"
-  dependencies:
-    commander "~2.9.0"
-    jsdoctypeparser "^1.2.0"
-    markdown-it "~7.0.0"
-
 duplexer2@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/duplexer2/-/duplexer2-0.0.2.tgz#c614dcf67e2fb14995a91711e5a617e8a60a31db"
@@ -2484,7 +2466,7 @@ extglob@^0.3.1:
   dependencies:
     is-extglob "^1.0.0"
 
-extract-text-webpack-plugin@^2.0.0-rc.3:
+extract-text-webpack-plugin@^2.0.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-2.1.2.tgz#756ef4efa8155c3681833fbc34da53b941746d6c"
   dependencies:
@@ -3836,12 +3818,6 @@ jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
 
-jsdoctypeparser@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/jsdoctypeparser/-/jsdoctypeparser-1.2.0.tgz#e7dedc153a11849ffc5141144ae86a7ef0c25392"
-  dependencies:
-    lodash "^3.7.0"
-
 jsesc@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-1.3.0.tgz#46c3fec8c1892b12b0833db9bc7622176dbab34b"
@@ -4081,20 +4057,11 @@ laxar-details-layer-widget@^2.0.0:
   dependencies:
     laxar-patterns "^2.0.0"
 
-laxar-developer-tools-widget@^3.0.0-alpha.0:
-  version "3.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/laxar-developer-tools-widget/-/laxar-developer-tools-widget-3.0.0-alpha.1.tgz#4be6e52387e344121c08544497d8f035e5cb484d"
+laxar-developer-tools-widget@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/laxar-developer-tools-widget/-/laxar-developer-tools-widget-3.0.0.tgz#ee25cf579a92dd5bae440df4b0302a46b29a6c44"
   dependencies:
-    laxar "^2.0.0-rc.3"
-
-laxar-dox@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/laxar-dox/-/laxar-dox-2.0.1.tgz#4c64d6e1e02f34900890978b88e2f6f98798b7b5"
-  dependencies:
-    commander "~2.9.0"
-    dox "~0.9.0"
-    source-map-support "^0.4.2"
-    swig "~1.4.2"
+    laxar "^2.0.0"
 
 laxar-headline-widget@^4.0.0:
   version "4.0.0"
@@ -4151,9 +4118,9 @@ laxar-log-activity@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/laxar-log-activity/-/laxar-log-activity-4.0.0.tgz#0da9a2478c28a10c07fa28c0f34ba50067b004c1"
 
-laxar-markdown-display-widget@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/laxar-markdown-display-widget/-/laxar-markdown-display-widget-3.0.0.tgz#20f12024a3ffb356b96d9fe0d3fff2cda8aebad5"
+laxar-markdown-display-widget@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/laxar-markdown-display-widget/-/laxar-markdown-display-widget-3.0.1.tgz#5186a50a815756a6b6f5ba732a5945ba714c52bd"
   dependencies:
     angular "^1.5.7"
     bootstrap "^3.3.7"
@@ -4168,13 +4135,13 @@ laxar-media-widget@^3.0.0:
   version v3.0.0
   resolved "https://registry.yarnpkg.com/laxar-media-widget/-/laxar-media-widget-3.0.0.tgz#4749cb7c53f1b2e97328ec8c3750cda227a0c3c6"
 
-laxar-messages-widget@^5.0.0-rc.0:
+laxar-messages-widget@^5.0.0:
   version v5.0.0
   resolved "https://registry.yarnpkg.com/laxar-messages-widget/-/laxar-messages-widget-5.0.0.tgz#70f28dcc6150b7c71a2c7d64a3a0870949f338dc"
 
-laxar-mocks@^2.0.0-rc.2:
-  version "2.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/laxar-mocks/-/laxar-mocks-2.0.0-rc.2.tgz#b97ce149a9816faa77f1fe8d42cf0d0e76257886"
+laxar-mocks@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/laxar-mocks/-/laxar-mocks-2.0.0.tgz#f0eca1272d9b8813a7bc4c02f02df01430834b41"
   dependencies:
     laxar-tooling "^2.0.0-rc.2"
 
@@ -4185,13 +4152,13 @@ laxar-patterns@^2.0.0:
     fast-json-patch "~0.5.2"
     laxar "^2.0.0"
 
-laxar-popup-widget@^4.0.0-rc.0:
+laxar-popup-widget@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/laxar-popup-widget/-/laxar-popup-widget-4.0.0.tgz#da02c54ed7d804d1ffb0921fd38e08f464345ebd"
   dependencies:
     laxar-layer-control "^2.0.0"
 
-laxar-show-hide-widget@^3.0.0-rc.1:
+laxar-show-hide-widget@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/laxar-show-hide-widget/-/laxar-show-hide-widget-3.0.0.tgz#0058d614d8903020a4220b4963331a8fbec64a6e"
   dependencies:
@@ -4199,17 +4166,9 @@ laxar-show-hide-widget@^3.0.0-rc.1:
     laxar-patterns "^2.0.0"
     lodash.debounce "^4.0.8"
 
-laxar-tooling@^2.0.0:
+laxar-tooling@^2.0.0, laxar-tooling@^2.0.0-rc.2:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/laxar-tooling/-/laxar-tooling-2.0.0.tgz#5da66e07f07ea8e998889692fac4bec5b2d724b2"
-  dependencies:
-    ajv "^4.11.5"
-    jsonlint "^1.6.2"
-    source-map-support "^0.4.2"
-
-laxar-tooling@^2.0.0-rc.2:
-  version "2.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/laxar-tooling/-/laxar-tooling-2.0.0-rc.2.tgz#cb30da1d51c9e17d88bfacbdff29007a49092d7a"
   dependencies:
     ajv "^4.11.5"
     jsonlint "^1.6.2"
@@ -4227,12 +4186,6 @@ laxar-uikit@^2.0.0:
 laxar@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/laxar/-/laxar-2.0.0.tgz#86f3f15b1b9f7a53c6d36518077b66f92dc74fee"
-  dependencies:
-    navigo "4.3.6"
-
-laxar@^2.0.0-rc.3:
-  version "2.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/laxar/-/laxar-2.0.0-rc.3.tgz#39d3388b4cfd0a432a11f58c858071b150f4a688"
   dependencies:
     navigo "4.3.6"
 
@@ -4266,12 +4219,6 @@ levn@^0.3.0, levn@~0.3.0:
   dependencies:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
-
-linkify-it@^2.0.0:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/linkify-it/-/linkify-it-2.0.3.tgz#d94a4648f9b1c179d64fa97291268bdb6ce9434f"
-  dependencies:
-    uc.micro "^1.0.1"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -4441,7 +4388,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@3.10.1, lodash@^3.2.0, lodash@^3.3.1, lodash@^3.7.0, lodash@^3.8.0:
+lodash@3.10.1, lodash@^3.2.0, lodash@^3.3.1, lodash@^3.8.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
@@ -4528,16 +4475,6 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-markdown-it@~7.0.0:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-7.0.1.tgz#f12d8b88a93e64254348dfd183bd70bf60567a42"
-  dependencies:
-    argparse "^1.0.7"
-    entities "~1.1.1"
-    linkify-it "^2.0.0"
-    mdurl "^1.0.1"
-    uc.micro "^1.0.1"
-
 marked@^0.3.6:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.6.tgz#b2c6c618fccece4ef86c4fc6cb8a7cbf5aeda8d7"
@@ -4545,10 +4482,6 @@ marked@^0.3.6:
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
-
-mdurl@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
 
 media-typer@0.3.0:
   version "0.3.0"
@@ -5020,7 +4953,7 @@ opn@^3.0.2:
   dependencies:
     object-assign "^4.0.1"
 
-optimist@^0.6.1, optimist@~0.6:
+optimist@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
   dependencies:
@@ -5583,10 +5516,6 @@ progress@^1.1.8, progress@~1.1.8:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/progress/-/progress-1.1.8.tgz#e260c78f6161cdd9b0e56cc3e0a85de17c7a57be"
 
-promise-polyfill@^6.0.2:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-6.0.2.tgz#d9c86d3dc4dc2df9016e88946defd69b49b41162"
-
 proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
@@ -5692,7 +5621,7 @@ raw-body@~2.2.0:
     iconv-lite "0.4.15"
     unpipe "1.0.0"
 
-raw-loader@^0.5.1, raw-loader@~0.5.1:
+raw-loader@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-0.5.1.tgz#0c3d0beaed8a01c966d9787bf778281252a979aa"
 
@@ -6099,12 +6028,6 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
-script-loader@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/script-loader/-/script-loader-0.7.0.tgz#685dc7e7069e0dee7a92674f0ebc5b0f55baa5ec"
-  dependencies:
-    raw-loader "~0.5.1"
-
 scss-tokenizer@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/scss-tokenizer/-/scss-tokenizer-0.2.3.tgz#8eb06db9a9723333824d3f5530641149847ce5d1"
@@ -6358,12 +6281,6 @@ source-map-support@^0.4.10, source-map-support@^0.4.2:
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.15.tgz#03202df65c06d2bd8c7ec2362a193056fef8d3b1"
   dependencies:
     source-map "^0.5.6"
-
-source-map@0.1.34:
-  version "0.1.34"
-  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.1.34.tgz#a7cfe89aec7b1682c3b198d0acfb47d7d090566b"
-  dependencies:
-    amdefine ">=0.0.4"
 
 source-map@0.5.6, source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.1, source-map@~0.5.3:
   version "0.5.6"
@@ -6672,13 +6589,6 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-swig@~1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/swig/-/swig-1.4.2.tgz#4085ca0453369104b5d483e2841b39b7ae1aaba5"
-  dependencies:
-    optimist "~0.6"
-    uglify-js "~2.4"
-
 table@^3.7.8:
   version "3.8.3"
   resolved "https://registry.yarnpkg.com/table/-/table-3.8.3.tgz#2bbc542f0fda9861a755d3947fefd8b3f513855f"
@@ -6900,10 +6810,6 @@ typedarray@^0.0.6, typedarray@~0.0.5:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-uc.micro@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/uc.micro/-/uc.micro-1.0.3.tgz#7ed50d5e0f9a9fb0a573379259f2a77458d50192"
-
 uglify-js@^2.8.27:
   version "2.8.29"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
@@ -6912,15 +6818,6 @@ uglify-js@^2.8.27:
     yargs "~3.10.0"
   optionalDependencies:
     uglify-to-browserify "~1.0.0"
-
-uglify-js@~2.4:
-  version "2.4.24"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.4.24.tgz#fad5755c1e1577658bb06ff9ab6e548c95bebd6e"
-  dependencies:
-    async "~0.2.6"
-    source-map "0.1.34"
-    uglify-to-browserify "~1.0.0"
-    yargs "~3.5.4"
 
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
@@ -7312,10 +7209,6 @@ websocket-extensions@>=0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.1.tgz#76899499c184b6ef754377c2dbb0cd6cb55d29e7"
 
-whatwg-fetch@^1.0.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-1.1.1.tgz#ac3c9d39f320c6dce5339969d054ef43dd333319"
-
 whet.extend@~0.9.9:
   version "0.9.9"
   resolved "https://registry.yarnpkg.com/whet.extend/-/whet.extend-0.9.9.tgz#f877d5bf648c97e5aa542fadc16d6a259b9c11a1"
@@ -7495,15 +7388,6 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
-
-yargs@~3.5.4:
-  version "3.5.4"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-3.5.4.tgz#d8aff8f665e94c34bd259bdebd1bfaf0ddd35361"
-  dependencies:
-    camelcase "^1.0.2"
-    decamelize "^1.0.0"
-    window-size "0.1.0"
-    wordwrap "0.0.2"
 
 yauzl@2.4.1, yauzl@^2.2.1:
   version "2.4.1"

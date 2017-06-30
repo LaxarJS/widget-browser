@@ -7,9 +7,9 @@
 
 const path = require( 'path' );
 const fs = require( 'fs' );
+const webpack = require( 'webpack' );
 
 const widgetListFileName = 'widget-list.json';
-
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const WebpackJasmineHtmlRunnerPlugin = require( 'webpack-jasmine-html-runner-plugin' );
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -44,11 +44,14 @@ function config( env ) {
       plugins = [
          new WriteFilePlugin(),
          new ExtractTextPlugin( { filename: '[name].bundle.css' } ),
-         new CopyWebpackPlugin( copyFileList )
+         new CopyWebpackPlugin( copyFileList ),
+         new webpack.optimize.UglifyJsPlugin()
       ];
    }
    else {
       plugins = [
+         new WriteFilePlugin(),
+         new CopyWebpackPlugin( copyFileList ),
          new WebpackJasmineHtmlRunnerPlugin()
       ];
    }

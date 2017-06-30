@@ -22,7 +22,6 @@
                   "enabled": false
                },
                "open": {
-                  "onActions": [ "showDevTools" ],
                   "onGlobalMethod": "goDevelop"
                }
             }

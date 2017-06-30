@@ -77,6 +77,7 @@ function karmaConfigForWidget( specPath ) {
 function webpackConfig() {
    const config = require('./webpack.config' )();
    delete config.entry;
+   delete config.plugins;
    config.devtool = 'inline-source-map';
    return config;
 }

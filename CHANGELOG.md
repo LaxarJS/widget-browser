@@ -2,6 +2,8 @@
 
 ## Last Changes
 
+- [#32](https://github.com/LaxarJS/widget-browser/issues/32): use LaxarJS v2 and the corresponding widgets
+
 
 ## v1.3.0
 
